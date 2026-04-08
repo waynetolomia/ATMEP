@@ -2,7 +2,25 @@ let currentSection = 1;
 const totalSections = 4;
 let answers = {};
 let studentId = '';
+let studentName = '';
+let currentAccessKey = '';
+let examStartTime = null;
 const questionsPerSection = 30;
+
+// Generate or load 100 randomized access keys (Format: ATMEP******)
+let validAccessKeys = JSON.parse(localStorage.getItem('valid_access_keys'));
+if (!validAccessKeys) {
+    validAccessKeys = Array.from({length: 100}, () => {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let randomPart = '';
+        for (let i = 0; i < 6; i++) {
+            randomPart += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return `ATMEP${randomPart}`;
+    });
+    localStorage.setItem('valid_access_keys', JSON.stringify(validAccessKeys));
+    console.log('Admin Notice: Generated new Access Keys (Copy these to give to your students):\n', validAccessKeys.join('\n'));
+}
 
 // Raw JSON question data and converted section questions
 let questionsData = {};
@@ -164,10 +182,7 @@ function renderQuestionNav(sectionNum) {
     
     sectionData.forEach((q, index) => {
         const isAnswered = !!answers[q.id];
-        const bg = isAnswered ? '#4ade80' : '#ffffff';
-        const color = isAnswered ? '#ffffff' : '#333333';
-        const border = isAnswered ? '#4ade80' : '#cbd5e1';
-        navHtml += `<button id="nav-btn-${q.id}" type="button" onclick="showQuestion('question-container-${q.id}')" style="background-color: ${bg}; color: ${color}; border: 1px solid ${border}; border-radius: 4px; padding: 5px 10px; cursor: pointer; min-width: 35px; font-weight: bold;">${index + 1}</button>`;
+        navHtml += `<button id="nav-btn-${q.id}" class="q-nav-btn ${isAnswered ? 'answered' : ''}" type="button" onclick="showQuestion('question-container-${q.id}')">${index + 1}</button>`;
     });
     
     navContainer.innerHTML = navHtml;
@@ -188,12 +203,11 @@ function showQuestion(id) {
         const navContainer = document.getElementById('question-nav-container');
         if (navContainer) {
             const buttons = navContainer.querySelectorAll('button');
-            buttons.forEach(btn => btn.style.outline = 'none');
+            buttons.forEach(btn => btn.classList.remove('active-q'));
 
             const activeBtn = document.getElementById(`nav-btn-${qId}`);
             if (activeBtn) {
-                activeBtn.style.outline = '3px solid #3b82f6';
-                activeBtn.style.outlineOffset = '2px';
+                activeBtn.classList.add('active-q');
             }
         }
     }
@@ -250,9 +264,7 @@ function markAnswered(qId) {
         saveAnswers();
         const btn = document.getElementById(`nav-btn-${qId}`);
         if (btn) {
-            btn.style.backgroundColor = '#4ade80';
-            btn.style.color = '#ffffff';
-            btn.style.border = '1px solid #4ade80';
+            btn.classList.add('answered');
         }
     }
 }
@@ -294,15 +306,51 @@ document.addEventListener('DOMContentLoaded', async function() {
 // 1. Handle Login
 document.getElementById('login-form').addEventListener('submit', function(e) {
     e.preventDefault();
+    
+    const enteredKey = document.getElementById('access-key').value.trim();
+    const usedKeys = JSON.parse(localStorage.getItem('used_keys') || '[]');
+
+    const inputStudentId = document.getElementById('student-id').value.trim();
+    const inputStudentName = document.getElementById('student-name').value.trim();
+
+    // Check for admin credentials
+    if (inputStudentId === 'admin01' && inputStudentName === 'admin' && enteredKey === 'admin0701') {
+        window.location.href = 'admin.html';
+        return;
+    }
+
+    if (!validAccessKeys.includes(enteredKey)) {
+        alert('Invalid Access Key! Please check and try again. (Make sure you use a valid ATMEP****** key)');
+        return;
+    }
+    if (usedKeys.includes(enteredKey)) {
+        alert('This Access Key has already been used to complete an exam.');
+        return;
+    }
+
     studentId = document.getElementById('student-id').value;
+    studentName = document.getElementById('student-name').value;
+    currentAccessKey = enteredKey;
+    
+    // Start or resume timer (handles accidental page reloads)
+    let savedStartTime = localStorage.getItem(`exam_start_${currentAccessKey}`);
+    if (savedStartTime) {
+        examStartTime = parseInt(savedStartTime, 10);
+    } else {
+        examStartTime = Date.now();
+        localStorage.setItem(`exam_start_${currentAccessKey}`, examStartTime);
+    }
     
     // Switch UI
     document.getElementById('login-container').classList.add('hidden');
     document.getElementById('exam-container').classList.remove('hidden');
-    document.getElementById('student-display').innerText += studentId;
+    document.getElementById('student-display').innerText = `Student: ${studentName} (${studentId})`;
     
     loadAnswers(); // Load any previously saved answers
-    startTimer(120); // Start a 120-minute timer
+    
+    const elapsedSeconds = (Date.now() - examStartTime) / 1000;
+    const remainingMinutes = Math.max(0, (7200 - elapsedSeconds) / 60); // 120 mins = 7200 sec
+    startTimer(remainingMinutes); 
 });
 
 // 2. Navigation Logic
@@ -346,20 +394,27 @@ function updateButtons() {
 
 // 3. Simple Timer Logic
 function startTimer(minutes) {
-    let seconds = minutes * 60;
+    let seconds = Math.floor(minutes * 60);
     const timerEl = document.getElementById('timer');
     
-    const countdown = setInterval(() => {
+    function updateDisplay() {
         let m = Math.floor(seconds / 60);
         let s = seconds % 60;
         timerEl.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
-        
+    }
+
+    updateDisplay(); // Call immediately to remove the static 120:00 text
+    
+    const countdown = setInterval(() => {
+        seconds--;
         if (seconds <= 0) {
             clearInterval(countdown);
+            timerEl.innerText = "0:00";
             alert("Time is up! Your exam will be submitted automatically.");
             submitExam();
+        } else {
+            updateDisplay();
         }
-        seconds--;
     }, 1000);
 }
 
@@ -378,20 +433,82 @@ function submitExam() {
     
     let score = 0;
     let totalQuestions = 0;
+    let sectionScores = { 1: { s: 0, t: 0 }, 2: { s: 0, t: 0 }, 3: { s: 0, t: 0 }, 4: { s: 0, t: 0 } };
     
-    Object.values(sectionQuestions).forEach(section => {
-        section.forEach(question => {
+    Object.keys(sectionQuestions).forEach(secKey => {
+        sectionQuestions[secKey].forEach(question => {
             totalQuestions++;
+            sectionScores[secKey].t++;
             if (answers[question.id] === question.correct) {
                 score++;
+                sectionScores[secKey].s++;
             }
         });
     });
+
+    // Update individual section score UI
+    for (let i = 1; i <= 4; i++) {
+        const secPerc = sectionScores[i].t ? Math.round((sectionScores[i].s / sectionScores[i].t) * 100) : 0;
+        document.getElementById(`score-sec-${i}`).innerText = `${secPerc}%`;
+    }
     
+    // Calculate time duration
+    const durationMs = Date.now() - examStartTime;
+    const minutes = Math.floor(durationMs / 60000);
+    const seconds = Math.floor((durationMs % 60000) / 1000);
+    const durationStr = `${minutes}m ${seconds}s`;
+
     const percentage = totalQuestions ? Math.round((score / totalQuestions) * 100) : 0;
-    const resultMessage = `Exam submitted successfully!\n\nStudent ID: ${studentId}\nScore: ${score}/${totalQuestions} (${percentage}%)\n\nThank you for completing the examination.`;
     
-    alert(resultMessage);
+    // 1. Save exam record to history
+    const examRecord = {
+        studentId,
+        studentName,
+        score: `${score}/${totalQuestions}`,
+        percentage: `${percentage}%`,
+        duration: durationStr,
+        date: new Date().toLocaleString()
+    };
+    const records = JSON.parse(localStorage.getItem('exam_records') || '[]');
+    records.push(examRecord);
+    localStorage.setItem('exam_records', JSON.stringify(records));
+
+    // 2. Mark this key as used to prevent reuse
+    const usedKeys = JSON.parse(localStorage.getItem('used_keys') || '[]');
+    if (!usedKeys.includes(currentAccessKey)) {
+        usedKeys.push(currentAccessKey);
+        localStorage.setItem('used_keys', JSON.stringify(usedKeys));
+    }
+
     localStorage.removeItem('exam_answers');
-    location.reload();
+    localStorage.removeItem(`exam_start_${currentAccessKey}`);
+
+    // Display the Results UI
+    document.getElementById('result-student-info').innerText = `${studentName} (${studentId})`;
+    document.getElementById('score-overall').innerText = `${percentage}%`;
+    document.getElementById('score-fraction').innerText = `${score} / ${totalQuestions} Correct | Time: ${durationStr}`;
+    
+    document.getElementById('exam-container').classList.add('hidden');
+    document.getElementById('result-container').classList.remove('hidden');
+}
+
+function downloadResult() {
+    const resultCard = document.getElementById('result-card');
+    const originalBg = resultCard.style.background;
+    const originalBackdrop = resultCard.style.backdropFilter;
+    
+    // Solidify background for clean image capture
+    resultCard.style.background = '#ffffff';
+    resultCard.style.backdropFilter = 'none';
+    
+    html2canvas(resultCard, { scale: 2 }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `ATMEP_Result_${studentId}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        
+        // Restore glass styling
+        resultCard.style.background = originalBg;
+        resultCard.style.backdropFilter = originalBackdrop;
+    });
 }

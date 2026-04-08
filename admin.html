@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - ATMEP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" style="max-width: 1000px;">
+        <header class="exam-header">
+            <div>
+                <h2>Admin Dashboard</h2>
+                <p>ATMEP Exam Control Panel</p>
+            </div>
+            <div>
+                <button class="btn-secondary" onclick="window.location.href='index.html'">Back to Login</button>
+            </div>
+        </header>
+
+        <div class="section-nav">
+            <button class="nav-tab active" id="tab-records" onclick="switchTab('records')">Student Records</button>
+            <button class="nav-tab" id="tab-keys" onclick="switchTab('keys')">Access Keys</button>
+        </div>
+
+        <div id="records-section" class="exam-section">
+            <h3 style="margin-top: 0;">Exam Results</h3>
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Score</th>
+                            <th>%</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody id="records-body">
+                        <!-- Records injected here -->
+                    </tbody>
+                </table>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn-secondary" onclick="clearRecords()">Clear All Records</button>
+                <button class="btn-success" onclick="exportToCSV()">Download CSV</button>
+            </div>
+        </div>
+
+        <div id="keys-section" class="exam-section hidden">
+            <h3 style="margin-top: 0;">Access Keys Management</h3>
+            <div class="keys-stats">
+                <p>Total Keys: <span id="total-keys">0</span></p>
+                <p style="color: #dc2626;">Used Keys: <span id="used-keys">0</span></p>
+                <p style="color: #059669;">Available Keys: <span id="available-keys">0</span></p>
+                <button class="btn-primary" style="margin-left: auto; padding: 8px 16px;" onclick="generateMoreKeys()">Generate 10 Keys</button>
+            </div>
+            <div id="keys-container" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                <!-- Keys injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Exam Portal</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -14,7 +15,8 @@
             <p>Please enter your credentials to begin the exam.</p>
             <form id="login-form">
                 <input type="text" id="student-id" placeholder="Student ID" required>
-                <input type="password" id="password" placeholder="Access Key" required>
+                <input type="text" id="student-name" placeholder="Full Name" required>
+                <input type="password" id="access-key" placeholder="Access Key" required>
                 <button type="submit" class="btn-primary">Start Exam</button>
             </form>
         </div>
@@ -36,7 +38,7 @@
             <button class="nav-tab" onclick="goToSection(4)">Writing</button>
         </nav>
 
-        <div id="question-nav-container" style="margin: 15px 0; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 10px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <div id="question-nav-container">
             <!-- Question nav buttons will be rendered here -->
         </div>
 
@@ -63,6 +65,40 @@
             <button id="next-btn" class="btn-primary" onclick="move(1)">Next Section</button>
             <button id="submit-btn" class="btn-success hidden">Submit Final Exam</button>
         </footer>
+    </div>
+
+    <div id="result-container" class="container hidden">
+        <div class="card result-card" id="result-card" style="padding: 40px;">
+            <h1 style="color: var(--primary); margin-top: 0;">ATMEP Exam Results</h1>
+            <h3 id="result-student-info" style="color: #475569;"></h3>
+            <div class="score-grid">
+                <div class="score-box">
+                    <h4>Listening</h4>
+                    <p id="score-sec-1">0%</p>
+                </div>
+                <div class="score-box">
+                    <h4>Speaking</h4>
+                    <p id="score-sec-2">0%</p>
+                </div>
+                <div class="score-box">
+                    <h4>Reading</h4>
+                    <p id="score-sec-3">0%</p>
+                </div>
+                <div class="score-box">
+                    <h4>Writing</h4>
+                    <p id="score-sec-4">0%</p>
+                </div>
+            </div>
+            <div class="overall-score">
+                <h3>Overall Percentage</h3>
+                <h2 id="score-overall" class="emphasized-score">0%</h2>
+                <p id="score-fraction">0/0 Correct</p>
+            </div>
+        </div>
+        <div style="margin-top: 20px; text-align: center; display: flex; gap: 15px; justify-content: center;">
+            <button class="btn-success" onclick="downloadResult()">Save to Image</button>
+            <button class="btn-secondary" onclick="location.reload()">Back to Login</button>
+        </div>
     </div>
 
     <script src="script.js"></script>

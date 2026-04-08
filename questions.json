@@ -5,12 +5,12 @@
       "audio": "audio/listening_1.mp3",
       "question": "What is the new course of the vessel?",
       "options": [
-        "A) 040",
-        "B) 114",
+        "A) 4.0",
+        "B) 1.0",
         "C) 140",
         "D) 410"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
         "C) 60 knots",
         "D) As fast as possible"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 3,
@@ -34,7 +34,7 @@
         "C) 3 miles North of the station",
         "D) 13 miles from the station"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 4,
@@ -46,7 +46,7 @@
         "C) Heavy rain.",
         "D) Thick fog."
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 5,
@@ -58,7 +58,7 @@
         "C) Astern",
         "D) Forward"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 6,
@@ -70,7 +70,7 @@
         "C) Galley",
         "D) Cargo hold"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 7,
@@ -82,7 +82,7 @@
         "C) The Mess room",
         "D) The Bridge"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 8,
@@ -94,7 +94,7 @@
         "C) Stopping the engine",
         "D) Calling the Coast Guard"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 9,
@@ -106,7 +106,7 @@
         "C) A deep leg cut",
         "D) A sinking ship"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 10,
@@ -118,7 +118,7 @@
         "C) It is out of fuel",
         "D) It is lost in fog"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 11,
@@ -130,7 +130,7 @@
         "C) 85%",
         "D) 95%"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 12,
@@ -142,7 +142,7 @@
         "C) Engine noise",
         "D) Broken propeller"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 13,
@@ -154,7 +154,7 @@
         "C) 200 cubes per hour",
         "D) 1,000 cubes per hour"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 14,
@@ -166,7 +166,7 @@
         "C) Close the portholes",
         "D) Go to sleep"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 15,
@@ -178,7 +178,7 @@
         "C) They have two injectors currently in the locker.",
         "D) They have four injectors ready to be installed."
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 16,
@@ -190,7 +190,7 @@
         "C) A weight error poses a threat to the ship's stability.",
         "D) The container is too wide for Bay 24."
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 17,
@@ -202,7 +202,7 @@
         "C) The vertical distance between the keel and the seabed is dangerously low.",
         "D) The ballast tanks are not yet empty."
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 18,
@@ -214,19 +214,19 @@
         "C) To let the bow swing toward the pier.",
         "D) To ignore the crosswind."
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 19,
       "audio": "audio/listening_19.mp3",
       "question": "What is the Chief Officer’s first priority upon hearing about the damage?",
       "options": [
-        "A) To throw the damaged grain overboard.",
+        "A) To have an independent expert verify and record the damage.",
         "B) To hide the evidence from the port authorities.",
-        "C) To have an independent expert verify and record the damage.",
+        "C) To throw the damaged grain overboard.",
         "D) To blame the stevedores for the leak."
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 20,
@@ -234,11 +234,11 @@
       "question": "Why did the pilot request an additional tug?",
       "options": [
         "A) Because the ship is too small for the basin.",
-        "B) Because the ship’s own steering assistance at the bow is broken.",
+        "B) Because the first two tugs are too powerful.",
         "C) Because the weather is perfectly calm.",
-        "D) Because the first two tugs are too powerful."
+        "D) Because the ship’s own steering assistance at the bow is broken."
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 21,
@@ -250,19 +250,19 @@
         "C) They have lost all electrical power to the engine.",
         "D) They are unable to speak over the radio."
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 22,
       "audio": "audio/listening_22.mp3",
       "question": "Why did the Oceanic Master deviate from the standard traffic rules?",
       "options": [
-        "A) Their compass was broken.",
+        "A) They were performing a safety maneuver to avoid small vessels.",
         "B) They were trying to save time.",
-        "C) They were performing a safety maneuver to avoid small vessels.",
+        "C) Their compass was broken.",
         "D) The VTS gave them the wrong instructions."
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 23,
@@ -274,7 +274,7 @@
         "C) By an electronic alarm and shifting visual references.",
         "D) Because the anchor chain has snapped."
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 24,
@@ -286,7 +286,7 @@
         "C) The ship will delay its arrival to avoid dangerous sea conditions.",
         "D) The ship will increase speed to outrun the storm."
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 25,
@@ -298,19 +298,19 @@
         "C) The ship must go to a different port.",
         "D) The ship no longer needs a pilot."
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 26,
       "audio": "audio/listening_26.mp3",
       "question": "What is the instruction from the VTS?",
       "options": [
-        "A) Proceed to berth number four immediately.",
-        "B) Stay clear of the fairway.",
+        "A) Stay clear of the fairway.",
+        "B) Proceed to berth number four immediately.",
         "C) Increase speed to enter the port.",
         "D) Change the radio frequency."
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 27,
@@ -322,7 +322,7 @@
         "C) The containers were not lashed correctly.",
         "D) The vessel reached its destination."
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 28,
@@ -334,7 +334,7 @@
         "C) Two hours",
         "D) All afternoon"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 29,
@@ -342,11 +342,11 @@
       "question": "What is the specific technical problem reported?",
       "options": [
         "A) The main engine has a fuel leak.",
-        "B) The bilge pump impeller is damaged.",
+        "B) The fire alarm is broken.",
         "C) The generator is overheating.",
-        "D) The fire alarm is broken."
+        "D) The bilge pump impeller is damaged."
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 30,
@@ -358,7 +358,7 @@
         "C) Singapore",
         "D) Shanghai"
       ],
-      "correct": ""
+      "correct": "C"
     }
   ],
   "speaking": [
@@ -371,7 +371,7 @@
         "C) We need more extinguishers.",
         "D) The fire is under control."
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 2,
@@ -382,7 +382,7 @@
         "C) It depends on whether the Captain is awake.",
         "D) I will speak to the harbor master in two hours."
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 3,
@@ -393,7 +393,7 @@
         "C) No, we are changing course to Singapore.",
         "D) There is a radio around the corner."
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 4,
@@ -404,7 +404,7 @@
         "C) The port was very busy.",
         "D) It is faster to use the radio."
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 5,
@@ -415,7 +415,7 @@
         "C) Sorry, I have to take my watch now.",
         "D) We sometimes read manuals."
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 6,
@@ -426,7 +426,7 @@
         "C) You can pay after the delivery.",
         "D) I'll take the logs to the office."
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 7,
@@ -437,7 +437,7 @@
         "C) That's a great idea; safety first.",
         "D) Let's go to the mess room!"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 8,
@@ -448,7 +448,7 @@
         "C) How can we get more lifeboats?",
         "D) I'm not a technical person."
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 9,
@@ -459,7 +459,7 @@
         "C) To ensure we reach the pilot station on time.",
         "D) I have been to this port before."
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 10,
@@ -470,7 +470,7 @@
         "C) Next week would be fine.",
         "D) It's a mistake to sign the logbook."
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 11,
@@ -481,7 +481,7 @@
         "C) In half an hour.",
         "D) It went very well; no deficiencies were found."
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 12,
@@ -492,7 +492,7 @@
         "C) I'd like to manage the forward station.",
         "D) My preference is not important."
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 13,
@@ -504,7 +504,7 @@
         "C) Would you like a coffee?",
         "D) Have you checked the radar for any crossing vessels?"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 14,
@@ -516,7 +516,7 @@
         "C) You aren't doing your job well.",
         "D) I want you to maintain a strict lookout."
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 15,
@@ -528,7 +528,7 @@
         "C) Ok, I would love to see it.",
         "D) That's interesting news."
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 16,
@@ -540,7 +540,7 @@
         "C) What do you want?",
         "D) Wait a minute."
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 17,
@@ -552,7 +552,7 @@
         "C) Can I have the invoice, please?",
         "D) Can I have the part number, please?"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 18,
@@ -564,7 +564,7 @@
         "C) Can I bring my pet?",
         "D) It's good to hear your voice."
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 19,
@@ -576,7 +576,7 @@
         "C) Is the ladder ready?",
         "D) Can you give me the radio?"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 20,
@@ -588,7 +588,7 @@
         "C) I will buy some.",
         "D) I have it this afternoon."
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 21,
@@ -600,7 +600,7 @@
         "C) Do you enjoy the sea?",
         "D) Are you going to lead the team today?"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 22,
@@ -612,7 +612,7 @@
         "C) Can I go with you?",
         "D) Never mind."
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 23,
@@ -624,7 +624,7 @@
         "C) When did the wind start?",
         "D) What kind of weather is expected?"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 24,
@@ -636,7 +636,7 @@
         "C) Try another route.",
         "D) I haven't seen the sky yet."
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 25,
@@ -648,7 +648,7 @@
         "C) Did the engine room team inform you?",
         "D) Did the team finish the work?"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 26,
@@ -660,7 +660,7 @@
         "C) That is a wonderful deck.",
         "D) That was a serious incident."
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 27,
@@ -672,7 +672,7 @@
         "C) I want to check the sensors.",
         "D) Can I have my lunch now?"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 28,
@@ -684,7 +684,7 @@
         "C) I have the keys to all rooms.",
         "D) I like keeping the ship safe."
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 29,
@@ -696,7 +696,7 @@
         "C) We need to plan the arrival briefing.",
         "D) The meeting is at the AMCOL hall."
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 30,
@@ -708,7 +708,7 @@
         "C) The voyage is successful.",
         "D) We need to introduce the Pilot."
       ],
-      "correct": ""
+      "correct": "B"
     }
   ],
   "reading": [
@@ -722,7 +722,7 @@
         "C) Mechanical issues",
         "D) Weather"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 2,
@@ -734,7 +734,7 @@
         "C) Crew demand",
         "D) Fuel efficiency"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 3,
@@ -746,19 +746,19 @@
         "C) Facing widespread logistical pressure",
         "D) Decreasing trade"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 4,
       "passage": "The global shipping industry is under increasing pressure to reduce greenhouse gas emissions in line with international environmental targets.\nOne widely adopted strategy is slow steaming, where vessels operate at reduced speeds to lower fuel consumption.\nWhile this method significantly reduces emissions and operational costs, it also leads to longer transit times and potential disruptions in supply chains.\nShipping companies must balance sustainability goals with customer expectations and delivery schedules.\nAdditionally, regulatory frameworks such as the IMO’s carbon intensity indicators are pushing operators to adopt greener practices, further reinforcing the importance of operational efficiency and environmental responsibility.",
       "question": "What is the MAIN goal of slow steaming?",
       "options": [
-        "A) Reduce crew workload",
-        "B) Lower emissions",
+        "A) Lower emissions",
+        "B) Reduce crew workload",
         "C) Increase cargo",
         "D) Improve speed"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 5,
@@ -770,7 +770,7 @@
         "C) Higher fuel cost",
         "D) Engine failure"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 6,
@@ -778,11 +778,11 @@
       "question": "What pressure influences this practice?",
       "options": [
         "A) Customer complaints",
-        "B) Environmental regulations",
+        "B) Crew unions",
         "C) Port authority rules",
-        "D) Crew unions"
+        "D) Environmental regulations"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 7,
@@ -794,15 +794,15 @@
         "C) Improve fuel use",
         "D) Reduce crew"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 8,
       "passage": "In busy maritime regions such as the Strait of Malacca and the English Channel, vessel traffic density is extremely high.\nShips must follow Traffic Separation Schemes (TSS) to reduce the risk of collision.\nCommunication between vessels and Vessel Traffic Services (VTS) plays a crucial role in ensuring safe navigation.\nInstructions such as reducing speed, altering course, or maintaining safe distance are commonly issued when vessels are in close proximity or crossing paths.\nFailure to comply with such instructions can result in dangerous situations, particularly in restricted waters where maneuverability is limited.",
       "question": "What role does VTS play?",
       "options": [
-        "A) Controls engines",
-        "B) Manages vessel traffic",
+        "A) Manages vessel traffic",
+        "B) Controls engines",
         "C) Loads cargo",
         "D) Repairs ships"
       ],
@@ -818,7 +818,7 @@
         "C) Dangerous situations",
         "D) Reduced congestion"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 10,
@@ -826,9 +826,9 @@
       "question": "What is the MAIN issue?",
       "options": [
         "A) Crew shortage",
-        "B) Spare parts delay",
+        "B) Port closure",
         "C) Fuel shortage",
-        "D) Port closure"
+        "D) Spare parts delay"
       ],
       "correct": ""
     },
@@ -842,19 +842,19 @@
         "C) Cancel maintenance",
         "D) Stop operations"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 12,
       "passage": "Global supply chain disruptions, influenced by geopolitical tensions and pandemic-related delays, have significantly impacted the maritime industry.\nShips are experiencing delays in receiving essential spare parts due to manufacturing backlogs and transportation constraints.\nTo mitigate risks, shipping companies are adopting strategies such as increasing onboard inventory and improving predictive maintenance systems.\nHowever, these solutions come with additional costs and require careful planning.\nThis situation highlights the vulnerability of global logistics systems and the importance of resilience in maritime operations.",
       "question": "What is a consequence of this solution?",
       "options": [
-        "A) Lower cost",
-        "B) Increased planning complexity",
+        "A) Increased planning complexity",
+        "B) Decreased costs",
         "C) Faster delivery",
         "D) Reduced safety"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 13,
@@ -866,7 +866,7 @@
         "C) Cargo",
         "D) Navigation"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 14,
@@ -874,11 +874,11 @@
       "question": "What reduces fire severity?",
       "options": [
         "A) Larger engines",
-        "B) Better detection and response",
+        "B) Smaller crew",
         "C) Slower speed",
-        "D) Smaller crew"
+        "D) Better detection and response"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 15,
@@ -890,19 +890,19 @@
         "C) Stop operations",
         "D) Increase cargo"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 16,
       "passage": "The digital transformation of global ports is revolutionizing cargo operations.\nTechnologies such as automated tracking systems, electronic documentation, and artificial intelligence are being implemented to streamline logistics.\nThese advancements reduce paperwork, increase transparency, and enhance operational efficiency.\nHowever, they also require investment in infrastructure and workforce training to ensure effective implementation.\nPorts that successfully adopt digital systems are likely to gain competitive advantages in global trade.",
       "question": "What is the main benefit of digitalization?",
       "options": [
-        "A) More paperwork",
-        "B) Increased efficiency",
+        "A) Increased efficiency",
+        "B) More paperwork",
         "C) Reduced cargo",
         "D) Slower process"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 17,
@@ -914,7 +914,7 @@
         "C) More fuel",
         "D) Less technology"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 18,
@@ -922,11 +922,11 @@
       "question": "What advantage is mentioned?",
       "options": [
         "A) Reduced safety",
-        "B) Competitive advantage",
-        "C) Lower cargo",
+        "B) Lower cargo",
+        "C) Competitive advantage",
         "D) Slower trade"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 19,
@@ -938,7 +938,7 @@
         "C) Fuel shortage",
         "D) Crew shortage"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 20,
@@ -946,11 +946,11 @@
       "question": "What are vessels instructed to do?",
       "options": [
         "A) Dock immediately",
-        "B) Stay at anchorage",
+        "B) Increase speed",
         "C) Load cargo",
-        "D) Increase speed"
+        "D) Stay at anchorage"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 21,
@@ -958,11 +958,11 @@
       "question": "What is the broader impact?",
       "options": [
         "A) Faster trade",
-        "B) Supply chain delays",
-        "C) Increased cargo",
+        "B) Increased cargo",
+        "C) Supply chain delays",
         "D) Reduced cost"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 22,
@@ -974,31 +974,31 @@
         "C) Port closures",
         "D) Fuel issues"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 23,
       "passage": "The global shipping industry is facing a shortage of qualified seafarers, particularly officers.\nThis shortage is expected to grow as maritime trade expands and experienced personnel retire.\nShipping companies are increasing recruitment efforts and investing in cadet training programs to address this issue.\nFor students, this creates opportunities for career development, although high standards and training requirements remain essential.",
       "question": "What is the industry response?",
       "options": [
-        "A) Reduce hiring",
-        "B) Increase training",
+        "A) Increase training",
+        "B) Reduce hiring",
         "C) Stop operations",
         "D) Reduce ships"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 24,
       "passage": "The global shipping industry is facing a shortage of qualified seafarers, particularly officers.\nThis shortage is expected to grow as maritime trade expands and experienced personnel retire.\nShipping companies are increasing recruitment efforts and investing in cadet training programs to address this issue.\nFor students, this creates opportunities for career development, although high standards and training requirements remain essential.",
       "question": "What is a challenge for cadets?",
       "options": [
-        "A) No jobs",
-        "B) High standards",
+        "A) High standards",
+        "B) No jobs",
         "C) Low demand",
         "D) No training"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 25,
@@ -1010,31 +1010,31 @@
         "C) Cargo only",
         "D) Fuel"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 26,
       "passage": "Human error continues to be one of the leading causes of maritime accidents worldwide.\nFactors such as fatigue, lack of training, and poor communication contribute significantly to operational risks.\nTo address this issue, international organizations emphasize the importance of continuous training, safety culture, and effective communication onboard vessels.",
       "question": "What is recommended?",
       "options": [
-        "A) Reduce crew",
-        "B) Improve training",
+        "A) Improve training",
+        "B) Increase crew",
         "C) Stop operations",
         "D) Increase speed"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 27,
       "passage": "Human error continues to be one of the leading causes of maritime accidents worldwide.\nFactors such as fatigue, lack of training, and poor communication contribute significantly to operational risks.\nTo address this issue, international organizations emphasize the importance of continuous training, safety culture, and effective communication onboard vessels.",
       "question": "What is emphasized?",
       "options": [
-        "A) Cost reduction",
-        "B) Safety culture",
+        "A) Safety culture",
+        "B) Cost reduction",
         "C) Cargo speed",
         "D) Fuel use"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 28,
@@ -1042,11 +1042,11 @@
       "question": "What does “Mayday” indicate?",
       "options": [
         "A) Routine",
-        "B) Distress",
+        "B) Report",
         "C) Warning",
-        "D) Report"
+        "D) Distress"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 29,
@@ -1054,11 +1054,11 @@
       "question": "What is the vessel’s condition?",
       "options": [
         "A) Fire",
-        "B) Flooding",
+        "B) Cargo loss",
         "C) Engine issue",
-        "D) Cargo loss"
+        "D) Flooding"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 30,
@@ -1070,7 +1070,7 @@
         "C) Maintenance",
         "D) Inspection"
       ],
-      "correct": ""
+      "correct": "B"
     }
   ],
   "writing": [
@@ -1083,7 +1083,7 @@
         "C) maintenance",
         "D) maintained"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 2,
@@ -1094,7 +1094,7 @@
         "C) sternness",
         "D) sternest"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 3,
@@ -1105,7 +1105,7 @@
         "C) angrily",
         "D) angered"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 4,
@@ -1116,7 +1116,7 @@
         "C) disappoints",
         "D) disappointed"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 5,
@@ -1127,7 +1127,7 @@
         "C) portside",
         "D) portly"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 6,
@@ -1138,7 +1138,7 @@
         "C) Although",
         "D) Despite"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 7,
@@ -1149,7 +1149,7 @@
         "C) would have hit",
         "D) hit"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 8,
@@ -1160,7 +1160,7 @@
         "C) are",
         "D) be"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 9,
@@ -1171,7 +1171,7 @@
         "C) whose",
         "D) what"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 10,
@@ -1182,7 +1182,7 @@
         "C) have practiced",
         "D) practiced"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 11,
@@ -1193,7 +1193,7 @@
         "C) must",
         "D) might"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 12,
@@ -1204,7 +1204,7 @@
         "C) about",
         "D) with"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 13,
@@ -1216,7 +1216,7 @@
         "C) is launched",
         "D) launches"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 14,
@@ -1228,7 +1228,7 @@
         "C) disappoints",
         "D) disappointed"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 15,
@@ -1240,7 +1240,7 @@
         "C) is seen",
         "D) saw"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 16,
@@ -1252,7 +1252,7 @@
         "C) have practiced",
         "D) practiced"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 17,
@@ -1264,7 +1264,7 @@
         "C) about",
         "D) with"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 18,
@@ -1276,7 +1276,7 @@
         "C) Although",
         "D) Despite"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 19,
@@ -1288,7 +1288,7 @@
         "C) were required",
         "D) have required"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 20,
@@ -1300,7 +1300,7 @@
         "C) for",
         "D) since"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 21,
@@ -1312,7 +1312,7 @@
         "C) broke",
         "D) was broken"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 22,
@@ -1324,7 +1324,7 @@
         "C) for extinguish",
         "D) extinguishing"
       ],
-      "correct": ""
+      "correct": "B"
     },
     {
       "id": 23,
@@ -1336,7 +1336,7 @@
         "C) is compromising",
         "D) has compromised"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 24,
@@ -1348,7 +1348,7 @@
         "C) for work",
         "D) work"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 25,
@@ -1360,7 +1360,7 @@
         "C) implementing",
         "D) to implement"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 26,
@@ -1372,7 +1372,7 @@
         "C) prohibited to",
         "D) prohibiting"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 27,
@@ -1384,7 +1384,7 @@
         "C) heavier",
         "D) most heavy"
       ],
-      "correct": ""
+      "correct": "C"
     },
     {
       "id": 28,
@@ -1396,7 +1396,7 @@
         "C) steering for",
         "D) steered"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 29,
@@ -1408,7 +1408,7 @@
         "C) direction",
         "D) directed"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 30,
@@ -1420,7 +1420,7 @@
         "C) many",
         "D) a number of"
       ],
-      "correct": ""
+      "correct": "B"
     }
   ]
 }
