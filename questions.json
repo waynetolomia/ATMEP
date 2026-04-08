@@ -1,913 +1,1426 @@
 {
   "listening": [
     {
-      [
-  {
-    "id": 1,
-    "audio": "audio/listening_1.mp3",
-    "question": "What is the new course of the vessel?",
-    "options": [
-      "A) 040",
-      "B) 114",
-      "C) 140",
-      "D) 410"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 2,
-    "audio": "audio/listening_2.mp3",
-    "question": "What is the required speed for the vessel?",
-    "options": [
-      "A) 16 knots",
-      "B) 6 knots",
-      "C) 60 knots",
-      "D) As fast as possible"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 3,
-    "audio": "audio/listening_3.mp3",
-    "question": "Where is the ship located?",
-    "options": [
-      "A) At the pilot station",
-      "B) 3 miles South of the station",
-      "C) 3 miles North of the station",
-      "D) 13 miles from the station"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 4,
-    "audio": "audio/listening_4.mp3",
-    "question": "Why can’t the lookout see the lighthouse?",
-    "options": [
-      "A) It is too far away.",
-      "B) The lights are broken.",
-      "C) Heavy rain.",
-      "D) Thick fog."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 5,
-    "audio": "audio/listening_5.mp3",
-    "question": "On which side should the pilot board?",
-    "options": [
-      "A) Starboard side",
-      "B) Port side",
-      "C) Astern",
-      "D) Forward"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 6,
-    "audio": "audio/listening_6.mp3",
-    "question": "Where is the simulated fire located?",
-    "options": [
-      "A) Engine room",
-      "B) Bridge",
-      "C) Galley",
-      "D) Cargo hold"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 7,
-    "audio": "audio/listening_7.mp3",
-    "question": "Where must the crew assemble?",
-    "options": [
-      "A) Lifeboat station 1",
-      "B) Lifeboat station 2",
-      "C) The Mess room",
-      "D) The Bridge"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 8,
-    "audio": "audio/listening_8.mp3",
-    "question": "What action was taken first?",
-    "options": [
-      "A) Lowering a boat",
-      "B) Turning the ship to starboard",
-      "C) Stopping the engine",
-      "D) Calling the Coast Guard"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 9,
-    "audio": "audio/listening_9.mp3",
-    "question": "What is the nature of the emergency?",
-    "options": [
-      "A) A fire",
-      "B) A broken arm",
-      "C) A deep leg cut",
-      "D) A sinking ship"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 10,
-    "audio": "audio/listening_10.mp3",
-    "question": "What is the vessel's problem?",
-    "options": [
-      "A) Engine failure",
-      "B) It is sinking/taking on water",
-      "C) It is out of fuel",
-      "D) It is lost in fog"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 11,
-    "audio": "audio/listening_11.mp3",
-    "question": "How much fuel is in the tank?",
-    "options": [
-      "A) 58%",
-      "B) 80%",
-      "C) 85%",
-      "D) 95%"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 12,
-    "audio": "audio/listening_12.mp3",
-    "question": "What is the technical problem?",
-    "options": [
-      "A) Low oil pressure",
-      "B) High cooling water temperature",
-      "C) Engine noise",
-      "D) Broken propeller"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 13,
-    "audio": "audio/listening_13.mp3",
-    "question": "What is the initial pumping rate?",
-    "options": [
-      "A) 10 cubes per hour",
-      "B) 100 cubes per hour",
-      "C) 200 cubes per hour",
-      "D) 1,000 cubes per hour"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 14,
-    "audio": "audio/listening_14.mp3",
-    "question": "What does the crew need to do?",
-    "options": [
-      "A) Stop the engine",
-      "B) Start the bilge pump",
-      "C) Close the portholes",
-      "D) Go to sleep"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 15,
-    "audio": "audio/listening_15.mp3",
-    "question": "What is the current status of the fuel injector inventory?",
-    "options": [
-      "A) They have a full set of six spares available.",
-      "B) They are missing the entire order from the last port.",
-      "C) They have two injectors currently in the locker.",
-      "D) They have four injectors ready to be installed."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 16,
-    "audio": "audio/listening_16.mp3",
-    "question": "Why has the loading process been halted?",
-    "options": [
-      "A) The crane operator is refusing to work.",
-      "B) A container is missing its identification number.",
-      "C) A weight error poses a threat to the ship's stability.",
-      "D) The container is too wide for Bay 24."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 17,
-    "audio": "audio/listening_17.mp3",
-    "question": "What is the primary concern regarding the vessel's departure?",
-    "options": [
-      "A) The vessel is trimmed by the head.",
-      "B) The water in the channel is too deep for the rudder.",
-      "C) The vertical distance between the keel and the seabed is dangerously low.",
-      "D) The ballast tanks are not yet empty."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 18,
-    "audio": "audio/listening_18.mp3",
-    "question": "What instruction was given to the forward mooring station?",
-    "options": [
-      "A) To slacken the head lines.",
-      "B) To prioritize the tensioning of the spring lines.",
-      "C) To let the bow swing toward the pier.",
-      "D) To ignore the crosswind."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 19,
-    "audio": "audio/listening_19.mp3",
-    "question": "What is the Chief Officer’s first priority upon hearing about the damage?",
-    "options": [
-      "A) To throw the damaged grain overboard.",
-      "B) To hide the evidence from the port authorities.",
-      "C) To have an independent expert verify and record the damage.",
-      "D) To blame the stevedores for the leak."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 20,
-    "audio": "audio/listening_20.mp3",
-    "question": "Why did the pilot request an additional tug?",
-    "options": [
-      "A) Because the ship is too small for the basin.",
-      "B) Because the ship’s own steering assistance at the bow is broken.",
-      "C) Because the weather is perfectly calm.",
-      "D) Because the first two tugs are too powerful."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 21,
-    "audio": "audio/listening_21.mp3",
-    "question": "What is the technical issue being reported by the Blue Whale?",
-    "options": [
-      "A) Their radar is not working.",
-      "B) Their automatic identification system is failing to transmit.",
-      "C) They have lost all electrical power to the engine.",
-      "D) They are unable to speak over the radio."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 22,
-    "audio": "audio/listening_22.mp3",
-    "question": "Why did the Oceanic Master deviate from the standard traffic rules?",
-    "options": [
-      "A) Their compass was broken.",
-      "B) They were trying to save time.",
-      "C) They were performing a safety maneuver to avoid small vessels.",
-      "D) The VTS gave them the wrong instructions."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 23,
-    "audio": "audio/listening_23.mp3",
-    "question": "How does the watch officer know the ship is moving?",
-    "options": [
-      "A) By looking at the waves.",
-      "B) By a phone call from the shore.",
-      "C) By an electronic alarm and shifting visual references.",
-      "D) Because the anchor chain has snapped."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 24,
-    "audio": "audio/listening_24.mp3",
-    "question": "What is the result of the Captain's decision?",
-    "options": [
-      "A) The ship will arrive at the destination earlier.",
-      "B) The ship will maintain its current course.",
-      "C) The ship will delay its arrival to avoid dangerous sea conditions.",
-      "D) The ship will increase speed to outrun the storm."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 25,
-    "audio": "audio/listening_25.mp3",
-    "question": "What change has been made to the original pilotage plan?",
-    "options": [
-      "A) The pilot will board 30 minutes early.",
-      "B) The method of the pilot's arrival has changed due to sea state.",
-      "C) The ship must go to a different port.",
-      "D) The ship no longer needs a pilot."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 26,
-    "audio": "audio/listening_26.mp3",
-    "question": "What is the instruction from the VTS?",
-    "options": [
-      "A) Proceed to berth number four immediately.",
-      "B) Stay clear of the fairway.",
-      "C) Increase speed to enter the port.",
-      "D) Change the radio frequency."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 27,
-    "audio": "audio/listening_27.mp3",
-    "question": "Why did the Chief Officer stop the cargo operation?",
-    "options": [
-      "A) Due to heavy rain and wind.",
-      "B) The crane driver was tired.",
-      "C) The containers were not lashed correctly.",
-      "D) The vessel reached its destination."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 28,
-    "audio": "audio/listening_28.mp3",
-    "question": "What is the estimated duration of the delay?",
-    "options": [
-      "A) Thirty minutes",
-      "B) One hour",
-      "C) Two hours",
-      "D) All afternoon"
-    ],
-    "correct": ""
-  },
-  {
-    "id": 29,
-    "audio": "audio/listening_29.mp3",
-    "question": "What is the specific technical problem reported?",
-    "options": [
-      "A) The main engine has a fuel leak.",
-      "B) The bilge pump impeller is damaged.",
-      "C) The generator is overheating.",
-      "D) The fire alarm is broken."
-    ],
-    "correct": ""
-  },
-  {
-    "id": 30,
-    "audio": "audio/listening_30.mp3",
-    "question": "Where will the spare part be ordered?",
-    "options": [
-      "A) Laem Chabang",
-      "B) Rotterdam",
-      "C) Singapore",
-      "D) Shanghai"
-    ],
-    "correct": ""
-  }
-]
+      "id": 1,
+      "audio": "audio/listening_1.mp3",
+      "question": "What is the new course of the vessel?",
+      "options": [
+        "A) 040",
+        "B) 114",
+        "C) 140",
+        "D) 410"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 2,
+      "audio": "audio/listening_2.mp3",
+      "question": "What is the required speed for the vessel?",
+      "options": [
+        "A) 16 knots",
+        "B) 6 knots",
+        "C) 60 knots",
+        "D) As fast as possible"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 3,
+      "audio": "audio/listening_3.mp3",
+      "question": "Where is the ship located?",
+      "options": [
+        "A) At the pilot station",
+        "B) 3 miles South of the station",
+        "C) 3 miles North of the station",
+        "D) 13 miles from the station"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 4,
+      "audio": "audio/listening_4.mp3",
+      "question": "Why can’t the lookout see the lighthouse?",
+      "options": [
+        "A) It is too far away.",
+        "B) The lights are broken.",
+        "C) Heavy rain.",
+        "D) Thick fog."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 5,
+      "audio": "audio/listening_5.mp3",
+      "question": "On which side should the pilot board?",
+      "options": [
+        "A) Starboard side",
+        "B) Port side",
+        "C) Astern",
+        "D) Forward"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 6,
+      "audio": "audio/listening_6.mp3",
+      "question": "Where is the simulated fire located?",
+      "options": [
+        "A) Engine room",
+        "B) Bridge",
+        "C) Galley",
+        "D) Cargo hold"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 7,
+      "audio": "audio/listening_7.mp3",
+      "question": "Where must the crew assemble?",
+      "options": [
+        "A) Lifeboat station 1",
+        "B) Lifeboat station 2",
+        "C) The Mess room",
+        "D) The Bridge"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 8,
+      "audio": "audio/listening_8.mp3",
+      "question": "What action was taken first?",
+      "options": [
+        "A) Lowering a boat",
+        "B) Turning the ship to starboard",
+        "C) Stopping the engine",
+        "D) Calling the Coast Guard"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 9,
+      "audio": "audio/listening_9.mp3",
+      "question": "What is the nature of the emergency?",
+      "options": [
+        "A) A fire",
+        "B) A broken arm",
+        "C) A deep leg cut",
+        "D) A sinking ship"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 10,
+      "audio": "audio/listening_10.mp3",
+      "question": "What is the vessel's problem?",
+      "options": [
+        "A) Engine failure",
+        "B) It is sinking/taking on water",
+        "C) It is out of fuel",
+        "D) It is lost in fog"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 11,
+      "audio": "audio/listening_11.mp3",
+      "question": "How much fuel is in the tank?",
+      "options": [
+        "A) 58%",
+        "B) 80%",
+        "C) 85%",
+        "D) 95%"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 12,
+      "audio": "audio/listening_12.mp3",
+      "question": "What is the technical problem?",
+      "options": [
+        "A) Low oil pressure",
+        "B) High cooling water temperature",
+        "C) Engine noise",
+        "D) Broken propeller"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 13,
+      "audio": "audio/listening_13.mp3",
+      "question": "What is the initial pumping rate?",
+      "options": [
+        "A) 10 cubes per hour",
+        "B) 100 cubes per hour",
+        "C) 200 cubes per hour",
+        "D) 1,000 cubes per hour"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 14,
+      "audio": "audio/listening_14.mp3",
+      "question": "What does the crew need to do?",
+      "options": [
+        "A) Stop the engine",
+        "B) Start the bilge pump",
+        "C) Close the portholes",
+        "D) Go to sleep"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 15,
+      "audio": "audio/listening_15.mp3",
+      "question": "What is the current status of the fuel injector inventory?",
+      "options": [
+        "A) They have a full set of six spares available.",
+        "B) They are missing the entire order from the last port.",
+        "C) They have two injectors currently in the locker.",
+        "D) They have four injectors ready to be installed."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 16,
+      "audio": "audio/listening_16.mp3",
+      "question": "Why has the loading process been halted?",
+      "options": [
+        "A) The crane operator is refusing to work.",
+        "B) A container is missing its identification number.",
+        "C) A weight error poses a threat to the ship's stability.",
+        "D) The container is too wide for Bay 24."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 17,
+      "audio": "audio/listening_17.mp3",
+      "question": "What is the primary concern regarding the vessel's departure?",
+      "options": [
+        "A) The vessel is trimmed by the head.",
+        "B) The water in the channel is too deep for the rudder.",
+        "C) The vertical distance between the keel and the seabed is dangerously low.",
+        "D) The ballast tanks are not yet empty."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 18,
+      "audio": "audio/listening_18.mp3",
+      "question": "What instruction was given to the forward mooring station?",
+      "options": [
+        "A) To slacken the head lines.",
+        "B) To prioritize the tensioning of the spring lines.",
+        "C) To let the bow swing toward the pier.",
+        "D) To ignore the crosswind."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 19,
+      "audio": "audio/listening_19.mp3",
+      "question": "What is the Chief Officer’s first priority upon hearing about the damage?",
+      "options": [
+        "A) To throw the damaged grain overboard.",
+        "B) To hide the evidence from the port authorities.",
+        "C) To have an independent expert verify and record the damage.",
+        "D) To blame the stevedores for the leak."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 20,
+      "audio": "audio/listening_20.mp3",
+      "question": "Why did the pilot request an additional tug?",
+      "options": [
+        "A) Because the ship is too small for the basin.",
+        "B) Because the ship’s own steering assistance at the bow is broken.",
+        "C) Because the weather is perfectly calm.",
+        "D) Because the first two tugs are too powerful."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 21,
+      "audio": "audio/listening_21.mp3",
+      "question": "What is the technical issue being reported by the Blue Whale?",
+      "options": [
+        "A) Their radar is not working.",
+        "B) Their automatic identification system is failing to transmit.",
+        "C) They have lost all electrical power to the engine.",
+        "D) They are unable to speak over the radio."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 22,
+      "audio": "audio/listening_22.mp3",
+      "question": "Why did the Oceanic Master deviate from the standard traffic rules?",
+      "options": [
+        "A) Their compass was broken.",
+        "B) They were trying to save time.",
+        "C) They were performing a safety maneuver to avoid small vessels.",
+        "D) The VTS gave them the wrong instructions."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 23,
+      "audio": "audio/listening_23.mp3",
+      "question": "How does the watch officer know the ship is moving?",
+      "options": [
+        "A) By looking at the waves.",
+        "B) By a phone call from the shore.",
+        "C) By an electronic alarm and shifting visual references.",
+        "D) Because the anchor chain has snapped."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 24,
+      "audio": "audio/listening_24.mp3",
+      "question": "What is the result of the Captain's decision?",
+      "options": [
+        "A) The ship will arrive at the destination earlier.",
+        "B) The ship will maintain its current course.",
+        "C) The ship will delay its arrival to avoid dangerous sea conditions.",
+        "D) The ship will increase speed to outrun the storm."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 25,
+      "audio": "audio/listening_25.mp3",
+      "question": "What change has been made to the original pilotage plan?",
+      "options": [
+        "A) The pilot will board 30 minutes early.",
+        "B) The method of the pilot's arrival has changed due to sea state.",
+        "C) The ship must go to a different port.",
+        "D) The ship no longer needs a pilot."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 26,
+      "audio": "audio/listening_26.mp3",
+      "question": "What is the instruction from the VTS?",
+      "options": [
+        "A) Proceed to berth number four immediately.",
+        "B) Stay clear of the fairway.",
+        "C) Increase speed to enter the port.",
+        "D) Change the radio frequency."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 27,
+      "audio": "audio/listening_27.mp3",
+      "question": "Why did the Chief Officer stop the cargo operation?",
+      "options": [
+        "A) Due to heavy rain and wind.",
+        "B) The crane driver was tired.",
+        "C) The containers were not lashed correctly.",
+        "D) The vessel reached its destination."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 28,
+      "audio": "audio/listening_28.mp3",
+      "question": "What is the estimated duration of the delay?",
+      "options": [
+        "A) Thirty minutes",
+        "B) One hour",
+        "C) Two hours",
+        "D) All afternoon"
+      ],
+      "correct": ""
+    },
+    {
+      "id": 29,
+      "audio": "audio/listening_29.mp3",
+      "question": "What is the specific technical problem reported?",
+      "options": [
+        "A) The main engine has a fuel leak.",
+        "B) The bilge pump impeller is damaged.",
+        "C) The generator is overheating.",
+        "D) The fire alarm is broken."
+      ],
+      "correct": ""
+    },
+    {
+      "id": 30,
+      "audio": "audio/listening_30.mp3",
+      "question": "Where will the spare part be ordered?",
+      "options": [
+        "A) Laem Chabang",
+        "B) Rotterdam",
+        "C) Singapore",
+        "D) Shanghai"
+      ],
+      "correct": ""
+    }
   ],
   "speaking": [
     {
       "id": 1,
-      "question": "Describe your favorite hobby and explain why you enjoy it.",
-      "options": ["A) Schedule", "B) Shedule", "C) Schedul", "D) Skedule"],
-      "correct": "A"
+      "question": "Where is the fire party currently assembling?",
+      "options": [
+        "A) The fire started in the galley.",
+        "B) They are meeting at the primary muster station.",
+        "C) We need more extinguishers.",
+        "D) The fire is under control."
+      ],
+      "correct": ""
     },
     {
       "id": 2,
-      "question": "If you could travel anywhere right now, where would you go and why?",
-      "options": ["A) I go to store yesterday", "B) I went to the store yesterday", "C) I gone to store yesterday", "D) I going to store yesterday"],
-      "correct": "B"
+      "question": "Will the tug boat be ready for our arrival at 0800?",
+      "options": [
+        "A) Yes, they are scheduled to meet us at the fairway.",
+        "B) The tug is a very powerful vessel.",
+        "C) It depends on whether the Captain is awake.",
+        "D) I will speak to the harbor master in two hours."
+      ],
+      "correct": ""
     },
     {
       "id": 3,
-      "question": "Describe a person who has influenced your life positively.",
-      "options": ["A) The students is studying", "B) The student are studying", "C) The students are studying", "D) The student is studying"],
-      "correct": "C"
+      "question": "Is there a stable satellite connection on the bridge?",
+      "options": [
+        "A) No, you can't go there.",
+        "B) Yes, the signal is strong now.",
+        "C) No, we are changing course to Singapore.",
+        "D) There is a radio around the corner."
+      ],
+      "correct": ""
     },
     {
       "id": 4,
-      "question": "What are the advantages and disadvantages of living in a big city?",
-      "options": ["A) I live in New York", "B) I live at New York", "C) I live on New York", "D) I live New York"],
-      "correct": "A"
+      "question": "Is this the correct frequency for Laem Chabang VTS?",
+      "options": [
+        "A) In half an hour.",
+        "B) Yes, channel 16.",
+        "C) The port was very busy.",
+        "D) It is faster to use the radio."
+      ],
+      "correct": ""
     },
     {
       "id": 5,
-      "question": "Describe your daily routine from morning to evening.",
-      "options": ["A) A book", "B) An book", "C) The book", "D) Book"],
-      "correct": "C"
+      "question": "Would you like to review the new safety regulations with me?",
+      "options": [
+        "A) I'll have the manual, please.",
+        "B) The book is full.",
+        "C) Sorry, I have to take my watch now.",
+        "D) We sometimes read manuals."
+      ],
+      "correct": ""
     },
     {
       "id": 6,
-      "question": "If you won the lottery, what would you do with the money?",
-      "options": ["A) more interesting", "B) interestinger", "C) most interesting", "D) interesting"],
-      "correct": "A"
+      "question": "What kind of fuel did the barge deliver?",
+      "options": [
+        "A) The Heavy Fuel Oil (HFO), sir.",
+        "B) The news about the spill is terrible.",
+        "C) You can pay after the delivery.",
+        "D) I'll take the logs to the office."
+      ],
+      "correct": ""
     },
     {
       "id": 7,
-      "question": "Describe a memorable event from your childhood.",
-      "options": ["A) Childs", "B) Childrens", "C) Children", "D) Child"],
-      "correct": "C"
+      "question": "Do you want to check the cargo lashings after your shift?",
+      "options": [
+        "A) No, it didn't work.",
+        "B) Yes, I'll show you the hold.",
+        "C) That's a great idea; safety first.",
+        "D) Let's go to the mess room!"
+      ],
+      "correct": ""
     },
     {
       "id": 8,
-      "question": "What are some important qualities for being a good friend?",
-      "options": ["A) can", "B) may", "C) must", "D) should"],
-      "correct": "C"
+      "question": "Can you contribute ten hours to the lifeboat maintenance schedule?",
+      "options": [
+        "A) I hope the boat is going.",
+        "B) Sure, maintenance is vital for safety.",
+        "C) How can we get more lifeboats?",
+        "D) I'm not a technical person."
+      ],
+      "correct": ""
     },
     {
       "id": 9,
-      "question": "Describe your favorite season and explain why you like it.",
-      "options": ["A) What you doing?", "B) What are you doing?", "C) What do you doing?", "D) What you are doing?"],
-      "correct": "B"
+      "question": "Why are we increasing speed so early?",
+      "options": [
+        "A) In fifteen minutes.",
+        "B) I took the engine off-line.",
+        "C) To ensure we reach the pilot station on time.",
+        "D) I have been to this port before."
+      ],
+      "correct": ""
     },
     {
       "id": 10,
-      "question": "If you could have dinner with any historical figure, who would it be?",
-      "options": ["A) I learn English since 2010", "B) I learned English since 2010", "C) I have learned English since 2010", "D) I have learn English since 2010"],
-      "correct": "C"
+      "question": "Why do you want to replace this pressure gauge?",
+      "options": [
+        "A) Two bars of pressure.",
+        "B) It is giving inaccurate readings.",
+        "C) Next week would be fine.",
+        "D) It's a mistake to sign the logbook."
+      ],
+      "correct": ""
     },
     {
       "id": 11,
-      "question": "Describe a skill you would like to learn and why.",
-      "options": ["A) big red house", "B) red big house", "C) house red big", "D) red house big"],
-      "correct": "A"
+      "question": "How did the Port State Control inspection go?",
+      "options": [
+        "A) They are on the third deck.",
+        "B) They left on Friday.",
+        "C) In half an hour.",
+        "D) It went very well; no deficiencies were found."
+      ],
+      "correct": ""
     },
     {
       "id": 12,
-      "question": "What are the benefits of learning a foreign language?",
-      "options": ["A) turn on", "B) turn off", "C) turn up", "D) turn down"],
-      "correct": "D"
+      "question": "Which mooring station would you prefer to lead?",
+      "options": [
+        "A) I don't usually eat in the mess.",
+        "B) The arrival was cancelled.",
+        "C) I'd like to manage the forward station.",
+        "D) My preference is not important."
+      ],
+      "correct": ""
     },
     {
       "id": 13,
-      "question": "Describe your ideal job and explain why it appeals to you.",
-      "options": ["A) If I will be rich", "B) If I would be rich", "C) If I were rich", "D) If I am rich"],
-      "correct": "C"
+      "context": "Items 13-14 refer to a Bridge interaction.\nOOW: \"Captain, we are approaching the heavy traffic zone.\"\nCaptain: \" (13)_________________ \"\nOOW: \"Yes, sir. I saw the tanker on the ARPA five miles away. I've already alerted the engine room.\"\nCaptain: \"Good. However, (14)_____________________ \"",
+      "question": "Select the best response for blank (13):",
+      "options": [
+        "A) Are you sure?",
+        "B) When did you see it?",
+        "C) Would you like a coffee?",
+        "D) Have you checked the radar for any crossing vessels?"
+      ],
+      "correct": ""
     },
     {
       "id": 14,
-      "question": "What are some ways to reduce stress in daily life?",
-      "options": ["A) mine", "B) my", "C) me", "D) I"],
-      "correct": "A"
+      "context": "Items 13-14 refer to a Bridge interaction.\nOOW: \"Captain, we are approaching the heavy traffic zone.\"\nCaptain: \" (13)_________________ \"\nOOW: \"Yes, sir. I saw the tanker on the ARPA five miles away. I've already alerted the engine room.\"\nCaptain: \"Good. However, (14)_____________________ \"",
+      "question": "Select the best response for blank (14):",
+      "options": [
+        "A) I'd like to pay for this.",
+        "B) I usually don't like heavy traffic.",
+        "C) You aren't doing your job well.",
+        "D) I want you to maintain a strict lookout."
+      ],
+      "correct": ""
     },
     {
       "id": 15,
-      "question": "Describe a place you have visited that you would recommend to others.",
-      "options": ["A) The cake was ate", "B) The cake was eaten", "C) I ate the cake", "D) The cake ate"],
-      "correct": "B"
+      "context": "Items 15-16 refer to a Radio call.\nVTS: \"AMCOL Frontier, your berth is currently occupied.\"\nOOW: \"Roger, VTS. (15)_____________ \"\nVTS: \"I suggest you anchor in Area Charlie until 1400.\"\nOOW: \"Understood. (16)___________ \"",
+      "question": "Select the best response for blank (15):",
+      "options": [
+        "A) Wow. I'll take that.",
+        "B) What do you recommend we do?",
+        "C) Ok, I would love to see it.",
+        "D) That's interesting news."
+      ],
+      "correct": ""
     },
     {
       "id": 16,
-      "question": "If you could change one thing about the world, what would it be?",
-      "options": ["A) cats and dogs", "B) cats or dogs", "C) cats and cats", "D) dogs and dogs"],
-      "correct": "A"
+      "context": "Items 15-16 refer to a Radio call.\nVTS: \"AMCOL Frontier, your berth is currently occupied.\"\nOOW: \"Roger, VTS. (15)_____________ \"\nVTS: \"I suggest you anchor in Area Charlie until 1400.\"\nOOW: \"Understood. (16)___________ \"",
+      "question": "Select the best response for blank (16):",
+      "options": [
+        "A) Will there be any other instructions?",
+        "B) Would you like something?",
+        "C) What do you want?",
+        "D) Wait a minute."
+      ],
+      "correct": ""
     },
     {
       "id": 17,
-      "question": "Describe your favorite type of music and why you enjoy it.",
-      "options": ["A) He said that he is tired", "B) He said that he was tired", "C) He said me he was tired", "D) He said I he was tired"],
-      "correct": "B"
+      "context": "Items 17-18 refer to a Technical Report.\nChief Engineer: \"I need to confirm the spare parts order.\"\nSecond Engineer: \" (17)__________ \"\nChief Engineer: \"The serial number is 99-8-X.\"\nSecond Engineer: \"Roger. The delivery is set for Monday.\"\nChief Engineer: \" (18)______________ \"",
+      "question": "Select the best response for blank (17):",
+      "options": [
+        "A) Can I have lunch now?",
+        "B) Can I go to the cabin?",
+        "C) Can I have the invoice, please?",
+        "D) Can I have the part number, please?"
+      ],
+      "correct": ""
     },
     {
       "id": 18,
-      "question": "What are some challenges of modern technology?",
-      "options": ["A) swim", "B) swimming", "C) to swim", "D) swam"],
-      "correct": "B"
+      "context": "Items 17-18 refer to a Technical Report.\nChief Engineer: \"I need to confirm the spare parts order.\"\nSecond Engineer: \" (17)__________ \"\nChief Engineer: \"The serial number is 99-8-X.\"\nSecond Engineer: \"Roger. The delivery is set for Monday.\"\nChief Engineer: \" (18)______________ \"",
+      "question": "Select the best response for blank (18):",
+      "options": [
+        "A) Perfect! We'll be ready for it.",
+        "B) I don't want to go now.",
+        "C) Can I bring my pet?",
+        "D) It's good to hear your voice."
+      ],
+      "correct": ""
     },
     {
       "id": 19,
-      "question": "Describe a book or movie that had a big impact on you.",
-      "options": ["A) i love english", "B) I love English", "C) i Love english", "D) I love english"],
-      "correct": "B"
+      "context": "Items 19-20 refer to a Pilot Boarding.\nOOW: \"The pilot boat is approaching our port side.\"\nCaptain: \" (19)________________ \"\nOOW: \" (20)_____________ \"\nCaptain: \"We cannot board the pilot without a properly rigged ladder.\"",
+      "question": "Select the best response for blank (19):",
+      "options": [
+        "A) Do you have a manual?",
+        "B) Do you see the pilot?",
+        "C) Is the ladder ready?",
+        "D) Can you give me the radio?"
+      ],
+      "correct": ""
     },
     {
       "id": 20,
-      "question": "If you could time travel, which era would you visit?",
-      "options": ["A) a", "B) an", "C) the", "D) no article"],
-      "correct": "A"
+      "context": "Items 19-20 refer to a Pilot Boarding.\nOOW: \"The pilot boat is approaching our port side.\"\nCaptain: \" (19)________________ \"\nOOW: \" (20)_____________ \"\nCaptain: \"We cannot board the pilot without a properly rigged ladder.\"",
+      "question": "Select the best response for blank (20):",
+      "options": [
+        "A) Oh! It's not rigged yet.",
+        "B) I will be back later.",
+        "C) I will buy some.",
+        "D) I have it this afternoon."
+      ],
+      "correct": ""
     },
     {
       "id": 21,
-      "question": "Describe the importance of environmental protection.",
-      "options": ["A) What you are doing?", "B) What are you doing?", "C) What do you doing?", "D) What you do?"],
-      "correct": "B"
+      "context": "Items 21-22 refer to a Drill.\nCadet: \"Let's finish the safety inspection so we can start the drill early.\"\nOOW: \"You seem very focused today.\"\nCadet: \"Yes, because I want to practice the lifeboat launch.\"\nOOW: \" (21)____________ \"\nCadet: \"Yes! I am going to.\"\nOOW: \" (22)___________ \"",
+      "question": "Select the best response for blank (21):",
+      "options": [
+        "A) Are you in a hurry?",
+        "B) Can you swim?",
+        "C) Do you enjoy the sea?",
+        "D) Are you going to lead the team today?"
+      ],
+      "correct": ""
     },
     {
       "id": 22,
-      "question": "What are some healthy eating habits you follow?",
-      "options": ["A) to", "B) with", "C) at", "D) on"],
-      "correct": "B"
+      "context": "Items 21-22 refer to a Drill.\nCadet: \"Let's finish the safety inspection so we can start the drill early.\"\nOOW: \"You seem very focused today.\"\nCadet: \"Yes, because I want to practice the lifeboat launch.\"\nOOW: \" (21)____________ \"\nCadet: \"Yes! I am going to.\"\nOOW: \" (22)___________ \"",
+      "question": "Select the best response for blank (22):",
+      "options": [
+        "A) Are you a good leader?",
+        "B) What are you going to check?",
+        "C) Can I go with you?",
+        "D) Never mind."
+      ],
+      "correct": ""
     },
     {
       "id": 23,
-      "question": "Describe your family and how you spend time together.",
-      "options": ["A) She don't like apples", "B) She doesn't likes apples", "C) She doesn't like apples", "D) She don't likes apples"],
-      "correct": "C"
+      "context": "Items 23-24 refer to a Weather Update.\nOOW: \" (23)____________ \"\nCaptain: \"Mostly Gale warnings, but the visibility remains good.\"\nOOW: \"Same report I received.\"\nCaptain: \" (24)____________ \"\nOOW: \"Because the storm is moving North. We should alter course.\"",
+      "question": "Select the best response for blank (23):",
+      "options": [
+        "A) What kind of reports did you read?",
+        "B) Who is the meteorologist?",
+        "C) When did the wind start?",
+        "D) What kind of weather is expected?"
+      ],
+      "correct": ""
     },
     {
       "id": 24,
-      "question": "If you could invent something, what would it be?",
-      "options": ["A) eat", "B) eats", "C) eating", "D) eaten"],
-      "correct": "A"
+      "context": "Items 23-24 refer to a Weather Update.\nOOW: \" (23)____________ \"\nCaptain: \"Mostly Gale warnings, but the visibility remains good.\"\nOOW: \"Same report I received.\"\nCaptain: \" (24)____________ \"\nOOW: \"Because the storm is moving North. We should alter course.\"",
+      "question": "Select the best response for blank (24):",
+      "options": [
+        "A) I hope I have a map.",
+        "B) I'm afraid we'll hit the rough seas.",
+        "C) Try another route.",
+        "D) I haven't seen the sky yet."
+      ],
+      "correct": ""
     },
     {
       "id": 25,
-      "question": "Describe the role of education in society.",
-      "options": ["A) book", "B) London", "C) happy", "D) running"],
-      "correct": "B"
+      "context": "Items 25-26 refer to a Bunkering Operation.\nChief Engineer: \"I'm sorry I missed the morning briefing. (25)____________ \"\nCaptain: \"Yes, the Second Engineer told me about the fuel leak. I'm sorry about the mess.\"\nChief Engineer: \"Really? Did the cleanup team arrive? (26)___________ \"",
+      "question": "Select the best response for blank (25):",
+      "options": [
+        "A) Did you call me?",
+        "B) Did you go to the hold?",
+        "C) Did the engine room team inform you?",
+        "D) Did the team finish the work?"
+      ],
+      "correct": ""
     },
     {
       "id": 26,
-      "question": "What are some ways to stay motivated when learning?",
-      "options": ["A) harder", "B) more hard", "C) hardest", "D) hard"],
-      "correct": "A"
+      "context": "Items 25-26 refer to a Bunkering Operation.\nChief Engineer: \"I'm sorry I missed the morning briefing. (25)____________ \"\nCaptain: \"Yes, the Second Engineer told me about the fuel leak. I'm sorry about the mess.\"\nChief Engineer: \"Really? Did the cleanup team arrive? (26)___________ \"",
+      "question": "Select the best response for blank (26):",
+      "options": [
+        "A) The project has a budget.",
+        "B) The report was finished.",
+        "C) That is a wonderful deck.",
+        "D) That was a serious incident."
+      ],
+      "correct": ""
     },
     {
       "id": 27,
-      "question": "Describe a difficult decision you had to make.",
-      "options": ["A) run", "B) quickly", "C) beautiful", "D) table"],
-      "correct": "C"
+      "context": "Items 27-28 refer to a Cabin Inspection.\nChief Officer: \"Excuse me.\"\nSteward: \" (27)____________ \"\nChief Officer: \"Good. I want to ensure all fire sensors are functional.\"\nSteward: \" (28)_____________ \"",
+      "question": "Select the best response for blank (27):",
+      "options": [
+        "A) Is there a problem on this deck?",
+        "B) Are you inspecting the cabins now?",
+        "C) I want to check the sensors.",
+        "D) Can I have my lunch now?"
+      ],
+      "correct": ""
     },
     {
       "id": 28,
-      "question": "If you could have any superpower, what would it be?",
-      "options": ["A) and", "B) quickly", "C) beautiful", "D) in"],
-      "correct": "A"
+      "context": "Items 27-28 refer to a Cabin Inspection.\nChief Officer: \"Excuse me.\"\nSteward: \" (27)____________ \"\nChief Officer: \"Good. I want to ensure all fire sensors are functional.\"\nSteward: \" (28)_____________ \"",
+      "question": "Select the best response for blank (28):",
+      "options": [
+        "A) I get nervous during inspections.",
+        "B) I always check the sensors.",
+        "C) I have the keys to all rooms.",
+        "D) I like keeping the ship safe."
+      ],
+      "correct": ""
     },
     {
       "id": 29,
-      "question": "Describe the importance of physical exercise.",
-      "options": ["A) childs", "B) childrens", "C) children", "D) childes"],
-      "correct": "C"
+      "context": "Items 29-30 refer to a Navigation Meeting.\nCaptain: \" (29)______________. It’s scheduled for 0930.\"\nChief Officer: \"That's fine. We should discuss the new channel depth first.\"\nCaptain: \"That sounds good. (30)________________ \"",
+      "question": "Select the best response for blank (29):",
+      "options": [
+        "A) When is the assembly?",
+        "B) I would like to propose a route.",
+        "C) We need to plan the arrival briefing.",
+        "D) The meeting is at the AMCOL hall."
+      ],
+      "correct": ""
     },
     {
       "id": 30,
-      "question": "What are your plans for the future?",
-      "options": ["A) The students was studying", "B) The students were studying", "C) The student were studying", "D) The students is studying"],
-      "correct": "B"
+      "context": "Items 29-30 refer to a Navigation Meeting.\nCaptain: \" (29)______________. It’s scheduled for 0930.\"\nChief Officer: \"That's fine. We should discuss the new channel depth first.\"\nCaptain: \"That sounds good. (30)________________ \"",
+      "question": "Select the best response for blank (30):",
+      "options": [
+        "A) That is very good for lunch.",
+        "B) That should take us until noon.",
+        "C) The voyage is successful.",
+        "D) We need to introduce the Pilot."
+      ],
+      "correct": ""
     }
   ],
   "reading": [
     {
       "id": 1,
-      "question": "What is the main topic of the passage?",
-      "options": ["A) The history of the internet", "B) How search engines work", "C) The importance of web browsers", "D) Online shopping trends"],
-      "correct": "B"
+      "passage": "Subject: Crew Change Adjustment – Global Port Congestion\nDear Master,\nRecent reports indicate that major global ports, including Singapore, Rotterdam, and Los Angeles, are experiencing severe congestion due to increased trade demand and logistical disruptions.\nAs a result, crew change operations have been significantly affected, with delays ranging from 24 to 72 hours depending on berth availability.\nFor your vessel, scheduled crew change at Singapore anchorage will be postponed until further confirmation.\nPort authorities are prioritizing cargo vessels, which may further impact crew logistics.\nAll sign-off crew must remain onboard until official clearance is granted.\nPlease ensure all travel documents and handover procedures are completed in advance to avoid further delay once clearance is received.\nKindly monitor updates closely and maintain communication with the local agent.\nBest regards,\nFleet Operations",
+      "question": "What is the PRIMARY cause of the delay?",
+      "options": [
+        "A) Crew shortage",
+        "B) Port congestion worldwide",
+        "C) Mechanical issues",
+        "D) Weather"
+      ],
+      "correct": ""
     },
     {
       "id": 2,
-      "question": "According to the text, what does 'algorithm' refer to?",
-      "options": ["A) A type of computer", "B) A set of rules for calculations", "C) A web page", "D) An internet connection"],
-      "correct": "B"
+      "passage": "Subject: Crew Change Adjustment – Global Port Congestion\nDear Master,\nRecent reports indicate that major global ports, including Singapore, Rotterdam, and Los Angeles, are experiencing severe congestion due to increased trade demand and logistical disruptions.\nAs a result, crew change operations have been significantly affected, with delays ranging from 24 to 72 hours depending on berth availability.\nFor your vessel, scheduled crew change at Singapore anchorage will be postponed until further confirmation.\nPort authorities are prioritizing cargo vessels, which may further impact crew logistics.\nAll sign-off crew must remain onboard until official clearance is granted.\nPlease ensure all travel documents and handover procedures are completed in advance to avoid further delay once clearance is received.\nKindly monitor updates closely and maintain communication with the local agent.\nBest regards,\nFleet Operations",
+      "question": "Why might cargo vessels be prioritized?",
+      "options": [
+        "A) Safety reasons",
+        "B) Economic importance",
+        "C) Crew demand",
+        "D) Fuel efficiency"
+      ],
+      "correct": ""
     },
     {
       "id": 3,
-      "question": "What is the author's main purpose in writing this passage?",
-      "options": ["A) To criticize search engines", "B) To explain how search engines function", "C) To promote a specific search engine", "D) To discuss internet history"],
-      "correct": "B"
+      "passage": "Subject: Crew Change Adjustment – Global Port Congestion\nDear Master,\nRecent reports indicate that major global ports, including Singapore, Rotterdam, and Los Angeles, are experiencing severe congestion due to increased trade demand and logistical disruptions.\nAs a result, crew change operations have been significantly affected, with delays ranging from 24 to 72 hours depending on berth availability.\nFor your vessel, scheduled crew change at Singapore anchorage will be postponed until further confirmation.\nPort authorities are prioritizing cargo vessels, which may further impact crew logistics.\nAll sign-off crew must remain onboard until official clearance is granted.\nPlease ensure all travel documents and handover procedures are completed in advance to avoid further delay once clearance is received.\nKindly monitor updates closely and maintain communication with the local agent.\nBest regards,\nFleet Operations",
+      "question": "What is implied about global shipping conditions?",
+      "options": [
+        "A) Fully stable",
+        "B) Increasing efficiency",
+        "C) Facing widespread logistical pressure",
+        "D) Decreasing trade"
+      ],
+      "correct": ""
     },
     {
       "id": 4,
-      "question": "Which of the following is NOT mentioned as a factor in search rankings?",
-      "options": ["A) Keywords in content", "B) Number of visitors", "C) Quality of backlinks", "D) Page loading speed"],
-      "correct": "B"
+      "passage": "The global shipping industry is under increasing pressure to reduce greenhouse gas emissions in line with international environmental targets.\nOne widely adopted strategy is slow steaming, where vessels operate at reduced speeds to lower fuel consumption.\nWhile this method significantly reduces emissions and operational costs, it also leads to longer transit times and potential disruptions in supply chains.\nShipping companies must balance sustainability goals with customer expectations and delivery schedules.\nAdditionally, regulatory frameworks such as the IMO’s carbon intensity indicators are pushing operators to adopt greener practices, further reinforcing the importance of operational efficiency and environmental responsibility.",
+      "question": "What is the MAIN goal of slow steaming?",
+      "options": [
+        "A) Reduce crew workload",
+        "B) Lower emissions",
+        "C) Increase cargo",
+        "D) Improve speed"
+      ],
+      "correct": ""
     },
     {
       "id": 5,
-      "question": "What can be inferred about the future of search engines?",
-      "options": ["A) They will become less important", "B) They will continue to evolve", "C) They will be replaced by social media", "D) They will focus only on text searches"],
-      "correct": "B"
+      "passage": "The global shipping industry is under increasing pressure to reduce greenhouse gas emissions in line with international environmental targets.\nOne widely adopted strategy is slow steaming, where vessels operate at reduced speeds to lower fuel consumption.\nWhile this method significantly reduces emissions and operational costs, it also leads to longer transit times and potential disruptions in supply chains.\nShipping companies must balance sustainability goals with customer expectations and delivery schedules.\nAdditionally, regulatory frameworks such as the IMO’s carbon intensity indicators are pushing operators to adopt greener practices, further reinforcing the importance of operational efficiency and environmental responsibility.",
+      "question": "What challenge arises from this strategy?",
+      "options": [
+        "A) Increased emissions",
+        "B) Longer delivery time",
+        "C) Higher fuel cost",
+        "D) Engine failure"
+      ],
+      "correct": ""
     },
     {
       "id": 6,
-      "question": "What is the primary function of a web crawler?",
-      "options": ["A) To display search results", "B) To index web pages", "C) To rank websites", "D) To store user data"],
-      "correct": "B"
+      "passage": "The global shipping industry is under increasing pressure to reduce greenhouse gas emissions in line with international environmental targets.\nOne widely adopted strategy is slow steaming, where vessels operate at reduced speeds to lower fuel consumption.\nWhile this method significantly reduces emissions and operational costs, it also leads to longer transit times and potential disruptions in supply chains.\nShipping companies must balance sustainability goals with customer expectations and delivery schedules.\nAdditionally, regulatory frameworks such as the IMO’s carbon intensity indicators are pushing operators to adopt greener practices, further reinforcing the importance of operational efficiency and environmental responsibility.",
+      "question": "What pressure influences this practice?",
+      "options": [
+        "A) Customer complaints",
+        "B) Environmental regulations",
+        "C) Port authority rules",
+        "D) Crew unions"
+      ],
+      "correct": ""
     },
     {
       "id": 7,
-      "question": "According to the passage, what has changed about search engines over time?",
-      "options": ["A) They now use more complex algorithms", "B) They have become simpler to use", "C) They focus less on relevance", "D) They require more technical knowledge"],
-      "correct": "A"
+      "passage": "In busy maritime regions such as the Strait of Malacca and the English Channel, vessel traffic density is extremely high.\nShips must follow Traffic Separation Schemes (TSS) to reduce the risk of collision.\nCommunication between vessels and Vessel Traffic Services (VTS) plays a crucial role in ensuring safe navigation.\nInstructions such as reducing speed, altering course, or maintaining safe distance are commonly issued when vessels are in close proximity or crossing paths.\nFailure to comply with such instructions can result in dangerous situations, particularly in restricted waters where maneuverability is limited.",
+      "question": "Why are Traffic Separation Schemes important?",
+      "options": [
+        "A) Increase cargo speed",
+        "B) Reduce collision risk",
+        "C) Improve fuel use",
+        "D) Reduce crew"
+      ],
+      "correct": ""
     },
     {
       "id": 8,
-      "question": "What does the term 'SEO' stand for?",
-      "options": ["A) Search Engine Optimization", "B) System Engine Operation", "C) Secure Electronic Operation", "D) Software Engineering Organization"],
-      "correct": "A"
+      "passage": "In busy maritime regions such as the Strait of Malacca and the English Channel, vessel traffic density is extremely high.\nShips must follow Traffic Separation Schemes (TSS) to reduce the risk of collision.\nCommunication between vessels and Vessel Traffic Services (VTS) plays a crucial role in ensuring safe navigation.\nInstructions such as reducing speed, altering course, or maintaining safe distance are commonly issued when vessels are in close proximity or crossing paths.\nFailure to comply with such instructions can result in dangerous situations, particularly in restricted waters where maneuverability is limited.",
+      "question": "What role does VTS play?",
+      "options": [
+        "A) Controls engines",
+        "B) Manages vessel traffic",
+        "C) Loads cargo",
+        "D) Repairs ships"
+      ],
+      "correct": ""
     },
     {
       "id": 9,
-      "question": "Why is it important for websites to have good SEO?",
-      "options": ["A) To increase website traffic", "B) To reduce server costs", "C) To improve website design", "D) To enhance security"],
-      "correct": "A"
+      "passage": "In busy maritime regions such as the Strait of Malacca and the English Channel, vessel traffic density is extremely high.\nShips must follow Traffic Separation Schemes (TSS) to reduce the risk of collision.\nCommunication between vessels and Vessel Traffic Services (VTS) plays a crucial role in ensuring safe navigation.\nInstructions such as reducing speed, altering course, or maintaining safe distance are commonly issued when vessels are in close proximity or crossing paths.\nFailure to comply with such instructions can result in dangerous situations, particularly in restricted waters where maneuverability is limited.",
+      "question": "What could happen if instructions are ignored?",
+      "options": [
+        "A) Faster voyage",
+        "B) Increased safety",
+        "C) Dangerous situations",
+        "D) Reduced congestion"
+      ],
+      "correct": ""
     },
     {
       "id": 10,
-      "question": "What can readers learn from this passage?",
-      "options": ["A) How to build a search engine", "B) The basics of how search engines work", "C) How to create web pages", "D) The history of the World Wide Web"],
-      "correct": "B"
+      "passage": "Global supply chain disruptions, influenced by geopolitical tensions and pandemic-related delays, have significantly impacted the maritime industry.\nShips are experiencing delays in receiving essential spare parts due to manufacturing backlogs and transportation constraints.\nTo mitigate risks, shipping companies are adopting strategies such as increasing onboard inventory and improving predictive maintenance systems.\nHowever, these solutions come with additional costs and require careful planning.\nThis situation highlights the vulnerability of global logistics systems and the importance of resilience in maritime operations.",
+      "question": "What is the MAIN issue?",
+      "options": [
+        "A) Crew shortage",
+        "B) Spare parts delay",
+        "C) Fuel shortage",
+        "D) Port closure"
+      ],
+      "correct": ""
     },
     {
       "id": 11,
-      "question": "What is the main idea of the first paragraph?",
-      "options": ["A) The invention of the internet", "B) The development of search engines", "C) The growth of online content", "D) The importance of web browsers"],
-      "correct": "C"
+      "passage": "Global supply chain disruptions, influenced by geopolitical tensions and pandemic-related delays, have significantly impacted the maritime industry.\nShips are experiencing delays in receiving essential spare parts due to manufacturing backlogs and transportation constraints.\nTo mitigate risks, shipping companies are adopting strategies such as increasing onboard inventory and improving predictive maintenance systems.\nHowever, these solutions come with additional costs and require careful planning.\nThis situation highlights the vulnerability of global logistics systems and the importance of resilience in maritime operations.",
+      "question": "What is a solution mentioned?",
+      "options": [
+        "A) Reduce stock",
+        "B) Increase inventory",
+        "C) Cancel maintenance",
+        "D) Stop operations"
+      ],
+      "correct": ""
     },
     {
       "id": 12,
-      "question": "According to the text, what problem did early search engines face?",
-      "options": ["A) Too many results", "B) Lack of internet users", "C) Slow internet connections", "D) Limited web content"],
-      "correct": "A"
+      "passage": "Global supply chain disruptions, influenced by geopolitical tensions and pandemic-related delays, have significantly impacted the maritime industry.\nShips are experiencing delays in receiving essential spare parts due to manufacturing backlogs and transportation constraints.\nTo mitigate risks, shipping companies are adopting strategies such as increasing onboard inventory and improving predictive maintenance systems.\nHowever, these solutions come with additional costs and require careful planning.\nThis situation highlights the vulnerability of global logistics systems and the importance of resilience in maritime operations.",
+      "question": "What is a consequence of this solution?",
+      "options": [
+        "A) Lower cost",
+        "B) Increased planning complexity",
+        "C) Faster delivery",
+        "D) Reduced safety"
+      ],
+      "correct": ""
     },
     {
       "id": 13,
-      "question": "What does 'relevance' mean in the context of search engines?",
-      "options": ["A) How fast results appear", "B) How well results match the query", "C) How many results are shown", "D) How secure the search is"],
-      "correct": "B"
+      "passage": "Engine room fires remain one of the most serious risks in maritime operations.\nThese incidents are often caused by fuel or oil leaks coming into contact with high-temperature surfaces.\nRecent reports indicate that improved fire detection systems and crew training have significantly reduced the severity of such incidents.\nQuick response and proper use of fixed firefighting systems can prevent escalation and minimize damage.\nNevertheless, continuous monitoring and preventive maintenance remain essential to avoid such hazards.",
+      "question": "What is a common cause of engine room fires?",
+      "options": [
+        "A) Weather",
+        "B) Oil leakage",
+        "C) Cargo",
+        "D) Navigation"
+      ],
+      "correct": ""
     },
     {
       "id": 14,
-      "question": "What role do backlinks play in search rankings?",
-      "options": ["A) They slow down page loading", "B) They indicate website popularity", "C) They provide navigation", "D) They store user preferences"],
-      "correct": "B"
+      "passage": "Engine room fires remain one of the most serious risks in maritime operations.\nThese incidents are often caused by fuel or oil leaks coming into contact with high-temperature surfaces.\nRecent reports indicate that improved fire detection systems and crew training have significantly reduced the severity of such incidents.\nQuick response and proper use of fixed firefighting systems can prevent escalation and minimize damage.\nNevertheless, continuous monitoring and preventive maintenance remain essential to avoid such hazards.",
+      "question": "What reduces fire severity?",
+      "options": [
+        "A) Larger engines",
+        "B) Better detection and response",
+        "C) Slower speed",
+        "D) Smaller crew"
+      ],
+      "correct": ""
     },
     {
       "id": 15,
-      "question": "What can be inferred about the relationship between search engines and websites?",
-      "options": ["A) Websites control search engines", "B) Search engines control websites", "C) They have a symbiotic relationship", "D) They are completely independent"],
-      "correct": "C"
+      "passage": "Engine room fires remain one of the most serious risks in maritime operations.\nThese incidents are often caused by fuel or oil leaks coming into contact with high-temperature surfaces.\nRecent reports indicate that improved fire detection systems and crew training have significantly reduced the severity of such incidents.\nQuick response and proper use of fixed firefighting systems can prevent escalation and minimize damage.\nNevertheless, continuous monitoring and preventive maintenance remain essential to avoid such hazards.",
+      "question": "What is still necessary?",
+      "options": [
+        "A) Reduce crew",
+        "B) Continuous monitoring",
+        "C) Stop operations",
+        "D) Increase cargo"
+      ],
+      "correct": ""
     },
     {
       "id": 16,
-      "question": "What is the author's tone in this passage?",
-      "options": ["A) Critical", "B) Informative", "C) Persuasive", "D) Humorous"],
-      "correct": "B"
+      "passage": "The digital transformation of global ports is revolutionizing cargo operations.\nTechnologies such as automated tracking systems, electronic documentation, and artificial intelligence are being implemented to streamline logistics.\nThese advancements reduce paperwork, increase transparency, and enhance operational efficiency.\nHowever, they also require investment in infrastructure and workforce training to ensure effective implementation.\nPorts that successfully adopt digital systems are likely to gain competitive advantages in global trade.",
+      "question": "What is the main benefit of digitalization?",
+      "options": [
+        "A) More paperwork",
+        "B) Increased efficiency",
+        "C) Reduced cargo",
+        "D) Slower process"
+      ],
+      "correct": ""
     },
     {
       "id": 17,
-      "question": "What does the passage suggest about the complexity of modern search engines?",
-      "options": ["A) They are becoming simpler", "B) They are becoming more complex", "C) They have remained the same", "D) They are less accurate"],
-      "correct": "B"
+      "passage": "The digital transformation of global ports is revolutionizing cargo operations.\nTechnologies such as automated tracking systems, electronic documentation, and artificial intelligence are being implemented to streamline logistics.\nThese advancements reduce paperwork, increase transparency, and enhance operational efficiency.\nHowever, they also require investment in infrastructure and workforce training to ensure effective implementation.\nPorts that successfully adopt digital systems are likely to gain competitive advantages in global trade.",
+      "question": "What is required for implementation?",
+      "options": [
+        "A) Less training",
+        "B) Investment and training",
+        "C) More fuel",
+        "D) Less technology"
+      ],
+      "correct": ""
     },
     {
       "id": 18,
-      "question": "What is the most important factor for a website's success according to the passage?",
-      "options": ["A) Attractive design", "B) Fast loading speed", "C) High search ranking", "D) Large file size"],
-      "correct": "C"
+      "passage": "The digital transformation of global ports is revolutionizing cargo operations.\nTechnologies such as automated tracking systems, electronic documentation, and artificial intelligence are being implemented to streamline logistics.\nThese advancements reduce paperwork, increase transparency, and enhance operational efficiency.\nHowever, they also require investment in infrastructure and workforce training to ensure effective implementation.\nPorts that successfully adopt digital systems are likely to gain competitive advantages in global trade.",
+      "question": "What advantage is mentioned?",
+      "options": [
+        "A) Reduced safety",
+        "B) Competitive advantage",
+        "C) Lower cargo",
+        "D) Slower trade"
+      ],
+      "correct": ""
     },
     {
       "id": 19,
-      "question": "What can readers conclude about the future of SEO?",
-      "options": ["A) It will become obsolete", "B) It will remain important", "C) It will be automated", "D) It will focus on images only"],
-      "correct": "B"
+      "passage": "Extreme weather events such as typhoons and hurricanes continue to disrupt maritime operations worldwide.\nPorts in affected regions often suspend operations to ensure safety of vessels and personnel.\nShips are typically instructed to remain at safe anchorage or reroute to avoid danger zones.\nThese disruptions can cause delays in global supply chains and impact shipping schedules significantly.",
+      "question": "Why are ports suspended?",
+      "options": [
+        "A) Congestion",
+        "B) Extreme weather",
+        "C) Fuel shortage",
+        "D) Crew shortage"
+      ],
+      "correct": ""
     },
     {
       "id": 20,
-      "question": "What is the overall structure of the passage?",
-      "options": ["A) Problem and solution", "B) Chronological", "C) Compare and contrast", "D) Cause and effect"],
-      "correct": "B"
+      "passage": "Extreme weather events such as typhoons and hurricanes continue to disrupt maritime operations worldwide.\nPorts in affected regions often suspend operations to ensure safety of vessels and personnel.\nShips are typically instructed to remain at safe anchorage or reroute to avoid danger zones.\nThese disruptions can cause delays in global supply chains and impact shipping schedules significantly.",
+      "question": "What are vessels instructed to do?",
+      "options": [
+        "A) Dock immediately",
+        "B) Stay at anchorage",
+        "C) Load cargo",
+        "D) Increase speed"
+      ],
+      "correct": ""
     },
     {
       "id": 21,
-      "question": "What does the term 'index' refer to in search engine terminology?",
-      "options": ["A) A list of search results", "B) A database of web pages", "C) A ranking system", "D) A user interface"],
-      "correct": "B"
+      "passage": "Extreme weather events such as typhoons and hurricanes continue to disrupt maritime operations worldwide.\nPorts in affected regions often suspend operations to ensure safety of vessels and personnel.\nShips are typically instructed to remain at safe anchorage or reroute to avoid danger zones.\nThese disruptions can cause delays in global supply chains and impact shipping schedules significantly.",
+      "question": "What is the broader impact?",
+      "options": [
+        "A) Faster trade",
+        "B) Supply chain delays",
+        "C) Increased cargo",
+        "D) Reduced cost"
+      ],
+      "correct": ""
     },
     {
       "id": 22,
-      "question": "According to the passage, what has improved search engine performance?",
-      "options": ["A) Better algorithms", "B) More users", "C) Faster computers", "D) All of the above"],
-      "correct": "D"
+      "passage": "The global shipping industry is facing a shortage of qualified seafarers, particularly officers.\nThis shortage is expected to grow as maritime trade expands and experienced personnel retire.\nShipping companies are increasing recruitment efforts and investing in cadet training programs to address this issue.\nFor students, this creates opportunities for career development, although high standards and training requirements remain essential.",
+      "question": "What causes the shortage?",
+      "options": [
+        "A) Reduced trade",
+        "B) Retirements and demand",
+        "C) Port closures",
+        "D) Fuel issues"
+      ],
+      "correct": ""
     },
     {
       "id": 23,
-      "question": "What is the relationship between keywords and search results?",
-      "options": ["A) Keywords determine rankings", "B) Keywords are ignored", "C) Keywords help match queries", "D) Keywords slow down searches"],
-      "correct": "C"
+      "passage": "The global shipping industry is facing a shortage of qualified seafarers, particularly officers.\nThis shortage is expected to grow as maritime trade expands and experienced personnel retire.\nShipping companies are increasing recruitment efforts and investing in cadet training programs to address this issue.\nFor students, this creates opportunities for career development, although high standards and training requirements remain essential.",
+      "question": "What is the industry response?",
+      "options": [
+        "A) Reduce hiring",
+        "B) Increase training",
+        "C) Stop operations",
+        "D) Reduce ships"
+      ],
+      "correct": ""
     },
     {
       "id": 24,
-      "question": "What can be inferred about the author's expertise?",
-      "options": ["A) They are a search engine developer", "B) They have knowledge of SEO", "C) They are a web designer", "D) They are an internet historian"],
-      "correct": "B"
+      "passage": "The global shipping industry is facing a shortage of qualified seafarers, particularly officers.\nThis shortage is expected to grow as maritime trade expands and experienced personnel retire.\nShipping companies are increasing recruitment efforts and investing in cadet training programs to address this issue.\nFor students, this creates opportunities for career development, although high standards and training requirements remain essential.",
+      "question": "What is a challenge for cadets?",
+      "options": [
+        "A) No jobs",
+        "B) High standards",
+        "C) Low demand",
+        "D) No training"
+      ],
+      "correct": ""
     },
     {
       "id": 25,
-      "question": "What is the main benefit of search engines for users?",
-      "options": ["A) Free internet access", "B) Easy information retrieval", "C) Web page creation", "D) Online advertising"],
-      "correct": "B"
+      "passage": "Human error continues to be one of the leading causes of maritime accidents worldwide.\nFactors such as fatigue, lack of training, and poor communication contribute significantly to operational risks.\nTo address this issue, international organizations emphasize the importance of continuous training, safety culture, and effective communication onboard vessels.",
+      "question": "What contributes to accidents?",
+      "options": [
+        "A) Weather only",
+        "B) Human factors",
+        "C) Cargo only",
+        "D) Fuel"
+      ],
+      "correct": ""
     },
     {
       "id": 26,
-      "question": "What does the passage imply about the internet's growth?",
-      "options": ["A) It has slowed down", "B) It has remained constant", "C) It has accelerated", "D) It has declined"],
-      "correct": "C"
+      "passage": "Human error continues to be one of the leading causes of maritime accidents worldwide.\nFactors such as fatigue, lack of training, and poor communication contribute significantly to operational risks.\nTo address this issue, international organizations emphasize the importance of continuous training, safety culture, and effective communication onboard vessels.",
+      "question": "What is recommended?",
+      "options": [
+        "A) Reduce crew",
+        "B) Improve training",
+        "C) Stop operations",
+        "D) Increase speed"
+      ],
+      "correct": ""
     },
     {
       "id": 27,
-      "question": "What is the most challenging aspect of search engine development?",
-      "options": ["A) Creating algorithms", "B) Building interfaces", "C) Managing databases", "D) All aspects are equally challenging"],
-      "correct": "A"
+      "passage": "Human error continues to be one of the leading causes of maritime accidents worldwide.\nFactors such as fatigue, lack of training, and poor communication contribute significantly to operational risks.\nTo address this issue, international organizations emphasize the importance of continuous training, safety culture, and effective communication onboard vessels.",
+      "question": "What is emphasized?",
+      "options": [
+        "A) Cost reduction",
+        "B) Safety culture",
+        "C) Cargo speed",
+        "D) Fuel use"
+      ],
+      "correct": ""
     },
     {
       "id": 28,
-      "question": "What does the passage suggest about user behavior?",
-      "options": ["A) Users prefer simple searches", "B) Users want detailed results", "C) Users expect fast results", "D) Users avoid using search engines"],
-      "correct": "C"
+      "passage": "“Mayday, Mayday, Mayday. This is MV Ocean Star. Vessel taking on water after collision with unidentified object. Immediate assistance required. Position 09°45’N, 104°20’E. Crew preparing lifeboats as precautionary measure.”",
+      "question": "What does “Mayday” indicate?",
+      "options": [
+        "A) Routine",
+        "B) Distress",
+        "C) Warning",
+        "D) Report"
+      ],
+      "correct": ""
     },
     {
       "id": 29,
-      "question": "What is the ultimate goal of search engines?",
-      "options": ["A) To make money", "B) To provide relevant information", "C) To replace human research", "D) To control the internet"],
-      "correct": "B"
+      "passage": "“Mayday, Mayday, Mayday. This is MV Ocean Star. Vessel taking on water after collision with unidentified object. Immediate assistance required. Position 09°45’N, 104°20’E. Crew preparing lifeboats as precautionary measure.”",
+      "question": "What is the vessel’s condition?",
+      "options": [
+        "A) Fire",
+        "B) Flooding",
+        "C) Engine issue",
+        "D) Cargo loss"
+      ],
+      "correct": ""
     },
     {
       "id": 30,
-      "question": "What can readers learn about the evolution of technology from this passage?",
-      "options": ["A) Technology becomes more complex over time", "B) Technology becomes simpler over time", "C) Technology remains unchanged", "D) Technology is unpredictable"],
-      "correct": "A"
+      "passage": "“Mayday, Mayday, Mayday. This is MV Ocean Star. Vessel taking on water after collision with unidentified object. Immediate assistance required. Position 09°45’N, 104°20’E. Crew preparing lifeboats as precautionary measure.”",
+      "question": "Why prepare lifeboats?",
+      "options": [
+        "A) Training",
+        "B) Possible evacuation",
+        "C) Maintenance",
+        "D) Inspection"
+      ],
+      "correct": ""
     }
   ],
   "writing": [
     {
       "id": 1,
-      "question": "Choose the correct sentence structure: 'She ___ to the store yesterday.'",
-      "options": ["A) go", "B) went", "C) going", "D) gone"],
-      "correct": "B"
+      "question": "The crew members are responsible for the regular ______ of all life-saving appliances on board.",
+      "options": [
+        "A) maintain",
+        "B) maintaining",
+        "C) maintenance",
+        "D) maintained"
+      ],
+      "correct": ""
     },
     {
       "id": 2,
-      "question": "Which word is spelled correctly?",
-      "options": ["A) recieve", "B) receive", "C) recive", "D) receeve"],
-      "correct": "B"
+      "question": "The Master gave a very ______ warning about the approaching typhoon.",
+      "options": [
+        "A) stern",
+        "B) sternly",
+        "C) sternness",
+        "D) sternest"
+      ],
+      "correct": ""
     },
     {
       "id": 3,
-      "question": "Choose the correct preposition: 'I am interested ___ learning English.'",
-      "options": ["A) at", "B) in", "C) on", "D) with"],
-      "correct": "B"
+      "question": "The ship's captain looked ______ at the crew member who forgot to secure the hatch.",
+      "options": [
+        "A) angry",
+        "B) anger",
+        "C) angrily",
+        "D) angered"
+      ],
+      "correct": ""
     },
     {
       "id": 4,
-      "question": "Which sentence has the correct punctuation?",
-      "options": ["A) I like pizza, and burgers.", "B) I like pizza and burgers.", "C) I like pizza, and, burgers.", "D) I like pizza and, burgers."],
-      "correct": "A"
+      "question": "The Chief Engineer is very ______ with the quality of the new fuel.",
+      "options": [
+        "A) disappointing",
+        "B) disappointment",
+        "C) disappoints",
+        "D) disappointed"
+      ],
+      "correct": ""
     },
     {
       "id": 5,
-      "question": "Choose the correct verb tense: 'I ___ English since 2010.'",
-      "options": ["A) learn", "B) learned", "C) have learned", "D) am learning"],
-      "correct": "C"
+      "question": "The officer ordered the helmsman to steer the vessel ______ to avoid a collision.",
+      "options": [
+        "A) port",
+        "B) to port",
+        "C) portside",
+        "D) portly"
+      ],
+      "correct": ""
     },
     {
       "id": 6,
-      "question": "Which word is a synonym for 'happy'?",
-      "options": ["A) sad", "B) glad", "C) angry", "D) tired"],
-      "correct": "B"
+      "question": "______ the severe weather warning, the ship decided to stay at anchorage.",
+      "options": [
+        "A) Because",
+        "B) Because of",
+        "C) Although",
+        "D) Despite"
+      ],
+      "correct": ""
     },
     {
       "id": 7,
-      "question": "Choose the correct article: '___ apple a day keeps the doctor away.'",
-      "options": ["A) A", "B) An", "C) The", "D) No article"],
-      "correct": "B"
+      "question": "If the ship had not altered its course, it ______ the grounded vessel.",
+      "options": [
+        "A) would hit",
+        "B) will hit",
+        "C) would have hit",
+        "D) hit"
+      ],
+      "correct": ""
     },
     {
       "id": 8,
-      "question": "Which sentence is grammatically correct?",
-      "options": ["A) She don't like apples.", "B) She doesn't likes apples.", "C) She doesn't like apples.", "D) She don't likes apples."],
-      "correct": "C"
+      "question": "Please ensure that all cargo lashings ______ checked before departure.",
+      "options": [
+        "A) is",
+        "B) am",
+        "C) are",
+        "D) be"
+      ],
+      "correct": ""
     },
     {
       "id": 9,
-      "question": "Choose the correct word order: 'I usually ___ breakfast at 7 AM.'",
-      "options": ["A) eat", "B) eats", "C) eating", "D) eaten"],
-      "correct": "A"
+      "question": "The vessel, ______ hull was damaged in the storm, is now in dry dock.",
+      "options": [
+        "A) who",
+        "B) which",
+        "C) whose",
+        "D) what"
+      ],
+      "correct": ""
     },
     {
       "id": 10,
-      "question": "Which of these is a proper noun?",
-      "options": ["A) book", "B) London", "C) happy", "D) running"],
-      "correct": "B"
+      "question": "The crew ______ the lifeboat drill for an hour when the alarm finally stopped.",
+      "options": [
+        "A) had been practicing",
+        "B) was practicing",
+        "C) have practiced",
+        "D) practiced"
+      ],
+      "correct": ""
     },
     {
       "id": 11,
-      "question": "Choose the correct comparative form: 'This test is ___ than the last one.'",
-      "options": ["A) harder", "B) more hard", "C) hardest", "D) hard"],
-      "correct": "A"
+      "question": "When entering a confined space, you ______ always follow the established safety procedures.",
+      "options": [
+        "A) can",
+        "B) may",
+        "C) must",
+        "D) might"
+      ],
+      "correct": ""
     },
     {
       "id": 12,
-      "question": "Which word is an adjective?",
-      "options": ["A) run", "B) quickly", "C) beautiful", "D) table"],
-      "correct": "C"
+      "question": "The officer on watch is responsible ______ monitoring the radar for other vessels.",
+      "options": [
+        "A) for",
+        "B) to",
+        "C) about",
+        "D) with"
+      ],
+      "correct": ""
     },
     {
       "id": 13,
-      "question": "Choose the correct modal verb: 'You ___ study harder to pass the exam.'",
-      "options": ["A) can", "B) may", "C) must", "D) should"],
-      "correct": "C"
+      "passage": "MV Ever Fortune is a container vessel that operates between Singapore and Rotterdam. When the ship ___ (13) ___ in 2018, it was considered one of the most advanced vessels in the fleet. The Chief Engineer is very ___ (14) ___ with the performance of the new engines. Last month, the main engine experienced a failure while transiting the Malacca Strait. The Chief Engineer ___ (15) ___ immediately inspecting the system and ordered an emergency shutdown.",
+      "question": "Select the correct option for blank (13):",
+      "options": [
+        "A) Launched",
+        "B) was launched",
+        "C) is launched",
+        "D) launches"
+      ],
+      "correct": ""
     },
     {
       "id": 14,
-      "question": "Which sentence uses the correct passive voice?",
-      "options": ["A) The cake was ate by me.", "B) The cake was eaten by me.", "C) I was eat the cake.", "D) I was eaten the cake."],
-      "correct": "B"
+      "passage": "MV Ever Fortune is a container vessel that operates between Singapore and Rotterdam. When the ship ___ (13) ___ in 2018, it was considered one of the most advanced vessels in the fleet. The Chief Engineer is very ___ (14) ___ with the performance of the new engines. Last month, the main engine experienced a failure while transiting the Malacca Strait. The Chief Engineer ___ (15) ___ immediately inspecting the system and ordered an emergency shutdown.",
+      "question": "Select the correct option for blank (14):",
+      "options": [
+        "A) Disappointing",
+        "B) Disappointment",
+        "C) disappoints",
+        "D) disappointed"
+      ],
+      "correct": ""
     },
     {
       "id": 15,
-      "question": "Choose the correct pronoun: 'This book belongs to me. It is ___.'",
-      "options": ["A) mine", "B) my", "C) me", "D) I"],
-      "correct": "A"
+      "passage": "MV Ever Fortune is a container vessel that operates between Singapore and Rotterdam. When the ship ___ (13) ___ in 2018, it was considered one of the most advanced vessels in the fleet. The Chief Engineer is very ___ (14) ___ with the performance of the new engines. Last month, the main engine experienced a failure while transiting the Malacca Strait. The Chief Engineer ___ (15) ___ immediately inspecting the system and ordered an emergency shutdown.",
+      "question": "Select the correct option for blank (15):",
+      "options": [
+        "A) was seen",
+        "B) sees",
+        "C) is seen",
+        "D) saw"
+      ],
+      "correct": ""
     },
     {
       "id": 16,
-      "question": "Which word is a conjunction?",
-      "options": ["A) and", "B) quickly", "C) beautiful", "D) running"],
-      "correct": "A"
+      "passage": "The crew ___ (16) ___ the lifeboat drill for over an hour when the alarm finally stopped. The officer on watch is responsible ___ (17) ___ monitoring all safety equipment. ___ (18) ___ the heavy rain, the crew completed the drill successfully.",
+      "question": "Select the correct option for blank (16):",
+      "options": [
+        "A) had been practicing",
+        "B) was practicing",
+        "C) have practiced",
+        "D) practiced"
+      ],
+      "correct": ""
     },
     {
       "id": 17,
-      "question": "Choose the correct plural form: 'One child, two ___.'",
-      "options": ["A) childs", "B) childrens", "C) children", "D) childes"],
-      "correct": "C"
+      "passage": "The crew ___ (16) ___ the lifeboat drill for over an hour when the alarm finally stopped. The officer on watch is responsible ___ (17) ___ monitoring all safety equipment. ___ (18) ___ the heavy rain, the crew completed the drill successfully.",
+      "question": "Select the correct option for blank (17):",
+      "options": [
+        "A) for",
+        "B) to",
+        "C) about",
+        "D) with"
+      ],
+      "correct": ""
     },
     {
       "id": 18,
-      "question": "Which sentence has the correct subject-verb agreement?",
-      "options": ["A) The students was studying.", "B) The students were studying.", "C) The student were studying.", "D) The students is studying."],
-      "correct": "B"
+      "passage": "The crew ___ (16) ___ the lifeboat drill for over an hour when the alarm finally stopped. The officer on watch is responsible ___ (17) ___ monitoring all safety equipment. ___ (18) ___ the heavy rain, the crew completed the drill successfully.",
+      "question": "Select the correct option for blank (18):",
+      "options": [
+        "A) Because",
+        "B) Because of",
+        "C) Although",
+        "D) Despite"
+      ],
+      "correct": ""
     },
     {
       "id": 19,
-      "question": "Choose the correct phrasal verb: 'Please ___ the volume on the TV.'",
-      "options": ["A) turn on", "B) turn off", "C) turn up", "D) turn down"],
-      "correct": "D"
+      "passage": "The Port of Houston has issued a new safety bulletin regarding mooring operations. All vessels ___ (19) ___ to use at least four mooring lines when berthed at the container terminal. The cargo must be stowed properly, ___ (20) ___ it may shift during the voyage. This requirement follows an incident last year when a bulk carrier ___ (21) ___ its moorings during sudden gale-force winds.",
+      "question": "Select the correct option for blank (19):",
+      "options": [
+        "A) require",
+        "B) are required",
+        "C) were required",
+        "D) have required"
+      ],
+      "correct": ""
     },
     {
       "id": 20,
-      "question": "Which word is an adverb?",
-      "options": ["A) quick", "B) quickly", "C) beauty", "D) run"],
-      "correct": "B"
+      "passage": "The Port of Houston has issued a new safety bulletin regarding mooring operations. All vessels ___ (19) ___ to use at least four mooring lines when berthed at the container terminal. The cargo must be stowed properly, ___ (20) ___ it may shift during the voyage. This requirement follows an incident last year when a bulk carrier ___ (21) ___ its moorings during sudden gale-force winds.",
+      "question": "Select the correct option for blank (20):",
+      "options": [
+        "A) otherwise",
+        "B) because",
+        "C) for",
+        "D) since"
+      ],
+      "correct": ""
     },
     {
       "id": 21,
-      "question": "Choose the correct conditional: 'If I ___ rich, I would travel the world.'",
-      "options": ["A) am", "B) was", "C) were", "D) be"],
-      "correct": "C"
+      "passage": "The Port of Houston has issued a new safety bulletin regarding mooring operations. All vessels ___ (19) ___ to use at least four mooring lines when berthed at the container terminal. The cargo must be stowed properly, ___ (20) ___ it may shift during the voyage. This requirement follows an incident last year when a bulk carrier ___ (21) ___ its moorings during sudden gale-force winds.",
+      "question": "Select the correct option for blank (21):",
+      "options": [
+        "A) is breaking",
+        "B) has broken",
+        "C) broke",
+        "D) was broken"
+      ],
+      "correct": ""
     },
     {
       "id": 22,
-      "question": "Which of these is a compound sentence?",
-      "options": ["A) I like pizza.", "B) I like pizza and I like burgers.", "C) I like pizza, but I don't like burgers.", "D) Because I like pizza."],
-      "correct": "C"
+      "passage": "Fire is one of the most dangerous emergencies aboard a vessel. The best way ___ (22) ___ a fire in the engine room is to use the fixed CO2 system. However, crew members must be trained to operate this system correctly. The stability of the vessel ___ (23) ___ if the water level in the ballast tanks is not adjusted during firefighting operations. In addition, the crew is accustomed ___ (24) ___ in adverse weather conditions, which makes them well-prepared for emergencies.",
+      "question": "Select the correct option for blank (22):",
+      "options": [
+        "A) to extinguishing",
+        "B) to extinguish",
+        "C) for extinguish",
+        "D) extinguishing"
+      ],
+      "correct": ""
     },
     {
       "id": 23,
-      "question": "Choose the correct idiom: 'It's raining ___, so we can't go outside.'",
-      "options": ["A) cats and dogs", "B) cats or dogs", "C) cats and cats", "D) dogs and dogs"],
-      "correct": "A"
+      "passage": "Fire is one of the most dangerous emergencies aboard a vessel. The best way ___ (22) ___ a fire in the engine room is to use the fixed CO2 system. However, crew members must be trained to operate this system correctly. The stability of the vessel ___ (23) ___ if the water level in the ballast tanks is not adjusted during firefighting operations. In addition, the crew is accustomed ___ (24) ___ in adverse weather conditions, which makes them well-prepared for emergencies.",
+      "question": "Select the correct option for blank (23):",
+      "options": [
+        "A) will be compromised",
+        "B) compromises",
+        "C) is compromising",
+        "D) has compromised"
+      ],
+      "correct": ""
     },
     {
       "id": 24,
-      "question": "Which word is a preposition?",
-      "options": ["A) quickly", "B) beautiful", "C) and", "D) in"],
-      "correct": "D"
+      "passage": "Fire is one of the most dangerous emergencies aboard a vessel. The best way ___ (22) ___ a fire in the engine room is to use the fixed CO2 system. However, crew members must be trained to operate this system correctly. The stability of the vessel ___ (23) ___ if the water level in the ballast tanks is not adjusted during firefighting operations. In addition, the crew is accustomed ___ (24) ___ in adverse weather conditions, which makes them well-prepared for emergencies.",
+      "question": "Select the correct option for blank (24):",
+      "options": [
+        "A) to work",
+        "B) to working",
+        "C) for work",
+        "D) work"
+      ],
+      "correct": ""
     },
     {
       "id": 25,
-      "question": "Choose the correct relative pronoun: 'The man ___ lives next door is a doctor.'",
-      "options": ["A) who", "B) which", "C) where", "D) whom"],
-      "correct": "A"
+      "passage": "To: All Vessel Masters, Subject: New Environmental Regulations, Dear Masters, The new regulations require that each vessel ___ (25) ___ its waste management plan immediately. Failure to comply will result in heavy fines. Additionally, the port authority has ___ (26) ___ the use of the old berth until the environmental inspection is complete. We also remind you that the cargo to be loaded tomorrow is ___ (27) ___ than the cargo we loaded last week, so extra caution is required during loading operations. Thank you for your cooperation., Port Authority Office",
+      "question": "Select the correct option for blank (25):",
+      "options": [
+        "A) implement",
+        "B) implements",
+        "C) implementing",
+        "D) to implement"
+      ],
+      "correct": ""
     },
     {
       "id": 26,
-      "question": "Which sentence uses the correct reported speech?",
-      "options": ["A) He said me he was tired.", "B) He said that he was tired.", "C) He said I he was tired.", "D) He said that I was tired."],
-      "correct": "B"
+      "passage": "To: All Vessel Masters, Subject: New Environmental Regulations, Dear Masters, The new regulations require that each vessel ___ (25) ___ its waste management plan immediately. Failure to comply will result in heavy fines. Additionally, the port authority has ___ (26) ___ the use of the old berth until the environmental inspection is complete. We also remind you that the cargo to be loaded tomorrow is ___ (27) ___ than the cargo we loaded last week, so extra caution is required during loading operations. Thank you for your cooperation., Port Authority Office",
+      "question": "Select the correct option for blank (26):",
+      "options": [
+        "A) prohibited",
+        "B) prohibited from",
+        "C) prohibited to",
+        "D) prohibiting"
+      ],
+      "correct": ""
     },
     {
       "id": 27,
-      "question": "Choose the correct gerund: 'I enjoy ___ in my free time.'",
-      "options": ["A) read", "B) reading", "C) to read", "D) reads"],
-      "correct": "B"
+      "passage": "To: All Vessel Masters, Subject: New Environmental Regulations, Dear Masters, The new regulations require that each vessel ___ (25) ___ its waste management plan immediately. Failure to comply will result in heavy fines. Additionally, the port authority has ___ (26) ___ the use of the old berth until the environmental inspection is complete. We also remind you that the cargo to be loaded tomorrow is ___ (27) ___ than the cargo we loaded last week, so extra caution is required during loading operations. Thank you for your cooperation., Port Authority Office",
+      "question": "Select the correct option for blank (27):",
+      "options": [
+        "A) more heavier",
+        "B) more heavy",
+        "C) heavier",
+        "D) most heavy"
+      ],
+      "correct": ""
     },
     {
       "id": 28,
-      "question": "Which of these shows correct capitalization?",
-      "options": ["A) i love english", "B) I love English", "C) i Love english", "D) I love english"],
-      "correct": "B"
+      "passage": "The oil tanker was ___ (28) ___ slowly through the narrow strait when the alarm sounded. The look-out reported a small fishing vessel ___ (29) ___ ahead. There is ___ (30) ___ oil on the deck after the bunkering operation, so the crew cleaned it up immediately.",
+      "question": "Select the correct option for blank (28):",
+      "options": [
+        "A) steering",
+        "B) steering to",
+        "C) steering for",
+        "D) steered"
+      ],
+      "correct": ""
     },
     {
       "id": 29,
-      "question": "Choose the correct collocation: 'Make ___ mistake.'",
-      "options": ["A) a", "B) an", "C) the", "D) no article"],
-      "correct": "A"
+      "passage": "The oil tanker was ___ (28) ___ slowly through the narrow strait when the alarm sounded. The look-out reported a small fishing vessel ___ (29) ___ ahead. There is ___ (30) ___ oil on the deck after the bunkering operation, so the crew cleaned it up immediately.",
+      "question": "Select the correct option for blank (29):",
+      "options": [
+        "A) directly",
+        "B) direct",
+        "C) direction",
+        "D) directed"
+      ],
+      "correct": ""
     },
     {
       "id": 30,
-      "question": "Which sentence has the correct question form?",
-      "options": ["A) What you are doing?", "B) What are you doing?", "C) What do you doing?", "D) What you do?"],
-      "correct": "B"
+      "passage": "The oil tanker was ___ (28) ___ slowly through the narrow strait when the alarm sounded. The look-out reported a small fishing vessel ___ (29) ___ ahead. There is ___ (30) ___ oil on the deck after the bunkering operation, so the crew cleaned it up immediately.",
+      "question": "Select the correct option for blank (30):",
+      "options": [
+        "A) a few",
+        "B) a little",
+        "C) many",
+        "D) a number of"
+      ],
+      "correct": ""
     }
   ]
 }

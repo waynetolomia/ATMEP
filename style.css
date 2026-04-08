@@ -8,23 +8,53 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg);
+    background-image: url('background.jpg'); /* Replace 'background.jpg' with your desired image path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     margin: 0;
     display: flex;
-    justify-content: center;
-    padding-top: 50px;
+    min-height: 100vh;
+    padding: 40px 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+    margin: auto;
 }
 
 .container { width: 90%; max-width: 800px; }
 .hidden { display: none !important; }
 
 .card {
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     text-align: center;
 }
 
+/* Login Form Centered UI */
+#login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#login-form input {
+    width: 80%;
+    max-width: 300px;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 16px;
+}
 /* Exam Layout */
 .exam-header {
     display: flex;
@@ -39,7 +69,25 @@ body {
 #timer-box {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #ffd700; /* Gold */
+    color: var(--primary);
+    background: rgba(0, 31, 63, 0.08);
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 31, 63, 0.16);
+    display: inline-flex;
+    align-items: center;
+    animation: timerPulse 3s ease-in-out infinite;
+}
+
+@keyframes timerPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 31, 63, 0.2);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 18px rgba(0, 31, 63, 0.18);
+    }
 }
 
 .section-nav {
@@ -139,6 +187,23 @@ button { padding: 12px 24px; border-radius: 6px; cursor: pointer; border: none; 
     border-radius: 4px;
     background-color: #ffffff;
     border: 1px solid #e6f0ff;
+}
+
+.reading-passage {
+    background: #f1f8ff;
+    border-left: 4px solid var(--primary);
+    padding: 16px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    color: #102a43;
+    line-height: 1.7;
+    box-shadow: 0 4px 12px rgba(0, 31, 63, 0.06);
+}
+
+.reading-passage p {
+    margin: 10px 0 0 0;
+    font-size: 0.98rem;
+    white-space: pre-wrap;
 }
 
 .audio-controls audio::-webkit-media-controls-panel {

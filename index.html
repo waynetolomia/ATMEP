@@ -13,9 +13,9 @@
             <h1>Student Login</h1>
             <p>Please enter your credentials to begin the exam.</p>
             <form id="login-form">
-                <input type="text" id="student-id" placeholder="Student ID (e.g. 2026-001)" required>
+                <input type="text" id="student-id" placeholder="Student ID" required>
                 <input type="password" id="password" placeholder="Access Key" required>
-                <button type="submit" class="btn-primary">Enter Examination Hall</button>
+                <button type="submit" class="btn-primary">Start Exam</button>
             </form>
         </div>
     </div>
@@ -24,9 +24,9 @@
         <header class="exam-header">
             <div>
                 <h2 id="student-display">Student: </h2>
-                <p>Course: AMCOL Maritime</p>
+                <p>ATMEP - AMCOL Test of Maritime English Proficiency</p>
             </div>
-            <div id="timer-box">Time Left: <span id="timer">30:00</span></div>
+            <div id="timer-box">Time Left: <span id="timer">120:00</span></div>
         </header>
 
         <nav class="section-nav">
@@ -35,6 +35,10 @@
             <button class="nav-tab" onclick="goToSection(3)">Reading</button>
             <button class="nav-tab" onclick="goToSection(4)">Writing</button>
         </nav>
+
+        <div id="question-nav-container" style="margin: 15px 0; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 10px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+            <!-- Question nav buttons will be rendered here -->
+        </div>
 
         <main id="questions-area">
             <div id="sec-1" class="exam-section">
