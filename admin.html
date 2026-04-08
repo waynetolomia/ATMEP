@@ -54,7 +54,8 @@
                 <p>Total Keys: <span id="total-keys">0</span></p>
                 <p style="color: #dc2626;">Used Keys: <span id="used-keys">0</span></p>
                 <p style="color: #059669;">Available Keys: <span id="available-keys">0</span></p>
-                <button class="btn-primary" style="margin-left: auto; padding: 8px 16px;" onclick="generateMoreKeys()">Generate 10 Keys</button>
+                <button class="btn-success" style="margin-left: auto; padding: 8px 16px;" onclick="exportKeysToJSON()">Export to JSON</button>
+                <button class="btn-primary" style="margin-left: 10px; padding: 8px 16px;" onclick="generateMoreKeys()">Generate 10 Keys</button>
             </div>
             <div id="keys-container" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
                 <!-- Keys injected here -->
@@ -62,6 +63,9 @@
         </div>
     </div>
 
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+        <script src="firebase-config.js"></script>
     <script src="admin.js"></script>
 </body>
 </html>

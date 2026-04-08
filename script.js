@@ -7,19 +7,25 @@ let currentAccessKey = '';
 let examStartTime = null;
 const questionsPerSection = 30;
 
-// Generate or load 100 randomized access keys (Format: ATMEP******)
-let validAccessKeys = JSON.parse(localStorage.getItem('valid_access_keys'));
-if (!validAccessKeys) {
-    validAccessKeys = Array.from({length: 100}, () => {
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        let randomPart = '';
-        for (let i = 0; i < 6; i++) {
-            randomPart += chars.charAt(Math.floor(Math.random() * chars.length));
+let validAccessKeys = [];
+
+// Load access keys from Firebase (fallback to keys.json for initialization)
+async function loadAccessKeys() {
+    try {
+        const keysDoc = await db.collection('settings').doc('keys').get();
+        if (keysDoc.exists) {
+            validAccessKeys = keysDoc.data().valid_access_keys || [];
+        } else {
+            const response = await fetch('keys.json');
+            if (response.ok) {
+                const data = await response.json();
+                validAccessKeys = data.access_keys || [];
+                await db.collection('settings').doc('keys').set({ valid_access_keys: validAccessKeys, used_keys: [] });
+            }
         }
-        return `ATMEP${randomPart}`;
-    });
-    localStorage.setItem('valid_access_keys', JSON.stringify(validAccessKeys));
-    console.log('Admin Notice: Generated new Access Keys (Copy these to give to your students):\n', validAccessKeys.join('\n'));
+    } catch (error) {
+        console.warn('Could not load keys from Firebase:', error);
+    }
 }
 
 // Raw JSON question data and converted section questions
@@ -299,6 +305,7 @@ function collectAnswers() {
 
 // Initialize questions on page load
 document.addEventListener('DOMContentLoaded', async function() {
+    await loadAccessKeys();
     await generateQuestions();
     renderSection(1); // Render first section
 });
@@ -316,11 +323,20 @@ if (togglePasswordBtn && accessKeyInput) {
 }
 
 // 1. Handle Login
-document.getElementById('login-form').addEventListener('submit', function(e) {
+document.getElementById('login-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     
     const enteredKey = document.getElementById('access-key').value.trim();
-    const usedKeys = JSON.parse(localStorage.getItem('used_keys') || '[]');
+    let usedKeys = [];
+    try {
+        const keysDoc = await db.collection('settings').doc('keys').get();
+        if (keysDoc.exists) {
+            usedKeys = keysDoc.data().used_keys || [];
+            validAccessKeys = keysDoc.data().valid_access_keys || [];
+        }
+    } catch (error) {
+        console.error('Error checking keys on login:', error);
+    }
 
     const inputStudentId = document.getElementById('student-id').value.trim();
     const inputStudentName = document.getElementById('student-name').value.trim();
@@ -441,7 +457,7 @@ document.getElementById('submit-btn').addEventListener('click', function() {
     }
 });
 
-function submitExam() {
+async function submitExam() {
     collectAnswers();
     saveAnswers();
     
@@ -481,17 +497,19 @@ function submitExam() {
         score: `${score}/${totalQuestions}`,
         percentage: `${percentage}%`,
         duration: durationStr,
-        date: new Date().toLocaleString()
+        date: new Date().toLocaleString(),
+        timestamp: Date.now() // added for reliable sorting in admin view
     };
-    const records = JSON.parse(localStorage.getItem('exam_records') || '[]');
-    records.push(examRecord);
-    localStorage.setItem('exam_records', JSON.stringify(records));
-
-    // 2. Mark this key as used to prevent reuse
-    const usedKeys = JSON.parse(localStorage.getItem('used_keys') || '[]');
-    if (currentAccessKey !== 'ATMEPMASTER' && !usedKeys.includes(currentAccessKey)) {
-        usedKeys.push(currentAccessKey);
-        localStorage.setItem('used_keys', JSON.stringify(usedKeys));
+    try {
+        await db.collection('exam_records').add(examRecord);
+        
+        if (currentAccessKey !== 'ATMEPMASTER') {
+            await db.collection('settings').doc('keys').update({
+                used_keys: firebase.firestore.FieldValue.arrayUnion(currentAccessKey)
+            });
+        }
+    } catch (error) {
+        console.error("Firebase save error: ", error);
     }
 
     localStorage.removeItem('exam_answers');
@@ -526,3 +544,8 @@ function downloadResult() {
         resultCard.style.backdropFilter = originalBackdrop;
     });
 }
+
+// --- Basic Anti-Cheat Measures ---
+document.addEventListener('contextmenu', e => e.preventDefault()); // Disable right-click
+document.addEventListener('copy', e => e.preventDefault()); // Disable copying text
+document.addEventListener('selectstart', e => e.preventDefault()); // Disable text highlighting
