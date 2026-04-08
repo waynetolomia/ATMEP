@@ -1,7 +1,7 @@
 :root {
-    --primary: #2563eb;
+    --primary: #001f3f; /* Navy Blue */
     --secondary: #64748b;
-    --success: #16a34a;
+    --success: #ffd700; /* Gold */
     --bg: #f8fafc;
 }
 
@@ -39,7 +39,7 @@ body {
 #timer-box {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #dc2626;
+    color: #ffd700; /* Gold */
 }
 
 .section-nav {
@@ -52,7 +52,7 @@ body {
     flex: 1;
     padding: 10px;
     border: none;
-    background: #e2e8f0;
+    background: #e6f0ff; /* Light navy blue */
     cursor: pointer;
     border-radius: 5px;
 }
@@ -67,6 +67,48 @@ body {
     padding: 30px;
     border-radius: 8px;
     min-height: 200px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.question {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e6f0ff; /* Light navy blue */
+}
+
+.question:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.question p {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1e293b;
+    font-size: 16px;
+}
+
+.options {
+    margin-left: 0;
+}
+
+.options label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    font-size: 14px;
+}
+
+.options label:hover {
+    background-color: #e6f0ff; /* Light navy blue */
+}
+
+.options input[type="radio"] {
+    margin-right: 8px;
 }
 
 /* Buttons */
@@ -74,3 +116,43 @@ button { padding: 12px 24px; border-radius: 6px; cursor: pointer; border: none; 
 .btn-primary { background: var(--primary); color: white; }
 .btn-secondary { background: var(--secondary); color: white; }
 .btn-success { background: var(--success); color: white; }
+
+/* Audio Controls Styling */
+.audio-controls {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    border: 2px solid #e6f0ff;
+    box-shadow: 0 2px 4px rgba(0, 31, 63, 0.1);
+}
+
+.audio-controls p {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    color: var(--primary);
+    font-size: 16px;
+}
+
+.audio-controls audio {
+    width: 100%;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: 1px solid #e6f0ff;
+}
+
+.audio-controls audio::-webkit-media-controls-panel {
+    background-color: #f8fafc;
+    border-radius: 4px;
+}
+
+.audio-controls audio::-webkit-media-controls-play-button {
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+.audio-controls audio::-webkit-media-controls-current-time-display,
+.audio-controls audio::-webkit-media-controls-time-remaining-display {
+    color: var(--primary);
+    font-weight: bold;
+}

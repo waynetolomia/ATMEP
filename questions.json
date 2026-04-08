@@ -1,0 +1,913 @@
+{
+  "listening": [
+    {
+      [
+  {
+    "id": 1,
+    "audio": "audio/listening_1.mp3",
+    "question": "What is the new course of the vessel?",
+    "options": [
+      "A) 040",
+      "B) 114",
+      "C) 140",
+      "D) 410"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 2,
+    "audio": "audio/listening_2.mp3",
+    "question": "What is the required speed for the vessel?",
+    "options": [
+      "A) 16 knots",
+      "B) 6 knots",
+      "C) 60 knots",
+      "D) As fast as possible"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 3,
+    "audio": "audio/listening_3.mp3",
+    "question": "Where is the ship located?",
+    "options": [
+      "A) At the pilot station",
+      "B) 3 miles South of the station",
+      "C) 3 miles North of the station",
+      "D) 13 miles from the station"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 4,
+    "audio": "audio/listening_4.mp3",
+    "question": "Why can’t the lookout see the lighthouse?",
+    "options": [
+      "A) It is too far away.",
+      "B) The lights are broken.",
+      "C) Heavy rain.",
+      "D) Thick fog."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 5,
+    "audio": "audio/listening_5.mp3",
+    "question": "On which side should the pilot board?",
+    "options": [
+      "A) Starboard side",
+      "B) Port side",
+      "C) Astern",
+      "D) Forward"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 6,
+    "audio": "audio/listening_6.mp3",
+    "question": "Where is the simulated fire located?",
+    "options": [
+      "A) Engine room",
+      "B) Bridge",
+      "C) Galley",
+      "D) Cargo hold"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 7,
+    "audio": "audio/listening_7.mp3",
+    "question": "Where must the crew assemble?",
+    "options": [
+      "A) Lifeboat station 1",
+      "B) Lifeboat station 2",
+      "C) The Mess room",
+      "D) The Bridge"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 8,
+    "audio": "audio/listening_8.mp3",
+    "question": "What action was taken first?",
+    "options": [
+      "A) Lowering a boat",
+      "B) Turning the ship to starboard",
+      "C) Stopping the engine",
+      "D) Calling the Coast Guard"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 9,
+    "audio": "audio/listening_9.mp3",
+    "question": "What is the nature of the emergency?",
+    "options": [
+      "A) A fire",
+      "B) A broken arm",
+      "C) A deep leg cut",
+      "D) A sinking ship"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 10,
+    "audio": "audio/listening_10.mp3",
+    "question": "What is the vessel's problem?",
+    "options": [
+      "A) Engine failure",
+      "B) It is sinking/taking on water",
+      "C) It is out of fuel",
+      "D) It is lost in fog"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 11,
+    "audio": "audio/listening_11.mp3",
+    "question": "How much fuel is in the tank?",
+    "options": [
+      "A) 58%",
+      "B) 80%",
+      "C) 85%",
+      "D) 95%"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 12,
+    "audio": "audio/listening_12.mp3",
+    "question": "What is the technical problem?",
+    "options": [
+      "A) Low oil pressure",
+      "B) High cooling water temperature",
+      "C) Engine noise",
+      "D) Broken propeller"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 13,
+    "audio": "audio/listening_13.mp3",
+    "question": "What is the initial pumping rate?",
+    "options": [
+      "A) 10 cubes per hour",
+      "B) 100 cubes per hour",
+      "C) 200 cubes per hour",
+      "D) 1,000 cubes per hour"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 14,
+    "audio": "audio/listening_14.mp3",
+    "question": "What does the crew need to do?",
+    "options": [
+      "A) Stop the engine",
+      "B) Start the bilge pump",
+      "C) Close the portholes",
+      "D) Go to sleep"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 15,
+    "audio": "audio/listening_15.mp3",
+    "question": "What is the current status of the fuel injector inventory?",
+    "options": [
+      "A) They have a full set of six spares available.",
+      "B) They are missing the entire order from the last port.",
+      "C) They have two injectors currently in the locker.",
+      "D) They have four injectors ready to be installed."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 16,
+    "audio": "audio/listening_16.mp3",
+    "question": "Why has the loading process been halted?",
+    "options": [
+      "A) The crane operator is refusing to work.",
+      "B) A container is missing its identification number.",
+      "C) A weight error poses a threat to the ship's stability.",
+      "D) The container is too wide for Bay 24."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 17,
+    "audio": "audio/listening_17.mp3",
+    "question": "What is the primary concern regarding the vessel's departure?",
+    "options": [
+      "A) The vessel is trimmed by the head.",
+      "B) The water in the channel is too deep for the rudder.",
+      "C) The vertical distance between the keel and the seabed is dangerously low.",
+      "D) The ballast tanks are not yet empty."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 18,
+    "audio": "audio/listening_18.mp3",
+    "question": "What instruction was given to the forward mooring station?",
+    "options": [
+      "A) To slacken the head lines.",
+      "B) To prioritize the tensioning of the spring lines.",
+      "C) To let the bow swing toward the pier.",
+      "D) To ignore the crosswind."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 19,
+    "audio": "audio/listening_19.mp3",
+    "question": "What is the Chief Officer’s first priority upon hearing about the damage?",
+    "options": [
+      "A) To throw the damaged grain overboard.",
+      "B) To hide the evidence from the port authorities.",
+      "C) To have an independent expert verify and record the damage.",
+      "D) To blame the stevedores for the leak."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 20,
+    "audio": "audio/listening_20.mp3",
+    "question": "Why did the pilot request an additional tug?",
+    "options": [
+      "A) Because the ship is too small for the basin.",
+      "B) Because the ship’s own steering assistance at the bow is broken.",
+      "C) Because the weather is perfectly calm.",
+      "D) Because the first two tugs are too powerful."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 21,
+    "audio": "audio/listening_21.mp3",
+    "question": "What is the technical issue being reported by the Blue Whale?",
+    "options": [
+      "A) Their radar is not working.",
+      "B) Their automatic identification system is failing to transmit.",
+      "C) They have lost all electrical power to the engine.",
+      "D) They are unable to speak over the radio."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 22,
+    "audio": "audio/listening_22.mp3",
+    "question": "Why did the Oceanic Master deviate from the standard traffic rules?",
+    "options": [
+      "A) Their compass was broken.",
+      "B) They were trying to save time.",
+      "C) They were performing a safety maneuver to avoid small vessels.",
+      "D) The VTS gave them the wrong instructions."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 23,
+    "audio": "audio/listening_23.mp3",
+    "question": "How does the watch officer know the ship is moving?",
+    "options": [
+      "A) By looking at the waves.",
+      "B) By a phone call from the shore.",
+      "C) By an electronic alarm and shifting visual references.",
+      "D) Because the anchor chain has snapped."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 24,
+    "audio": "audio/listening_24.mp3",
+    "question": "What is the result of the Captain's decision?",
+    "options": [
+      "A) The ship will arrive at the destination earlier.",
+      "B) The ship will maintain its current course.",
+      "C) The ship will delay its arrival to avoid dangerous sea conditions.",
+      "D) The ship will increase speed to outrun the storm."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 25,
+    "audio": "audio/listening_25.mp3",
+    "question": "What change has been made to the original pilotage plan?",
+    "options": [
+      "A) The pilot will board 30 minutes early.",
+      "B) The method of the pilot's arrival has changed due to sea state.",
+      "C) The ship must go to a different port.",
+      "D) The ship no longer needs a pilot."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 26,
+    "audio": "audio/listening_26.mp3",
+    "question": "What is the instruction from the VTS?",
+    "options": [
+      "A) Proceed to berth number four immediately.",
+      "B) Stay clear of the fairway.",
+      "C) Increase speed to enter the port.",
+      "D) Change the radio frequency."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 27,
+    "audio": "audio/listening_27.mp3",
+    "question": "Why did the Chief Officer stop the cargo operation?",
+    "options": [
+      "A) Due to heavy rain and wind.",
+      "B) The crane driver was tired.",
+      "C) The containers were not lashed correctly.",
+      "D) The vessel reached its destination."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 28,
+    "audio": "audio/listening_28.mp3",
+    "question": "What is the estimated duration of the delay?",
+    "options": [
+      "A) Thirty minutes",
+      "B) One hour",
+      "C) Two hours",
+      "D) All afternoon"
+    ],
+    "correct": ""
+  },
+  {
+    "id": 29,
+    "audio": "audio/listening_29.mp3",
+    "question": "What is the specific technical problem reported?",
+    "options": [
+      "A) The main engine has a fuel leak.",
+      "B) The bilge pump impeller is damaged.",
+      "C) The generator is overheating.",
+      "D) The fire alarm is broken."
+    ],
+    "correct": ""
+  },
+  {
+    "id": 30,
+    "audio": "audio/listening_30.mp3",
+    "question": "Where will the spare part be ordered?",
+    "options": [
+      "A) Laem Chabang",
+      "B) Rotterdam",
+      "C) Singapore",
+      "D) Shanghai"
+    ],
+    "correct": ""
+  }
+]
+  ],
+  "speaking": [
+    {
+      "id": 1,
+      "question": "Describe your favorite hobby and explain why you enjoy it.",
+      "options": ["A) Schedule", "B) Shedule", "C) Schedul", "D) Skedule"],
+      "correct": "A"
+    },
+    {
+      "id": 2,
+      "question": "If you could travel anywhere right now, where would you go and why?",
+      "options": ["A) I go to store yesterday", "B) I went to the store yesterday", "C) I gone to store yesterday", "D) I going to store yesterday"],
+      "correct": "B"
+    },
+    {
+      "id": 3,
+      "question": "Describe a person who has influenced your life positively.",
+      "options": ["A) The students is studying", "B) The student are studying", "C) The students are studying", "D) The student is studying"],
+      "correct": "C"
+    },
+    {
+      "id": 4,
+      "question": "What are the advantages and disadvantages of living in a big city?",
+      "options": ["A) I live in New York", "B) I live at New York", "C) I live on New York", "D) I live New York"],
+      "correct": "A"
+    },
+    {
+      "id": 5,
+      "question": "Describe your daily routine from morning to evening.",
+      "options": ["A) A book", "B) An book", "C) The book", "D) Book"],
+      "correct": "C"
+    },
+    {
+      "id": 6,
+      "question": "If you won the lottery, what would you do with the money?",
+      "options": ["A) more interesting", "B) interestinger", "C) most interesting", "D) interesting"],
+      "correct": "A"
+    },
+    {
+      "id": 7,
+      "question": "Describe a memorable event from your childhood.",
+      "options": ["A) Childs", "B) Childrens", "C) Children", "D) Child"],
+      "correct": "C"
+    },
+    {
+      "id": 8,
+      "question": "What are some important qualities for being a good friend?",
+      "options": ["A) can", "B) may", "C) must", "D) should"],
+      "correct": "C"
+    },
+    {
+      "id": 9,
+      "question": "Describe your favorite season and explain why you like it.",
+      "options": ["A) What you doing?", "B) What are you doing?", "C) What do you doing?", "D) What you are doing?"],
+      "correct": "B"
+    },
+    {
+      "id": 10,
+      "question": "If you could have dinner with any historical figure, who would it be?",
+      "options": ["A) I learn English since 2010", "B) I learned English since 2010", "C) I have learned English since 2010", "D) I have learn English since 2010"],
+      "correct": "C"
+    },
+    {
+      "id": 11,
+      "question": "Describe a skill you would like to learn and why.",
+      "options": ["A) big red house", "B) red big house", "C) house red big", "D) red house big"],
+      "correct": "A"
+    },
+    {
+      "id": 12,
+      "question": "What are the benefits of learning a foreign language?",
+      "options": ["A) turn on", "B) turn off", "C) turn up", "D) turn down"],
+      "correct": "D"
+    },
+    {
+      "id": 13,
+      "question": "Describe your ideal job and explain why it appeals to you.",
+      "options": ["A) If I will be rich", "B) If I would be rich", "C) If I were rich", "D) If I am rich"],
+      "correct": "C"
+    },
+    {
+      "id": 14,
+      "question": "What are some ways to reduce stress in daily life?",
+      "options": ["A) mine", "B) my", "C) me", "D) I"],
+      "correct": "A"
+    },
+    {
+      "id": 15,
+      "question": "Describe a place you have visited that you would recommend to others.",
+      "options": ["A) The cake was ate", "B) The cake was eaten", "C) I ate the cake", "D) The cake ate"],
+      "correct": "B"
+    },
+    {
+      "id": 16,
+      "question": "If you could change one thing about the world, what would it be?",
+      "options": ["A) cats and dogs", "B) cats or dogs", "C) cats and cats", "D) dogs and dogs"],
+      "correct": "A"
+    },
+    {
+      "id": 17,
+      "question": "Describe your favorite type of music and why you enjoy it.",
+      "options": ["A) He said that he is tired", "B) He said that he was tired", "C) He said me he was tired", "D) He said I he was tired"],
+      "correct": "B"
+    },
+    {
+      "id": 18,
+      "question": "What are some challenges of modern technology?",
+      "options": ["A) swim", "B) swimming", "C) to swim", "D) swam"],
+      "correct": "B"
+    },
+    {
+      "id": 19,
+      "question": "Describe a book or movie that had a big impact on you.",
+      "options": ["A) i love english", "B) I love English", "C) i Love english", "D) I love english"],
+      "correct": "B"
+    },
+    {
+      "id": 20,
+      "question": "If you could time travel, which era would you visit?",
+      "options": ["A) a", "B) an", "C) the", "D) no article"],
+      "correct": "A"
+    },
+    {
+      "id": 21,
+      "question": "Describe the importance of environmental protection.",
+      "options": ["A) What you are doing?", "B) What are you doing?", "C) What do you doing?", "D) What you do?"],
+      "correct": "B"
+    },
+    {
+      "id": 22,
+      "question": "What are some healthy eating habits you follow?",
+      "options": ["A) to", "B) with", "C) at", "D) on"],
+      "correct": "B"
+    },
+    {
+      "id": 23,
+      "question": "Describe your family and how you spend time together.",
+      "options": ["A) She don't like apples", "B) She doesn't likes apples", "C) She doesn't like apples", "D) She don't likes apples"],
+      "correct": "C"
+    },
+    {
+      "id": 24,
+      "question": "If you could invent something, what would it be?",
+      "options": ["A) eat", "B) eats", "C) eating", "D) eaten"],
+      "correct": "A"
+    },
+    {
+      "id": 25,
+      "question": "Describe the role of education in society.",
+      "options": ["A) book", "B) London", "C) happy", "D) running"],
+      "correct": "B"
+    },
+    {
+      "id": 26,
+      "question": "What are some ways to stay motivated when learning?",
+      "options": ["A) harder", "B) more hard", "C) hardest", "D) hard"],
+      "correct": "A"
+    },
+    {
+      "id": 27,
+      "question": "Describe a difficult decision you had to make.",
+      "options": ["A) run", "B) quickly", "C) beautiful", "D) table"],
+      "correct": "C"
+    },
+    {
+      "id": 28,
+      "question": "If you could have any superpower, what would it be?",
+      "options": ["A) and", "B) quickly", "C) beautiful", "D) in"],
+      "correct": "A"
+    },
+    {
+      "id": 29,
+      "question": "Describe the importance of physical exercise.",
+      "options": ["A) childs", "B) childrens", "C) children", "D) childes"],
+      "correct": "C"
+    },
+    {
+      "id": 30,
+      "question": "What are your plans for the future?",
+      "options": ["A) The students was studying", "B) The students were studying", "C) The student were studying", "D) The students is studying"],
+      "correct": "B"
+    }
+  ],
+  "reading": [
+    {
+      "id": 1,
+      "question": "What is the main topic of the passage?",
+      "options": ["A) The history of the internet", "B) How search engines work", "C) The importance of web browsers", "D) Online shopping trends"],
+      "correct": "B"
+    },
+    {
+      "id": 2,
+      "question": "According to the text, what does 'algorithm' refer to?",
+      "options": ["A) A type of computer", "B) A set of rules for calculations", "C) A web page", "D) An internet connection"],
+      "correct": "B"
+    },
+    {
+      "id": 3,
+      "question": "What is the author's main purpose in writing this passage?",
+      "options": ["A) To criticize search engines", "B) To explain how search engines function", "C) To promote a specific search engine", "D) To discuss internet history"],
+      "correct": "B"
+    },
+    {
+      "id": 4,
+      "question": "Which of the following is NOT mentioned as a factor in search rankings?",
+      "options": ["A) Keywords in content", "B) Number of visitors", "C) Quality of backlinks", "D) Page loading speed"],
+      "correct": "B"
+    },
+    {
+      "id": 5,
+      "question": "What can be inferred about the future of search engines?",
+      "options": ["A) They will become less important", "B) They will continue to evolve", "C) They will be replaced by social media", "D) They will focus only on text searches"],
+      "correct": "B"
+    },
+    {
+      "id": 6,
+      "question": "What is the primary function of a web crawler?",
+      "options": ["A) To display search results", "B) To index web pages", "C) To rank websites", "D) To store user data"],
+      "correct": "B"
+    },
+    {
+      "id": 7,
+      "question": "According to the passage, what has changed about search engines over time?",
+      "options": ["A) They now use more complex algorithms", "B) They have become simpler to use", "C) They focus less on relevance", "D) They require more technical knowledge"],
+      "correct": "A"
+    },
+    {
+      "id": 8,
+      "question": "What does the term 'SEO' stand for?",
+      "options": ["A) Search Engine Optimization", "B) System Engine Operation", "C) Secure Electronic Operation", "D) Software Engineering Organization"],
+      "correct": "A"
+    },
+    {
+      "id": 9,
+      "question": "Why is it important for websites to have good SEO?",
+      "options": ["A) To increase website traffic", "B) To reduce server costs", "C) To improve website design", "D) To enhance security"],
+      "correct": "A"
+    },
+    {
+      "id": 10,
+      "question": "What can readers learn from this passage?",
+      "options": ["A) How to build a search engine", "B) The basics of how search engines work", "C) How to create web pages", "D) The history of the World Wide Web"],
+      "correct": "B"
+    },
+    {
+      "id": 11,
+      "question": "What is the main idea of the first paragraph?",
+      "options": ["A) The invention of the internet", "B) The development of search engines", "C) The growth of online content", "D) The importance of web browsers"],
+      "correct": "C"
+    },
+    {
+      "id": 12,
+      "question": "According to the text, what problem did early search engines face?",
+      "options": ["A) Too many results", "B) Lack of internet users", "C) Slow internet connections", "D) Limited web content"],
+      "correct": "A"
+    },
+    {
+      "id": 13,
+      "question": "What does 'relevance' mean in the context of search engines?",
+      "options": ["A) How fast results appear", "B) How well results match the query", "C) How many results are shown", "D) How secure the search is"],
+      "correct": "B"
+    },
+    {
+      "id": 14,
+      "question": "What role do backlinks play in search rankings?",
+      "options": ["A) They slow down page loading", "B) They indicate website popularity", "C) They provide navigation", "D) They store user preferences"],
+      "correct": "B"
+    },
+    {
+      "id": 15,
+      "question": "What can be inferred about the relationship between search engines and websites?",
+      "options": ["A) Websites control search engines", "B) Search engines control websites", "C) They have a symbiotic relationship", "D) They are completely independent"],
+      "correct": "C"
+    },
+    {
+      "id": 16,
+      "question": "What is the author's tone in this passage?",
+      "options": ["A) Critical", "B) Informative", "C) Persuasive", "D) Humorous"],
+      "correct": "B"
+    },
+    {
+      "id": 17,
+      "question": "What does the passage suggest about the complexity of modern search engines?",
+      "options": ["A) They are becoming simpler", "B) They are becoming more complex", "C) They have remained the same", "D) They are less accurate"],
+      "correct": "B"
+    },
+    {
+      "id": 18,
+      "question": "What is the most important factor for a website's success according to the passage?",
+      "options": ["A) Attractive design", "B) Fast loading speed", "C) High search ranking", "D) Large file size"],
+      "correct": "C"
+    },
+    {
+      "id": 19,
+      "question": "What can readers conclude about the future of SEO?",
+      "options": ["A) It will become obsolete", "B) It will remain important", "C) It will be automated", "D) It will focus on images only"],
+      "correct": "B"
+    },
+    {
+      "id": 20,
+      "question": "What is the overall structure of the passage?",
+      "options": ["A) Problem and solution", "B) Chronological", "C) Compare and contrast", "D) Cause and effect"],
+      "correct": "B"
+    },
+    {
+      "id": 21,
+      "question": "What does the term 'index' refer to in search engine terminology?",
+      "options": ["A) A list of search results", "B) A database of web pages", "C) A ranking system", "D) A user interface"],
+      "correct": "B"
+    },
+    {
+      "id": 22,
+      "question": "According to the passage, what has improved search engine performance?",
+      "options": ["A) Better algorithms", "B) More users", "C) Faster computers", "D) All of the above"],
+      "correct": "D"
+    },
+    {
+      "id": 23,
+      "question": "What is the relationship between keywords and search results?",
+      "options": ["A) Keywords determine rankings", "B) Keywords are ignored", "C) Keywords help match queries", "D) Keywords slow down searches"],
+      "correct": "C"
+    },
+    {
+      "id": 24,
+      "question": "What can be inferred about the author's expertise?",
+      "options": ["A) They are a search engine developer", "B) They have knowledge of SEO", "C) They are a web designer", "D) They are an internet historian"],
+      "correct": "B"
+    },
+    {
+      "id": 25,
+      "question": "What is the main benefit of search engines for users?",
+      "options": ["A) Free internet access", "B) Easy information retrieval", "C) Web page creation", "D) Online advertising"],
+      "correct": "B"
+    },
+    {
+      "id": 26,
+      "question": "What does the passage imply about the internet's growth?",
+      "options": ["A) It has slowed down", "B) It has remained constant", "C) It has accelerated", "D) It has declined"],
+      "correct": "C"
+    },
+    {
+      "id": 27,
+      "question": "What is the most challenging aspect of search engine development?",
+      "options": ["A) Creating algorithms", "B) Building interfaces", "C) Managing databases", "D) All aspects are equally challenging"],
+      "correct": "A"
+    },
+    {
+      "id": 28,
+      "question": "What does the passage suggest about user behavior?",
+      "options": ["A) Users prefer simple searches", "B) Users want detailed results", "C) Users expect fast results", "D) Users avoid using search engines"],
+      "correct": "C"
+    },
+    {
+      "id": 29,
+      "question": "What is the ultimate goal of search engines?",
+      "options": ["A) To make money", "B) To provide relevant information", "C) To replace human research", "D) To control the internet"],
+      "correct": "B"
+    },
+    {
+      "id": 30,
+      "question": "What can readers learn about the evolution of technology from this passage?",
+      "options": ["A) Technology becomes more complex over time", "B) Technology becomes simpler over time", "C) Technology remains unchanged", "D) Technology is unpredictable"],
+      "correct": "A"
+    }
+  ],
+  "writing": [
+    {
+      "id": 1,
+      "question": "Choose the correct sentence structure: 'She ___ to the store yesterday.'",
+      "options": ["A) go", "B) went", "C) going", "D) gone"],
+      "correct": "B"
+    },
+    {
+      "id": 2,
+      "question": "Which word is spelled correctly?",
+      "options": ["A) recieve", "B) receive", "C) recive", "D) receeve"],
+      "correct": "B"
+    },
+    {
+      "id": 3,
+      "question": "Choose the correct preposition: 'I am interested ___ learning English.'",
+      "options": ["A) at", "B) in", "C) on", "D) with"],
+      "correct": "B"
+    },
+    {
+      "id": 4,
+      "question": "Which sentence has the correct punctuation?",
+      "options": ["A) I like pizza, and burgers.", "B) I like pizza and burgers.", "C) I like pizza, and, burgers.", "D) I like pizza and, burgers."],
+      "correct": "A"
+    },
+    {
+      "id": 5,
+      "question": "Choose the correct verb tense: 'I ___ English since 2010.'",
+      "options": ["A) learn", "B) learned", "C) have learned", "D) am learning"],
+      "correct": "C"
+    },
+    {
+      "id": 6,
+      "question": "Which word is a synonym for 'happy'?",
+      "options": ["A) sad", "B) glad", "C) angry", "D) tired"],
+      "correct": "B"
+    },
+    {
+      "id": 7,
+      "question": "Choose the correct article: '___ apple a day keeps the doctor away.'",
+      "options": ["A) A", "B) An", "C) The", "D) No article"],
+      "correct": "B"
+    },
+    {
+      "id": 8,
+      "question": "Which sentence is grammatically correct?",
+      "options": ["A) She don't like apples.", "B) She doesn't likes apples.", "C) She doesn't like apples.", "D) She don't likes apples."],
+      "correct": "C"
+    },
+    {
+      "id": 9,
+      "question": "Choose the correct word order: 'I usually ___ breakfast at 7 AM.'",
+      "options": ["A) eat", "B) eats", "C) eating", "D) eaten"],
+      "correct": "A"
+    },
+    {
+      "id": 10,
+      "question": "Which of these is a proper noun?",
+      "options": ["A) book", "B) London", "C) happy", "D) running"],
+      "correct": "B"
+    },
+    {
+      "id": 11,
+      "question": "Choose the correct comparative form: 'This test is ___ than the last one.'",
+      "options": ["A) harder", "B) more hard", "C) hardest", "D) hard"],
+      "correct": "A"
+    },
+    {
+      "id": 12,
+      "question": "Which word is an adjective?",
+      "options": ["A) run", "B) quickly", "C) beautiful", "D) table"],
+      "correct": "C"
+    },
+    {
+      "id": 13,
+      "question": "Choose the correct modal verb: 'You ___ study harder to pass the exam.'",
+      "options": ["A) can", "B) may", "C) must", "D) should"],
+      "correct": "C"
+    },
+    {
+      "id": 14,
+      "question": "Which sentence uses the correct passive voice?",
+      "options": ["A) The cake was ate by me.", "B) The cake was eaten by me.", "C) I was eat the cake.", "D) I was eaten the cake."],
+      "correct": "B"
+    },
+    {
+      "id": 15,
+      "question": "Choose the correct pronoun: 'This book belongs to me. It is ___.'",
+      "options": ["A) mine", "B) my", "C) me", "D) I"],
+      "correct": "A"
+    },
+    {
+      "id": 16,
+      "question": "Which word is a conjunction?",
+      "options": ["A) and", "B) quickly", "C) beautiful", "D) running"],
+      "correct": "A"
+    },
+    {
+      "id": 17,
+      "question": "Choose the correct plural form: 'One child, two ___.'",
+      "options": ["A) childs", "B) childrens", "C) children", "D) childes"],
+      "correct": "C"
+    },
+    {
+      "id": 18,
+      "question": "Which sentence has the correct subject-verb agreement?",
+      "options": ["A) The students was studying.", "B) The students were studying.", "C) The student were studying.", "D) The students is studying."],
+      "correct": "B"
+    },
+    {
+      "id": 19,
+      "question": "Choose the correct phrasal verb: 'Please ___ the volume on the TV.'",
+      "options": ["A) turn on", "B) turn off", "C) turn up", "D) turn down"],
+      "correct": "D"
+    },
+    {
+      "id": 20,
+      "question": "Which word is an adverb?",
+      "options": ["A) quick", "B) quickly", "C) beauty", "D) run"],
+      "correct": "B"
+    },
+    {
+      "id": 21,
+      "question": "Choose the correct conditional: 'If I ___ rich, I would travel the world.'",
+      "options": ["A) am", "B) was", "C) were", "D) be"],
+      "correct": "C"
+    },
+    {
+      "id": 22,
+      "question": "Which of these is a compound sentence?",
+      "options": ["A) I like pizza.", "B) I like pizza and I like burgers.", "C) I like pizza, but I don't like burgers.", "D) Because I like pizza."],
+      "correct": "C"
+    },
+    {
+      "id": 23,
+      "question": "Choose the correct idiom: 'It's raining ___, so we can't go outside.'",
+      "options": ["A) cats and dogs", "B) cats or dogs", "C) cats and cats", "D) dogs and dogs"],
+      "correct": "A"
+    },
+    {
+      "id": 24,
+      "question": "Which word is a preposition?",
+      "options": ["A) quickly", "B) beautiful", "C) and", "D) in"],
+      "correct": "D"
+    },
+    {
+      "id": 25,
+      "question": "Choose the correct relative pronoun: 'The man ___ lives next door is a doctor.'",
+      "options": ["A) who", "B) which", "C) where", "D) whom"],
+      "correct": "A"
+    },
+    {
+      "id": 26,
+      "question": "Which sentence uses the correct reported speech?",
+      "options": ["A) He said me he was tired.", "B) He said that he was tired.", "C) He said I he was tired.", "D) He said that I was tired."],
+      "correct": "B"
+    },
+    {
+      "id": 27,
+      "question": "Choose the correct gerund: 'I enjoy ___ in my free time.'",
+      "options": ["A) read", "B) reading", "C) to read", "D) reads"],
+      "correct": "B"
+    },
+    {
+      "id": 28,
+      "question": "Which of these shows correct capitalization?",
+      "options": ["A) i love english", "B) I love English", "C) i Love english", "D) I love english"],
+      "correct": "B"
+    },
+    {
+      "id": 29,
+      "question": "Choose the correct collocation: 'Make ___ mistake.'",
+      "options": ["A) a", "B) an", "C) the", "D) no article"],
+      "correct": "A"
+    },
+    {
+      "id": 30,
+      "question": "Which sentence has the correct question form?",
+      "options": ["A) What you are doing?", "B) What are you doing?", "C) What do you doing?", "D) What you do?"],
+      "correct": "B"
+    }
+  ]
+}
