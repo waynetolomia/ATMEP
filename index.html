@@ -16,7 +16,10 @@
             <form id="login-form">
                 <input type="text" id="student-id" placeholder="Student ID" required>
                 <input type="text" id="student-name" placeholder="Full Name" required>
-                <input type="password" id="access-key" placeholder="Access Key" required>
+                <div class="password-wrapper">
+                    <input type="password" id="access-key" placeholder="Access Key" required>
+                    <button type="button" id="toggle-password" title="Show/Hide Access Key">👁️</button>
+                </div>
                 <button type="submit" class="btn-primary">Start Exam</button>
             </form>
         </div>

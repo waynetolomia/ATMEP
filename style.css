@@ -71,6 +71,39 @@ body {
     text-align: center;
 }
 
+#login-form .password-wrapper {
+    width: 80%;
+    max-width: 300px;
+    position: relative;
+}
+
+#login-form .password-wrapper input {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    padding-right: 40px; /* Make room for the eye icon */
+}
+
+#toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: none;
+    min-width: auto;
+}
+
+#toggle-password:hover {
+    background: transparent;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: none;
+}
+
 #login-form input:focus {
     outline: none;
     border-color: #3b82f6;

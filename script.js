@@ -303,6 +303,18 @@ document.addEventListener('DOMContentLoaded', async function() {
     renderSection(1); // Render first section
 });
 
+// Toggle Password Visibility
+const togglePasswordBtn = document.getElementById('toggle-password');
+const accessKeyInput = document.getElementById('access-key');
+if (togglePasswordBtn && accessKeyInput) {
+    togglePasswordBtn.addEventListener('click', function() {
+        const type = accessKeyInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        accessKeyInput.setAttribute('type', type);
+        // Switch between eye and eye-slash/monkey emoji
+        this.textContent = type === 'password' ? '👁️' : '🙈';
+    });
+}
+
 // 1. Handle Login
 document.getElementById('login-form').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -319,11 +331,13 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
         return;
     }
 
-    if (!validAccessKeys.includes(enteredKey)) {
+    const isMasterKey = (enteredKey === 'ATMEPMASTER');
+
+    if (!isMasterKey && !validAccessKeys.includes(enteredKey)) {
         alert('Invalid Access Key! Please check and try again. (Make sure you use a valid ATMEP****** key)');
         return;
     }
-    if (usedKeys.includes(enteredKey)) {
+    if (!isMasterKey && usedKeys.includes(enteredKey)) {
         alert('This Access Key has already been used to complete an exam.');
         return;
     }
@@ -475,7 +489,7 @@ function submitExam() {
 
     // 2. Mark this key as used to prevent reuse
     const usedKeys = JSON.parse(localStorage.getItem('used_keys') || '[]');
-    if (!usedKeys.includes(currentAccessKey)) {
+    if (currentAccessKey !== 'ATMEPMASTER' && !usedKeys.includes(currentAccessKey)) {
         usedKeys.push(currentAccessKey);
         localStorage.setItem('used_keys', JSON.stringify(usedKeys));
     }
