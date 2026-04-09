@@ -46,12 +46,12 @@ function adminLogout() {
 
 async function loadRecords() {
     const tbody = document.getElementById('records-body');
-    tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px;">Loading records...</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 20px;">Loading records...</td></tr>';
     
     try {
         const snapshot = await db.collection('exam_records').orderBy('timestamp', 'desc').get();
         if (snapshot.empty) {
-            tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px;">No exam records found yet.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 20px;">No exam records found yet.</td></tr>';
             return;
         }
         
@@ -60,14 +60,14 @@ async function loadRecords() {
             const r = doc.data();
             html += `<tr>
                 <td>${r.date}</td><td><strong>${r.studentId}</strong></td>
-                <td>${r.studentName}</td><td><strong>${r.score}</strong></td>
+                <td>${r.studentName}</td><td>${r.accessKey || 'N/A'}</td><td><strong>${r.score}</strong></td>
                 <td>${r.percentage}</td><td>${r.duration}</td>
             </tr>`;
         });
         tbody.innerHTML = html;
     } catch (error) {
         console.error("Error loading records:", error);
-        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px; color: red;">Error loading records.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 20px; color: red;">Error loading records.</td></tr>';
     }
 }
 
@@ -146,10 +146,10 @@ async function exportToCSV() {
             alert('No records available to export.');
             return;
         }
-        const headers = ['Date', 'Student ID', 'Name', 'Score', 'Percentage', 'Duration'];
+        const headers = ['Date', 'Student ID', 'Name', 'Access Key', 'Score', 'Percentage', 'Duration'];
         const rows = snapshot.docs.map(doc => {
             const r = doc.data();
-            return `"${r.date}","${r.studentId}","${r.studentName}","${r.score}","${r.percentage}","${r.duration}"`;
+            return `"${r.date}","${r.studentId}","${r.studentName}","${r.accessKey || 'N/A'}","${r.score}","${r.percentage}","${r.duration}"`;
         });
         const csvContent = [headers.join(','), ...rows].join('\n');
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });

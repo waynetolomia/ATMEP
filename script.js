@@ -571,6 +571,7 @@ async function submitExam() {
     const examRecord = {
         studentId,
         studentName,
+        accessKey: currentAccessKey,
         score: `${score}/${totalQuestions}`,
         percentage: `${percentage}%`,
         duration: durationStr,
