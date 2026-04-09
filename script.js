@@ -154,6 +154,12 @@ function renderSection(sectionNum) {
             `;
         }
 
+        let nextBtnHtml = '';
+        if (index < sectionData.length - 1) {
+            const nextQ = sectionData[index + 1];
+            nextBtnHtml = `<div style="text-align: right; margin-top: 15px;"><button type="button" class="btn-secondary" style="padding: 8px 16px; font-size: 13px;" onclick="showQuestion('question-container-${nextQ.id}')">Next Question ➔</button></div>`;
+        }
+
         return `
         <div class="question" id="question-container-${q.id}" style="display: none;">
             ${audioHtml}
@@ -166,6 +172,7 @@ function renderSection(sectionNum) {
                     return `<label><input type="radio" name="${q.id}" value="${value}" ${checked} onchange="markAnswered('${q.id}')"> ${option}</label><br>`;
                 }).join('')}
             </div>
+            ${nextBtnHtml}
         </div>
     `;
     }).join('');
