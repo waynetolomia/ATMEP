@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <video autoplay muted loop playsinline class="bg-video">
-        <source src="background.mp4" type="video/mp4">
-    </video>
+    <div class="bg-video-container">
+        <video id="bg-vid-1" autoplay muted playsinline class="bg-video active">
+            <source src="background.mp4" type="video/mp4">
+        </video>
+        <video id="bg-vid-2" muted playsinline class="bg-video">
+            <source src="background.mp4" type="video/mp4">
+        </video>
+    </div>
 
     <div class="container" style="max-width: 1000px;">
         <header class="exam-header">

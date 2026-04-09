@@ -25,15 +25,29 @@ body {
     box-sizing: border-box;
 }
 
-.bg-video {
+.bg-video-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
     z-index: -1;
     pointer-events: none;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.bg-video.active {
+    opacity: 1;
 }
 
 .container {
@@ -340,13 +354,6 @@ button {
     font-size: 16px;
 }
 
-.audio-controls audio {
-    width: 100%;
-    border-radius: 4px;
-    background-color: #0B0E14;
-    border: 1px solid var(--border-glass);
-}
-
 .reading-passage {
     background: rgba(15, 23, 42, 0.4);
     backdrop-filter: blur(10px);
@@ -471,18 +478,72 @@ button {
     white-space: pre-wrap;
 }
 
-.audio-controls audio::-webkit-media-controls-panel {
-    background-color: #f8fafc;
-    border-radius: 4px;
+/* Custom Audio Player */
+.audio-badge {
+    font-size: 12px;
+    color: var(--secondary);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: 600;
 }
 
-.audio-controls audio::-webkit-media-controls-play-button {
-    background-color: var(--primary);
+.custom-audio-player {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(15, 23, 42, 0.8);
+    padding: 12px 18px;
+    border-radius: 24px;
+    border: 1px solid var(--border-glass);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.play-btn {
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
+    background: var(--primary-grad);
+    border: none;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(168, 85, 247, 0.4);
+    transition: all 0.3s ease;
+    padding: 0;
+    flex-shrink: 0;
 }
 
-.audio-controls audio::-webkit-media-controls-current-time-display,
-.audio-controls audio::-webkit-media-controls-time-remaining-display {
-    color: var(--primary);
-    font-weight: bold;
+.play-btn:hover {
+    transform: scale(1.1);
+    box-shadow: var(--glow);
+}
+
+.progress-container {
+    flex-grow: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--primary-grad);
+    border-radius: 4px;
+    transition: width 0.1s linear;
+    box-shadow: var(--glow);
+}
+
+.time-display {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--secondary);
+    font-variant-numeric: tabular-nums;
+    min-width: 80px;
+    text-align: right;
 }

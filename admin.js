@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadRecords();
     await syncKeysWithJSON();
     await loadKeys();
+    setupSmoothVideoLoop();
 });
 
 async function syncKeysWithJSON() {
@@ -206,4 +207,31 @@ async function exportRecordsToJSON() {
     } catch (error) {
         console.error("Export records error:", error);
     }
+}
+
+// --- Smooth Background Video Loop ---
+function setupSmoothVideoLoop() {
+    const vid1 = document.getElementById('bg-vid-1');
+    const vid2 = document.getElementById('bg-vid-2');
+    if (!vid1 || !vid2) return;
+
+    let activeVid = vid1;
+    let inactiveVid = vid2;
+    const crossfadeDuration = 1.5; // 1.5 seconds crossfade
+
+    function checkTime() {
+        if (activeVid.duration && activeVid.currentTime >= activeVid.duration - crossfadeDuration) {
+            inactiveVid.currentTime = 0;
+            inactiveVid.play();
+            inactiveVid.classList.add('active');
+            activeVid.classList.remove('active');
+            
+            const temp = activeVid;
+            activeVid = inactiveVid;
+            inactiveVid = temp;
+        }
+        requestAnimationFrame(checkTime);
+    }
+    
+    requestAnimationFrame(checkTime);
 }

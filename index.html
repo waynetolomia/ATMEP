@@ -9,9 +9,14 @@
 </head>
 <body>
 
-    <video autoplay muted loop playsinline class="bg-video">
-        <source src="background.mp4" type="video/mp4">
-    </video>
+    <div class="bg-video-container">
+        <video id="bg-vid-1" autoplay muted playsinline class="bg-video active">
+            <source src="background.mp4" type="video/mp4">
+        </video>
+        <video id="bg-vid-2" muted playsinline class="bg-video">
+            <source src="background.mp4" type="video/mp4">
+        </video>
+    </div>
 
     <div id="login-container" class="container">
         <div class="card">
@@ -26,6 +31,41 @@
                 </div>
                 <button type="submit" class="btn-primary">Start Exam</button>
             </form>
+        </div>
+    </div>
+
+    <div id="intro-container" class="container hidden">
+        <div class="card" style="text-align: left;">
+            <h2 style="text-align: center; color: var(--primary); margin-top: 0;">ATMEP - AMCOL Test of Maritime English Proficiency Structure</h2>
+            <p style="text-align: center; color: var(--secondary); margin-bottom: 30px;">The examination consists of four core skills, totaling 120 multiple-choice and performance-based items.</p>
+            
+            <h3 style="color: #06B6D4;">1. Listening Skill (30 Items)</h3>
+            <ul style="color: #cbd5e1; line-height: 1.6; margin-bottom: 20px;">
+                <li><strong style="color: #ffffff;">VHF Communication:</strong> Understanding ship-to-shore and ship-to-ship radio exchanges.</li>
+                <li><strong style="color: #ffffff;">Operational Talks:</strong> Comprehending safety briefings, weather reports, and internal engine room/bridge commands.</li>
+            </ul>
+
+            <h3 style="color: #06B6D4;">2. Speaking Skill (30 Items)</h3>
+            <ul style="color: #cbd5e1; line-height: 1.6; margin-bottom: 20px;">
+                <li><strong style="color: #ffffff;">Question-Response:</strong> Providing immediate, clear answers to technical and safety-related inquiries.</li>
+                <li><strong style="color: #ffffff;">SMCP Simulation:</strong> Completing professional dialogues using Standard Marine Communication Phrases in simulated environments.</li>
+            </ul>
+
+            <h3 style="color: #06B6D4;">3. Reading Skill (30 Items)</h3>
+            <ul style="color: #cbd5e1; line-height: 1.6; margin-bottom: 20px;">
+                <li><strong style="color: #ffffff;">Technical Information:</strong> Scanning manuals, diagrams, and machinery specifications for specific data.</li>
+                <li><strong style="color: #ffffff;">Regulatory Literacy:</strong> Interpreting main ideas from international codes such as SOLAS, MARPOL, and IMDG.</li>
+            </ul>
+
+            <h3 style="color: #06B6D4;">4. Writing Skill (30 Items)</h3>
+            <ul style="color: #cbd5e1; line-height: 1.6; margin-bottom: 30px;">
+                <li><strong style="color: #ffffff;">Grammatical Precision:</strong> Completing sentences with correct maritime terminology and technical parts of speech.</li>
+                <li><strong style="color: #ffffff;">Professional Documentation:</strong> Ability to identify and restore missing critical data in pre-formatted maritime documents, accurate logbook entries, incident reports, and formal maritime correspondence.</li>
+            </ul>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button id="proceed-btn" class="btn-success" style="font-size: 16px; padding: 15px 30px;">Proceed to Exam</button>
+            </div>
         </div>
     </div>
 

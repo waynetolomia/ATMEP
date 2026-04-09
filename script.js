@@ -229,28 +229,93 @@ function setupAudioLimits(sectionNum) {
         audioEl.addEventListener('play', function () {
             audioPlayCounts[audioId] = audioPlayCounts[audioId] || 0;
 
-            if (audioPlayCounts[audioId] >= 2) {
-                audioEl.pause();
-                audioEl.currentTime = 0;
-                const statusEl = document.getElementById(`audio-limit-${audioId}`);
-                if (statusEl) {
-                    statusEl.textContent = 'Audio play limit reached.';
+            // Only count as a new play if starting from the beginning
+            if (audioEl.currentTime === 0) {
+                if (audioPlayCounts[audioId] >= 2) {
+                    audioEl.pause();
+                    const statusEl = document.getElementById(`audio-limit-${audioId}`);
+                    if (statusEl) {
+                        statusEl.textContent = 'Limit reached';
+                        statusEl.style.color = '#ef4444';
+                    }
+                    const btn = document.getElementById(`play-btn-${audioId}`);
+                    if (btn) btn.innerHTML = '▶';
+                    alert('This audio can only be played twice.');
+                    return;
                 }
-                alert('This audio can only be played twice.');
-                return;
+                audioPlayCounts[audioId] += 1;
             }
 
-            audioPlayCounts[audioId] += 1;
             const statusEl = document.getElementById(`audio-limit-${audioId}`);
             if (statusEl) {
                 if (audioPlayCounts[audioId] === 1) {
-                    statusEl.textContent = 'Played 1 of 2 times.';
+                    statusEl.textContent = '1 play remaining';
                 } else if (audioPlayCounts[audioId] === 2) {
-                    statusEl.textContent = 'Last allowed play. One more time only.';
+                    statusEl.textContent = 'Last play';
+                    statusEl.style.color = '#f59e0b'; // Warning orange
+                }
+            }
+        });
+
+        audioEl.addEventListener('ended', function () {
+            const btn = document.getElementById(`play-btn-${audioId}`);
+            if (btn) btn.innerHTML = '▶';
+            
+            // Reset current time to 0 so next play counts as a new play
+            audioEl.currentTime = 0;
+
+            if (audioPlayCounts[audioId] >= 2) {
+                const statusEl = document.getElementById(`audio-limit-${audioId}`);
+                if (statusEl) {
+                    statusEl.textContent = 'Limit reached';
+                    statusEl.style.color = '#ef4444';
                 }
             }
         });
     });
+}
+
+// --- Custom Audio Player Logic ---
+function toggleAudio(id) {
+    const audio = document.getElementById(`audio-${id}`);
+    const btn = document.getElementById(`play-btn-${id}`);
+    
+    if (audio.paused) {
+        if (audioPlayCounts[id] >= 2 && audio.currentTime === 0) {
+            alert('This audio can only be played twice.');
+            return;
+        }
+        audio.play();
+        btn.innerHTML = '⏸'; // Pause icon
+    } else {
+        audio.pause();
+        btn.innerHTML = '▶'; // Play icon
+    }
+}
+
+function updateProgress(id) {
+    const audio = document.getElementById(`audio-${id}`);
+    const progress = document.getElementById(`progress-${id}`);
+    const timeDisplay = document.getElementById(`time-${id}`);
+    
+    if (audio.duration) {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progress.style.width = `${percent}%`;
+        timeDisplay.innerText = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+    }
+}
+
+function setTotalTime(id) {
+    const audio = document.getElementById(`audio-${id}`);
+    const timeDisplay = document.getElementById(`time-${id}`);
+    timeDisplay.innerText = `0:00 / ${formatTime(audio.duration)}`;
+}
+
+function formatTime(seconds) {
+    if (isNaN(seconds)) return "0:00";
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return `${m}:${s < 10 ? '0' + s : s}`;
 }
 
 function getSectionTitle(sectionNum) {
@@ -308,6 +373,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     await loadAccessKeys();
     await generateQuestions();
     renderSection(1); // Render first section
+    setupSmoothVideoLoop();
 });
 
 // Toggle Password Visibility
@@ -363,25 +429,35 @@ document.getElementById('login-form').addEventListener('submit', async function(
     studentName = document.getElementById('student-name').value;
     currentAccessKey = enteredKey;
     
-    // Start or resume timer (handles accidental page reloads)
+    document.getElementById('login-container').classList.add('hidden');
+    
+    // Check if resuming an already started exam
     let savedStartTime = localStorage.getItem(`exam_start_${currentAccessKey}`);
     if (savedStartTime) {
         examStartTime = parseInt(savedStartTime, 10);
+        document.getElementById('exam-container').classList.remove('hidden');
+        document.getElementById('student-display').innerText = `Student: ${studentName} (${studentId})`;
+        loadAnswers();
+        const elapsedSeconds = (Date.now() - examStartTime) / 1000;
+        const remainingMinutes = Math.max(0, (7200 - elapsedSeconds) / 60);
+        startTimer(remainingMinutes); 
     } else {
-        examStartTime = Date.now();
-        localStorage.setItem(`exam_start_${currentAccessKey}`, examStartTime);
+        // Fresh exam, show introduction page first
+        document.getElementById('intro-container').classList.remove('hidden');
     }
+});
+
+// Proceed to Exam from Intro Page
+document.getElementById('proceed-btn').addEventListener('click', function() {
+    examStartTime = Date.now();
+    localStorage.setItem(`exam_start_${currentAccessKey}`, examStartTime);
     
-    // Switch UI
-    document.getElementById('login-container').classList.add('hidden');
+    document.getElementById('intro-container').classList.add('hidden');
     document.getElementById('exam-container').classList.remove('hidden');
     document.getElementById('student-display').innerText = `Student: ${studentName} (${studentId})`;
     
-    loadAnswers(); // Load any previously saved answers
-    
-    const elapsedSeconds = (Date.now() - examStartTime) / 1000;
-    const remainingMinutes = Math.max(0, (7200 - elapsedSeconds) / 60); // 120 mins = 7200 sec
-    startTimer(remainingMinutes); 
+    loadAnswers();
+    startTimer(120); 
 });
 
 // 2. Navigation Logic
@@ -550,3 +626,30 @@ function downloadResult() {
 document.addEventListener('contextmenu', e => e.preventDefault()); // Disable right-click
 document.addEventListener('copy', e => e.preventDefault()); // Disable copying text
 document.addEventListener('selectstart', e => e.preventDefault()); // Disable text highlighting
+
+// --- Smooth Background Video Loop ---
+function setupSmoothVideoLoop() {
+    const vid1 = document.getElementById('bg-vid-1');
+    const vid2 = document.getElementById('bg-vid-2');
+    if (!vid1 || !vid2) return;
+
+    let activeVid = vid1;
+    let inactiveVid = vid2;
+    const crossfadeDuration = 1.5; // 1.5 seconds crossfade
+
+    function checkTime() {
+        if (activeVid.duration && activeVid.currentTime >= activeVid.duration - crossfadeDuration) {
+            inactiveVid.currentTime = 0;
+            inactiveVid.play();
+            inactiveVid.classList.add('active');
+            activeVid.classList.remove('active');
+            
+            const temp = activeVid;
+            activeVid = inactiveVid;
+            inactiveVid = temp;
+        }
+        requestAnimationFrame(checkTime);
+    }
+    
+    requestAnimationFrame(checkTime);
+}
