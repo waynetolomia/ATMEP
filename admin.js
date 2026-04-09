@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // Check if the user is authenticated as an admin
+    if (sessionStorage.getItem('atmep_admin_auth') !== 'true') {
+        window.location.replace('index.html');
+        return;
+    }
+
     await loadRecords();
     await syncKeysWithJSON();
     await loadKeys();
@@ -30,6 +36,11 @@ function switchTab(tab) {
 
     document.getElementById(`${tab}-section`).classList.remove('hidden');
     document.getElementById(`tab-${tab}`).classList.add('active');
+}
+
+function adminLogout() {
+    sessionStorage.removeItem('atmep_admin_auth');
+    window.location.replace('index.html');
 }
 
 async function loadRecords() {

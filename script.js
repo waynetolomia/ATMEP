@@ -132,14 +132,14 @@ function renderSection(sectionNum) {
 
         if (sectionNum === 1 && q.audio) {
             audioHtml = `
-                <div class="audio-controls" style="margin-bottom: 15px; padding: 10px; background-color: #f8fafc; border-radius: 5px; border: 1px solid #e6f0ff;">
-                    <p style="margin: 0 0 10px 0; font-weight: bold; color: #001f3f;">Listen to the audio:</p>
+                <div class="audio-controls" style="margin-bottom: 15px; padding: 10px; border-radius: 16px;">
+                    <p style="margin: 0 0 10px 0; font-weight: bold;">Listen to the audio:</p>
                     <audio controls style="width: 100%;" data-audio-id="${q.id}">
                         <source src="${q.audio}" type="audio/mpeg">
                         <source src="${q.audio.replace('.mp3', '.wav')}" type="audio/wav">
                         Your browser does not support the audio element.
                     </audio>
-                    <p id="audio-limit-${q.id}" style="margin: 10px 0 0 0; font-size: 14px; color: #64748b;">Click play to listen, then answer the question below.</p>
+                    <p id="audio-limit-${q.id}" style="margin: 10px 0 0 0; font-size: 14px; color: var(--secondary);">Click play to listen, then answer the question below.</p>
                 </div>
             `;
         }
@@ -147,7 +147,7 @@ function renderSection(sectionNum) {
         let passageHtml = '';
         if (q.passage) {
             passageHtml = `
-                <div class="reading-passage" style="text-align: justify;">
+                <div class="reading-passage" style="text-align: justify; border-radius: 16px;">
                     <strong>${sectionNum === 3 ? 'Reading Passage:' : 'Writing Passage:'}</strong>
                     <p>${q.passage}</p>
                 </div>
@@ -343,6 +343,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
 
     // Check for admin credentials
     if (inputStudentId === 'admin01' && inputStudentName === 'admin' && enteredKey === 'admin0701') {
+        sessionStorage.setItem('atmep_admin_auth', 'true');
         window.location.href = 'admin.html';
         return;
     }
