@@ -450,8 +450,20 @@ document.getElementById('login-form').addEventListener('submit', async function(
         startTimer(remainingMinutes); 
     } else {
         // Fresh exam, show introduction page first
-        document.getElementById('intro-container').classList.remove('hidden');
+        document.getElementById('headphone-test-container').classList.remove('hidden');
     }
+});
+
+// Proceed from Headphone Test to Intro
+document.getElementById('proceed-to-intro-btn').addEventListener('click', function() {
+    // Stop any audio that might be playing from the test
+    const testAudio = document.getElementById('headphone-test-audio');
+    if (testAudio) {
+        testAudio.pause();
+        testAudio.currentTime = 0;
+    }
+    document.getElementById('headphone-test-container').classList.add('hidden');
+    document.getElementById('intro-container').classList.remove('hidden');
 });
 
 // Proceed to Exam from Intro Page

@@ -34,6 +34,27 @@
         </div>
     </div>
 
+    <!-- Headphone Test Container -->
+    <div id="headphone-test-container" class="container hidden">
+        <div class="card">
+            <h2 style="color: #06B6D4; margin-top: 0;">Headphone Check</h2>
+            <p>Before you begin, please make sure your headphones are working correctly.</p>
+            <p>Click the play button below. You should hear a sound. Adjust your volume to a comfortable level.</p>
+            
+            <div class="audio-controls" style="margin-top: 25px; margin-bottom: 25px;">
+                <p style="margin: 0 0 10px 0; font-weight: bold;">Test Audio:</p>
+                <audio controls id="headphone-test-audio" style="width: 100%;">
+                    <source src="audio/listening_test.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <p>If you can hear the audio clearly, click "Continue" to proceed to the exam instructions.</p>
+            
+            <button id="proceed-to-intro-btn" type="button" class="btn-primary" style="margin-top: 20px;">Continue</button>
+        </div>
+    </div>
+
     <div id="intro-container" class="container hidden">
         <div class="card" style="text-align: left;">
             <h2 style="text-align: center; color: var(--primary); margin-top: 0;">ATMEP - AMCOL Test of Maritime English Proficiency Structure</h2>

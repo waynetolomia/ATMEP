@@ -46,28 +46,67 @@ function adminLogout() {
 
 async function loadRecords() {
     const tbody = document.getElementById('records-body');
-    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 20px;">Loading records...</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 20px;">Loading records...</td></tr>';
     
+    // Inject bulk actions UI dynamically
+    let actionsContainer = document.getElementById('bulk-actions-container');
+    if (!actionsContainer) {
+        const table = tbody.closest('table');
+        if (table) {
+            actionsContainer = document.createElement('div');
+            actionsContainer.id = 'bulk-actions-container';
+            actionsContainer.style.marginBottom = '15px';
+            actionsContainer.style.display = 'flex';
+            actionsContainer.style.gap = '10px';
+            actionsContainer.style.alignItems = 'center';
+            actionsContainer.style.flexWrap = 'wrap';
+            actionsContainer.innerHTML = `
+                <input type="checkbox" id="select-all-cb" style="margin-right: 5px; transform: scale(1.2); cursor: pointer;" onchange="toggleSelectAll()">
+                <label for="select-all-cb" style="margin-right: 15px; cursor: pointer; color: #f8fafc; font-weight: bold;">Select All</label>
+                <button class="btn-secondary" style="padding: 8px 15px; font-size: 13px;" onclick="exportSelectedCSV()">Export Selected (CSV)</button>
+                <button class="btn-secondary" style="padding: 8px 15px; font-size: 13px;" onclick="exportSelectedJSON()">Export Selected (JSON)</button>
+                <button class="btn-secondary" style="padding: 8px 15px; font-size: 13px; background: #dc2626;" onclick="deleteSelected()">Delete Selected</button>
+            `;
+            table.parentNode.insertBefore(actionsContainer, table);
+            
+            const theadRow = table.querySelector('thead tr');
+            if (theadRow && !document.getElementById('th-select')) {
+                const th = document.createElement('th');
+                th.id = 'th-select';
+                th.innerText = 'Select';
+                theadRow.insertBefore(th, theadRow.firstChild);
+            }
+        }
+    }
+
     try {
         const snapshot = await db.collection('exam_records').orderBy('timestamp', 'desc').get();
         if (snapshot.empty) {
-            tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 20px;">No exam records found yet.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 20px;">No exam records found yet.</td></tr>';
+            if (actionsContainer) actionsContainer.style.display = 'none';
             return;
         }
+        
+        if (actionsContainer) actionsContainer.style.display = 'flex';
         
         let html = '';
         snapshot.forEach(doc => {
             const r = doc.data();
+            const recordData = encodeURIComponent(JSON.stringify(r));
             html += `<tr>
+                <td><input type="checkbox" class="record-chk" value="${doc.id}" data-record="${recordData}" style="transform: scale(1.2); cursor: pointer;"></td>
                 <td>${r.date}</td><td><strong>${r.studentId}</strong></td>
                 <td>${r.studentName}</td><td>${r.accessKey || 'N/A'}</td><td><strong>${r.score}</strong></td>
                 <td>${r.percentage}</td><td>${r.duration}</td>
             </tr>`;
         });
         tbody.innerHTML = html;
+
+        const selectAllCb = document.getElementById('select-all-cb');
+        if (selectAllCb) selectAllCb.checked = false;
     } catch (error) {
         console.error("Error loading records:", error);
-        tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 20px; color: red;">Error loading records.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 20px; color: red;">Error loading records.</td></tr>';
     }
 }
 
@@ -234,4 +273,79 @@ function setupSmoothVideoLoop() {
     }
     
     requestAnimationFrame(checkTime);
+}
+
+// --- Bulk Action Functions ---
+function toggleSelectAll() {
+    const isChecked = document.getElementById('select-all-cb').checked;
+    const checkboxes = document.querySelectorAll('.record-chk');
+    checkboxes.forEach(cb => cb.checked = isChecked);
+}
+
+async function deleteSelected() {
+    const selected = Array.from(document.querySelectorAll('.record-chk:checked')).map(cb => cb.value);
+    if (selected.length === 0) {
+        alert('No records selected to delete.');
+        return;
+    }
+    
+    if (confirm(`Are you sure you want to delete ${selected.length} selected record(s)? This cannot be undone.`)) {
+        try {
+            const batches = [];
+            let currentBatch = db.batch();
+            let operationCount = 0;
+
+            selected.forEach(id => {
+                currentBatch.delete(db.collection('exam_records').doc(id));
+                operationCount++;
+                if (operationCount === 500) {
+                    batches.push(currentBatch.commit());
+                    currentBatch = db.batch();
+                    operationCount = 0;
+                }
+            });
+
+            if (operationCount > 0) batches.push(currentBatch.commit());
+
+            await Promise.all(batches);
+            await loadRecords(); // Reload the table
+        } catch (error) {
+            console.error("Error deleting selected records:", error);
+            alert("Failed to delete records.");
+        }
+    }
+}
+
+function exportSelectedCSV() {
+    const selected = Array.from(document.querySelectorAll('.record-chk:checked'));
+    if (selected.length === 0) return alert('No records selected to export.');
+    
+    const headers = ['Date', 'Student ID', 'Name', 'Access Key', 'Score', 'Percentage', 'Duration'];
+    const rows = selected.map(cb => {
+        const r = JSON.parse(decodeURIComponent(cb.dataset.record));
+        return `"${r.date}","${r.studentId}","${r.studentName}","${r.accessKey || 'N/A'}","${r.score}","${r.percentage}","${r.duration}"`;
+    });
+    
+    const csvContent = [headers.join(','), ...rows].join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'Selected_Student_Records.csv';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+function exportSelectedJSON() {
+    const selected = Array.from(document.querySelectorAll('.record-chk:checked'));
+    if (selected.length === 0) return alert('No records selected to export.');
+    
+    const records = selected.map(cb => JSON.parse(decodeURIComponent(cb.dataset.record)));
+    const blob = new Blob([JSON.stringify({ exam_records: records }, null, 2)], { type: 'application/json' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'Selected_Student_Records.json';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
