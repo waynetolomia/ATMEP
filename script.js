@@ -57,6 +57,15 @@ async function loadQuestions() {
     }
 }
 
+// Utility function to shuffle an array in-place (Fisher-Yates)
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 // Generate questions for each section
 async function generateQuestions() {
     await loadQuestions();
@@ -68,8 +77,9 @@ async function generateQuestions() {
         4: []
     };
 
-    // Section 1: Listening
-    questionsData.listening.forEach((q, index) => {
+    // Section 1: Listening (Randomize all 30)
+    const listeningQuestions = shuffle([...questionsData.listening]);
+    listeningQuestions.forEach((q, index) => {
         const qNum = index + 1;
         sectionQuestions[1].push({
             id: `q${qNum}`,
@@ -80,18 +90,22 @@ async function generateQuestions() {
         });
     });
 
-    // Section 2: Speaking
-    questionsData.speaking.forEach((q, index) => {
+    // Section 2: Speaking (Randomize first 12)
+    const speakingToShuffle = questionsData.speaking.slice(0, 12);
+    const speakingToKeep = questionsData.speaking.slice(12);
+    const finalSpeakingOrder = shuffle(speakingToShuffle).concat(speakingToKeep);
+    finalSpeakingOrder.forEach((q, index) => {
         const qNum = index + 1 + questionsPerSection;
         sectionQuestions[2].push({
             id: `q${qNum}`,
             question: `Question ${qNum - questionsPerSection}: ${q.question}`,
             options: q.options,
-            correct: q.correct
+            correct: q.correct,
+            context: q.context
         });
     });
 
-    // Section 3: Reading
+    // Section 3: Reading (No change)
     questionsData.reading.forEach((q, index) => {
         const qNum = index + 1 + (questionsPerSection * 2);
         sectionQuestions[3].push({
@@ -103,8 +117,11 @@ async function generateQuestions() {
         });
     });
 
-    // Section 4: Writing
-    questionsData.writing.forEach((q, index) => {
+    // Section 4: Writing (Randomize first 12)
+    const writingToShuffle = questionsData.writing.slice(0, 12);
+    const writingToKeep = questionsData.writing.slice(12);
+    const finalWritingOrder = shuffle(writingToShuffle).concat(writingToKeep);
+    finalWritingOrder.forEach((q, index) => {
         const qNum = index + 1 + (questionsPerSection * 3);
         sectionQuestions[4].push({
             id: `q${qNum}`,
@@ -154,6 +171,16 @@ function renderSection(sectionNum) {
             `;
         }
 
+        let contextHtml = '';
+        if (q.context) {
+            contextHtml = `
+                <div class="reading-passage" style="text-align: justify; border-radius: 16px;">
+                    <strong>Dialogue / Context:</strong>
+                    <p>${q.context}</p>
+                </div>
+            `;
+        }
+
         let nextBtnHtml = '';
         if (index < sectionData.length - 1) {
             const nextQ = sectionData[index + 1];
@@ -164,6 +191,7 @@ function renderSection(sectionNum) {
         <div class="question" id="question-container-${q.id}" style="display: none;">
             ${audioHtml}
             ${passageHtml}
+            ${contextHtml}
             <p>${q.question}</p>
             <div class="options">
                 ${q.options.map((option, optIndex) => {
@@ -344,6 +372,7 @@ function markAnswered(qId) {
         if (btn) {
             btn.classList.add('answered');
         }
+        updateOverallProgress();
     }
 }
 
@@ -448,6 +477,8 @@ document.getElementById('login-form').addEventListener('submit', async function(
         loadAnswers();
         const elapsedSeconds = (Date.now() - examStartTime) / 1000;
         const remainingMinutes = Math.max(0, (7200 - elapsedSeconds) / 60);
+        document.getElementById('progress-sidebar').classList.remove('hidden');
+        updateOverallProgress();
         startTimer(remainingMinutes); 
     } else {
         // Fresh exam, show introduction page first
@@ -488,6 +519,8 @@ document.getElementById('proceed-btn').addEventListener('click', function() {
     document.getElementById('exam-container').classList.remove('hidden');
     document.getElementById('student-display').innerText = `Student: ${studentName} (${studentId})`;
     
+    document.getElementById('progress-sidebar').classList.remove('hidden');
+    updateOverallProgress();
     loadAnswers();
     startTimer(120); 
 });
@@ -631,6 +664,7 @@ async function submitExam() {
     document.getElementById('score-fraction').innerText = `${score} / ${totalQuestions} Correct | Time: ${durationStr}`;
     
     document.getElementById('exam-container').classList.add('hidden');
+    document.getElementById('progress-sidebar').classList.add('hidden');
     document.getElementById('result-container').classList.remove('hidden');
 }
 
@@ -685,4 +719,24 @@ function setupSmoothVideoLoop() {
     }
     
     requestAnimationFrame(checkTime);
+}
+
+// Update overall exam progress UI
+function updateOverallProgress() {
+    let total = 0;
+    for (let sec in sectionQuestions) {
+        total += sectionQuestions[sec].length;
+    }
+    if (total === 0) total = 120;
+    
+    let answeredCount = Object.keys(answers).length;
+    let percentage = Math.min(100, Math.round((answeredCount / total) * 100));
+    
+    const fillEl = document.getElementById('progress-fill-vertical');
+    const pctEl = document.getElementById('progress-percentage-text');
+    const statsEl = document.getElementById('progress-stats-text');
+    
+    if (fillEl) fillEl.style.height = `${percentage}%`;
+    if (pctEl) pctEl.innerText = `${percentage}%`;
+    if (statsEl) statsEl.innerText = `${answeredCount}/${total}`;
 }
