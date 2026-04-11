@@ -806,7 +806,7 @@
         "C) Loads cargo",
         "D) Repairs ships"
       ],
-      "correct": ""
+      "correct": "A"
     },
     {
       "id": 9,
@@ -830,7 +830,7 @@
         "C) Fuel shortage",
         "D) Spare parts delay"
       ],
-      "correct": ""
+      "correct": "D"
     },
     {
       "id": 11,

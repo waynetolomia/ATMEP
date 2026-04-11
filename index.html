@@ -85,10 +85,10 @@
                 </div>
                 <p><strong>Example Question:</strong> Why did the ship slow down?</p>
                 <div class="options">
-                    <label><input type="radio" name="tutorial-listening-q" value="A" disabled> A) Engine Failure</label><br>
-                    <label><input type="radio" name="tutorial-listening-q" value="B" disabled> B) Bad Weather</label><br>
-                    <label><input type="radio" name="tutorial-listening-q" value="C" disabled> C) Strong Wind</label><br>
-                    <label><input type="radio" name="tutorial-listening-q" value="D" disabled> D) Strong Current</label><br>
+                    <label><input type="radio" name="tutorial-listening-q" value="A" onchange="checkTutorialAnswer(this, 'D')"> A) Engine Failure</label><br>
+                    <label><input type="radio" name="tutorial-listening-q" value="B" onchange="checkTutorialAnswer(this, 'D')"> B) Bad Weather</label><br>
+                    <label><input type="radio" name="tutorial-listening-q" value="C" onchange="checkTutorialAnswer(this, 'D')"> C) Strong Wind</label><br>
+                    <label><input type="radio" name="tutorial-listening-q" value="D" onchange="checkTutorialAnswer(this, 'D')"> D) Strong Current</label><br>
                 </div>
             </div>
 
@@ -97,10 +97,10 @@
                 <p>These questions present a scenario or a question, and you must choose the most appropriate and professional response, often using Standard Marine Communication Phrases (SMCP).</p>
                 <p><strong>Example Question:</strong> Will the tug boat be ready for our arrival at 1200?</p>
                 <div class="options">
-                    <label><input type="radio" name="tutorial-speaking-q" value="A" disabled> A) No, they are scheduled to meet us at the fairway at 1300.</label><br>
-                    <label><input type="radio" name="tutorial-speaking-q" value="B" disabled> B) The tug is a very powerful vessel.</label><br>
-                    <label><input type="radio" name="tutorial-speaking-q" value="C" disabled> C) It depends on whether the Captain is awake.</label><br>
-                    <label><input type="radio" name="tutorial-speaking-q" value="D" disabled> D) I will speak to the harbor master in two hours.</label><br>
+                    <label><input type="radio" name="tutorial-speaking-q" value="A" onchange="checkTutorialAnswer(this, 'A')"> A) No, they are scheduled to meet us at the fairway at 1300.</label><br>
+                    <label><input type="radio" name="tutorial-speaking-q" value="B" onchange="checkTutorialAnswer(this, 'A')"> B) The tug is a very powerful vessel.</label><br>
+                    <label><input type="radio" name="tutorial-speaking-q" value="C" onchange="checkTutorialAnswer(this, 'A')"> C) It depends on whether the Captain is awake.</label><br>
+                    <label><input type="radio" name="tutorial-speaking-q" value="D" onchange="checkTutorialAnswer(this, 'A')"> D) I will speak to the harbor master in two hours.</label><br>
                 </div>
             </div>
 
@@ -111,12 +111,12 @@
                     <strong>Example Reading Passage:</strong>
                     <p>The Great Library of Alexandria in Egypt was one of the largest and most significant libraries of the ancient world. It was part of a larger research institution called the Musaeon, which was dedicated to the Muses, the nine goddesses of the arts. Founded during the reign of Ptolemy II Philadelphus in the 3rd century BCE, the library aimed to collect all the world's knowledge. At its peak, it is estimated to have housed hundreds of thousands of papyrus scrolls, covering subjects ranging from mathematics and astronomy to literature and philosophy.</p>
                 </div>
-                <p><strong>Example Question:</strong> why there is a delay?</p>
+                <p><strong>Example Question:</strong> What was the main aim of the Library of Alexandria?</p>
                 <div class="options">
-                    <label><input type="radio" name="tutorial-reading-q" value="A" disabled> A) To serve as a religious temple for the nine Muses.</label><br>
-                    <label><input type="radio" name="tutorial-reading-q" value="B" disabled> B) To house the personal private records of the Ptolemaic dynasty.</label><br>
-                    <label><input type="radio" name="tutorial-reading-q" value="C" disabled> C) To gather and preserve the entirety of the world's knowledge.</label><br>
-                    <label><input type="radio" name="tutorial-reading-q" value="D" disabled> D) To focus exclusively on the advancement of maritime navigation.</label><br>
+                    <label><input type="radio" name="tutorial-reading-q" value="A" onchange="checkTutorialAnswer(this, 'C')"> A) To serve as a religious temple for the nine Muses.</label><br>
+                    <label><input type="radio" name="tutorial-reading-q" value="B" onchange="checkTutorialAnswer(this, 'C')"> B) To house the personal private records of the Ptolemaic dynasty.</label><br>
+                    <label><input type="radio" name="tutorial-reading-q" value="C" onchange="checkTutorialAnswer(this, 'C')"> C) To gather and preserve the entirety of the world's knowledge.</label><br>
+                    <label><input type="radio" name="tutorial-reading-q" value="D" onchange="checkTutorialAnswer(this, 'C')"> D) To focus exclusively on the advancement of maritime navigation.</label><br>
                 </div>
             </div>
 
@@ -125,10 +125,10 @@
                 <p>These questions test your grammatical precision and ability to complete maritime documents or correspondence. You might need to choose the correct word or phrase to fill a blank.</p>
                 <p><strong>Example Question:</strong> The crew members are responsible for the regular ______ of all life-saving appliances on board.</p>
                 <div class="options">
-                    <label><input type="radio" name="tutorial-writing-q" value="A" disabled> A) to maintain</label><br>
-                    <label><input type="radio" name="tutorial-writing-q" value="B" disabled> B) maintaining</label><br>
-                    <label><input type="radio" name="tutorial-writing-q" value="C" disabled> C) maintenance</label><br>
-                    <label><input type="radio" name="tutorial-writing-q" value="D" disabled> D) maintained</label><br>
+                    <label><input type="radio" name="tutorial-writing-q" value="A" onchange="checkTutorialAnswer(this, 'C')"> A) to maintain</label><br>
+                    <label><input type="radio" name="tutorial-writing-q" value="B" onchange="checkTutorialAnswer(this, 'C')"> B) maintaining</label><br>
+                    <label><input type="radio" name="tutorial-writing-q" value="C" onchange="checkTutorialAnswer(this, 'C')"> C) maintenance</label><br>
+                    <label><input type="radio" name="tutorial-writing-q" value="D" onchange="checkTutorialAnswer(this, 'C')"> D) maintained</label><br>
                 </div>
             </div>
 

@@ -740,3 +740,32 @@ function updateOverallProgress() {
     if (pctEl) pctEl.innerText = `${percentage}%`;
     if (statsEl) statsEl.innerText = `${answeredCount}/${total}`;
 }
+
+// Setup tutorial audio to prevent ReferenceError
+function setupTutorialAudio() {
+    const tutorialAudio = document.querySelector('#tutorial-container audio');
+    if (tutorialAudio) {
+        // Add any specific logic for tutorial audio playback here if needed
+    }
+}
+
+// Check answers in the tutorial section
+function checkTutorialAnswer(radioElement, correctValue) {
+    const container = radioElement.closest('.tutorial-section-example');
+    let feedbackEl = container.querySelector('.tutorial-feedback');
+    if (!feedbackEl) {
+        feedbackEl = document.createElement('div');
+        feedbackEl.className = 'tutorial-feedback';
+        feedbackEl.style.marginTop = '10px';
+        feedbackEl.style.fontWeight = 'bold';
+        container.appendChild(feedbackEl);
+    }
+
+    if (radioElement.value === correctValue) {
+        feedbackEl.textContent = '✅ Correct!';
+        feedbackEl.style.color = '#10b981'; // Emerald green
+    } else {
+        feedbackEl.textContent = '❌ Incorrect. Try again!';
+        feedbackEl.style.color = '#ef4444'; // Red
+    }
+}
