@@ -51,7 +51,90 @@
 
             <p>If you can hear the audio clearly, click "Continue" to proceed to the exam instructions.</p>
             
-            <button id="proceed-to-intro-btn" type="button" class="btn-primary" style="margin-top: 20px;">Continue</button>
+            <button id="proceed-to-tutorial-btn" type="button" class="btn-primary" style="margin-top: 20px;">Continue</button>
+        </div>
+    </div>
+
+    <!-- NEW: Tutorial Page Container -->
+    <div id="tutorial-container" class="container hidden">
+        <div class="card" style="text-align: left;">
+            <h2 style="text-align: center; color: var(--primary); margin-top: 0;">Exam Tutorial & Instructions</h2>
+            <p style="text-align: center; color: var(--secondary); margin-bottom: 30px;">Please read carefully to understand the exam structure and how to navigate.</p>
+
+            <h3 style="color: #06B6D4;">General Navigation</h3>
+            <ul style="color: #cbd5e1; line-height: 1.6; margin-bottom: 20px;">
+                <li><strong style="color: #ffffff;">Section Tabs:</strong> At the top of the exam page, you'll see tabs for "Listening", "Speaking", "Reading", and "Writing". Click these to switch between sections.</li>
+                <li><strong style="color: #ffffff;">Question Navigator:</strong> Below the section tabs, there are numbered buttons (1, 2, 3...). Click these to jump to any question within the current section. Buttons will turn <span style="color: #10b981; font-weight: bold;">green</span> when you've answered a question.</li>
+                <li><strong style="color: #ffffff;">Previous/Next Buttons:</strong> Use the "Previous" and "Next Section" buttons at the bottom to move sequentially through questions or to the next section.</li>
+                <li><strong style="color: #ffffff;">Submit Final Exam:</strong> This button will appear on the last section. Click it when you are ready to submit your exam.</li>
+                <li><strong style="color: #ffffff;">Timer:</strong> Keep an eye on the timer at the top right. The exam has a strict time limit.</li>
+            </ul>
+
+            <h3 style="color: #06B6D4;">Section Examples</h3>
+
+            <div class="tutorial-section-example">
+                <h4 style="color: #A855F7;">1. Listening Section</h4>
+                <p>You will hear an audio clip. Listen carefully, as each audio can only be played twice. Then, select the best answer.</p>
+                <div class="audio-controls" style="margin-bottom: 15px; padding: 10px; border-radius: 16px;">
+                    <p style="margin: 0 0 10px 0; font-weight: bold;">Example Audio:</p>
+                    <audio controls style="width: 100%;" data-audio-id="tutorial-listening">
+                        <source src="audio/listening_tut.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <p style="margin: 10px 0 0 0; font-size: 14px; color: var(--secondary);">This audio can be played freely for the tutorial.</p>
+                </div>
+                <p><strong>Example Question:</strong> Why did the ship slow down?</p>
+                <div class="options">
+                    <label><input type="radio" name="tutorial-listening-q" value="A" disabled> A) Engine Failure</label><br>
+                    <label><input type="radio" name="tutorial-listening-q" value="B" disabled> B) Bad Weather</label><br>
+                    <label><input type="radio" name="tutorial-listening-q" value="C" disabled> C) Strong Wind</label><br>
+                    <label><input type="radio" name="tutorial-listening-q" value="D" disabled> D) Strong Current</label><br>
+                </div>
+            </div>
+
+            <div class="tutorial-section-example" style="margin-top: 25px;">
+                <h4 style="color: #A855F7;">2. Speaking Section</h4>
+                <p>These questions present a scenario or a question, and you must choose the most appropriate and professional response, often using Standard Marine Communication Phrases (SMCP).</p>
+                <p><strong>Example Question:</strong> Will the tug boat be ready for our arrival at 1200?</p>
+                <div class="options">
+                    <label><input type="radio" name="tutorial-speaking-q" value="A" disabled> A) No, they are scheduled to meet us at the fairway at 1300.</label><br>
+                    <label><input type="radio" name="tutorial-speaking-q" value="B" disabled> B) The tug is a very powerful vessel.</label><br>
+                    <label><input type="radio" name="tutorial-speaking-q" value="C" disabled> C) It depends on whether the Captain is awake.</label><br>
+                    <label><input type="radio" name="tutorial-speaking-q" value="D" disabled> D) I will speak to the harbor master in two hours.</label><br>
+                </div>
+            </div>
+
+            <div class="tutorial-section-example" style="margin-top: 25px;">
+                <h4 style="color: #A855F7;">3. Reading Section</h4>
+                <p>You will read a passage (e.g., an email, a technical report, or a regulatory excerpt) and then answer questions based on its content.</p>
+                <div class="reading-passage" style="text-align: justify; border-radius: 16px;">
+                    <strong>Example Reading Passage:</strong>
+                    <p>The Great Library of Alexandria in Egypt was one of the largest and most significant libraries of the ancient world. It was part of a larger research institution called the Musaeon, which was dedicated to the Muses, the nine goddesses of the arts. Founded during the reign of Ptolemy II Philadelphus in the 3rd century BCE, the library aimed to collect all the world's knowledge. At its peak, it is estimated to have housed hundreds of thousands of papyrus scrolls, covering subjects ranging from mathematics and astronomy to literature and philosophy.</p>
+                </div>
+                <p><strong>Example Question:</strong> why there is a delay?</p>
+                <div class="options">
+                    <label><input type="radio" name="tutorial-reading-q" value="A" disabled> A) To serve as a religious temple for the nine Muses.</label><br>
+                    <label><input type="radio" name="tutorial-reading-q" value="B" disabled> B) To house the personal private records of the Ptolemaic dynasty.</label><br>
+                    <label><input type="radio" name="tutorial-reading-q" value="C" disabled> C) To gather and preserve the entirety of the world's knowledge.</label><br>
+                    <label><input type="radio" name="tutorial-reading-q" value="D" disabled> D) To focus exclusively on the advancement of maritime navigation.</label><br>
+                </div>
+            </div>
+
+            <div class="tutorial-section-example" style="margin-top: 25px;">
+                <h4 style="color: #A855F7;">4. Writing Section</h4>
+                <p>These questions test your grammatical precision and ability to complete maritime documents or correspondence. You might need to choose the correct word or phrase to fill a blank.</p>
+                <p><strong>Example Question:</strong> The crew members are responsible for the regular ______ of all life-saving appliances on board.</p>
+                <div class="options">
+                    <label><input type="radio" name="tutorial-writing-q" value="A" disabled> A) to maintain</label><br>
+                    <label><input type="radio" name="tutorial-writing-q" value="B" disabled> B) maintaining</label><br>
+                    <label><input type="radio" name="tutorial-writing-q" value="C" disabled> C) maintenance</label><br>
+                    <label><input type="radio" name="tutorial-writing-q" value="D" disabled> D) maintained</label><br>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button id="proceed-from-tutorial-btn" type="button" class="btn-success" style="font-size: 16px; padding: 15px 30px;">Proceed to Exam Introduction</button>
+            </div>
         </div>
     </div>
 

@@ -228,7 +228,7 @@ function showQuestion(id) {
 
 function setupAudioLimits(sectionNum) {
     const sectionEl = document.getElementById(`sec-${sectionNum}`);
-    const audioEls = sectionEl.querySelectorAll('audio[data-audio-id]');
+    const audioEls = sectionEl.querySelectorAll('audio[data-audio-id^="q"]'); // Only apply limits to actual exam questions
 
     audioEls.forEach(audioEl => {
         const audioId = audioEl.dataset.audioId;
@@ -381,6 +381,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     await generateQuestions();
     renderSection(1); // Render first section
     setupSmoothVideoLoop();
+    setupTutorialAudio(); // NEW: Setup tutorial audio separately
 });
 
 // Toggle Password Visibility
@@ -455,7 +456,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
 });
 
 // Proceed from Headphone Test to Intro
-document.getElementById('proceed-to-intro-btn').addEventListener('click', function() {
+document.getElementById('proceed-to-tutorial-btn').addEventListener('click', function() {
     // Stop any audio that might be playing from the test
     const testAudio = document.getElementById('headphone-test-audio');
     if (testAudio) {
@@ -463,6 +464,18 @@ document.getElementById('proceed-to-intro-btn').addEventListener('click', functi
         testAudio.currentTime = 0;
     }
     document.getElementById('headphone-test-container').classList.add('hidden');
+    document.getElementById('tutorial-container').classList.remove('hidden');
+});
+
+// NEW: Proceed from Tutorial to Intro Page
+document.getElementById('proceed-from-tutorial-btn').addEventListener('click', function() {
+    // Stop any audio that might be playing from the tutorial
+    const tutorialAudio = document.querySelector('#tutorial-container audio');
+    if (tutorialAudio) {
+        tutorialAudio.pause();
+        tutorialAudio.currentTime = 0;
+    }
+    document.getElementById('tutorial-container').classList.add('hidden'); // Hide the tutorial page
     document.getElementById('intro-container').classList.remove('hidden');
 });
 
