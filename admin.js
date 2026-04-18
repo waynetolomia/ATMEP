@@ -161,12 +161,8 @@ async function generateMoreKeys() {
         
         for (let i = 0; i < 10; i++) {
             let randomPart = '';
-            const currentIndex = startIndex + i;
             for (let j = 0; j < 6; j++) {
-                let seed = currentIndex * 10 + j + 1;
-                let x = Math.sin(seed) * 10000;
-                let rand = x - Math.floor(x);
-                randomPart += chars.charAt(Math.floor(rand * chars.length));
+                randomPart += chars.charAt(Math.floor(Math.random() * chars.length));
             }
             validKeys.push(`ATMEP${randomPart}`);
         }

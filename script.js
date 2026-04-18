@@ -37,7 +37,7 @@ let sectionQuestions = {
     4: []
 };
 
-const audioPlayCounts = {};
+const audioPlayCounts = JSON.parse(localStorage.getItem('exam_audio_counts')) || {};
 
 // Load questions from external JSON file
 async function loadQuestions() {
@@ -148,15 +148,26 @@ function renderSection(sectionNum) {
         let audioHtml = '';
 
         if (sectionNum === 1 && q.audio) {
+            let audioStatusText = 'Click play to listen, then answer the question below.';
+            let statusColor = 'var(--secondary)';
+            let controlsAttr = 'controls';
+            
+            if (audioPlayCounts[q.id] === 1) {
+                audioStatusText = '1 play remaining';
+            } else if (audioPlayCounts[q.id] >= 2) {
+                audioStatusText = 'Limit reached';
+                statusColor = '#ef4444';
+                controlsAttr = ''; // Remove controls entirely if limit reached
+            }
             audioHtml = `
                 <div class="audio-controls" style="margin: 0 auto 15px auto; padding: 10px; border-radius: 16px;">
                     <p style="margin: 0 0 10px 0; font-weight: bold;">Listen to the audio:</p>
-                    <audio controls style="width: 100%;" data-audio-id="${q.id}">
+                    <audio ${controlsAttr} style="width: 100%;" data-audio-id="${q.id}">
                         <source src="${q.audio}" type="audio/mpeg">
                         <source src="${q.audio.replace('.mp3', '.wav')}" type="audio/wav">
                         Your browser does not support the audio element.
                     </audio>
-                    <p id="audio-limit-${q.id}" style="margin: 10px 0 0 0; font-size: 14px; color: var(--secondary);">Click play to listen, then answer the question below.</p>
+                    <p id="audio-limit-${q.id}" style="margin: 10px 0 0 0; font-size: 14px; color: ${statusColor};">${audioStatusText}</p>
                 </div>
             `;
         }
@@ -254,6 +265,13 @@ function renderQuestionNav(sectionNum) {
 function showQuestion(id) {
     const el = document.getElementById(id);
     if (el) {
+        // Pause any currently playing audio when switching questions
+        document.querySelectorAll('audio').forEach(audio => {
+            if (!audio.paused) {
+                audio.pause();
+            }
+        });
+
         const parentSection = el.closest('.exam-section');
         if (parentSection) {
             const questions = parentSection.querySelectorAll('.question');
@@ -293,6 +311,25 @@ function setupAudioLimits(sectionNum) {
     audioEls.forEach(audioEl => {
         const audioId = audioEl.dataset.audioId;
 
+        let lastTime = 0;
+        let isResetting = false;
+
+        // Anti-skip logic
+        audioEl.addEventListener('timeupdate', function () {
+            if (!audioEl.seeking && !isResetting) {
+                lastTime = audioEl.currentTime;
+            }
+        });
+
+        audioEl.addEventListener('seeking', function () {
+            if (isResetting) return;
+            if (Math.abs(audioEl.currentTime - lastTime) > 0.5) {
+                isResetting = true;
+                audioEl.currentTime = lastTime;
+                setTimeout(() => { isResetting = false; }, 50);
+            }
+        });
+
         audioEl.addEventListener('play', function () {
             audioPlayCounts[audioId] = audioPlayCounts[audioId] || 0;
 
@@ -300,17 +337,17 @@ function setupAudioLimits(sectionNum) {
             if (audioEl.currentTime === 0) {
                 if (audioPlayCounts[audioId] >= 2) {
                     audioEl.pause();
+                    audioEl.removeAttribute('controls');
                     const statusEl = document.getElementById(`audio-limit-${audioId}`);
                     if (statusEl) {
                         statusEl.textContent = 'Limit reached';
                         statusEl.style.color = '#ef4444';
                     }
-                    const btn = document.getElementById(`play-btn-${audioId}`);
-                    if (btn) btn.innerHTML = '▶';
                     alert('This audio can only be played twice.');
                     return;
                 }
                 audioPlayCounts[audioId] += 1;
+                localStorage.setItem('exam_audio_counts', JSON.stringify(audioPlayCounts));
             }
 
             const statusEl = document.getElementById(`audio-limit-${audioId}`);
@@ -325,64 +362,22 @@ function setupAudioLimits(sectionNum) {
         });
 
         audioEl.addEventListener('ended', function () {
-            const btn = document.getElementById(`play-btn-${audioId}`);
-            if (btn) btn.innerHTML = '▶';
-            
-            // Reset current time to 0 so next play counts as a new play
-            audioEl.currentTime = 0;
-
             if (audioPlayCounts[audioId] >= 2) {
                 const statusEl = document.getElementById(`audio-limit-${audioId}`);
                 if (statusEl) {
                     statusEl.textContent = 'Limit reached';
                     statusEl.style.color = '#ef4444';
                 }
+                audioEl.removeAttribute('controls'); // Completely disable the player
+            } else {
+                // Reset current time to 0 so next play counts as a new play
+                isResetting = true;
+                audioEl.currentTime = 0;
+                lastTime = 0;
+                setTimeout(() => { isResetting = false; }, 50);
             }
         });
     });
-}
-
-// --- Custom Audio Player Logic ---
-function toggleAudio(id) {
-    const audio = document.getElementById(`audio-${id}`);
-    const btn = document.getElementById(`play-btn-${id}`);
-    
-    if (audio.paused) {
-        if (audioPlayCounts[id] >= 2 && audio.currentTime === 0) {
-            alert('This audio can only be played twice.');
-            return;
-        }
-        audio.play();
-        btn.innerHTML = '⏸'; // Pause icon
-    } else {
-        audio.pause();
-        btn.innerHTML = '▶'; // Play icon
-    }
-}
-
-function updateProgress(id) {
-    const audio = document.getElementById(`audio-${id}`);
-    const progress = document.getElementById(`progress-${id}`);
-    const timeDisplay = document.getElementById(`time-${id}`);
-    
-    if (audio.duration) {
-        const percent = (audio.currentTime / audio.duration) * 100;
-        progress.style.width = `${percent}%`;
-        timeDisplay.innerText = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
-    }
-}
-
-function setTotalTime(id) {
-    const audio = document.getElementById(`audio-${id}`);
-    const timeDisplay = document.getElementById(`time-${id}`);
-    timeDisplay.innerText = `0:00 / ${formatTime(audio.duration)}`;
-}
-
-function formatTime(seconds) {
-    if (isNaN(seconds)) return "0:00";
-    const m = Math.floor(seconds / 60);
-    const s = Math.floor(seconds % 60);
-    return `${m}:${s < 10 ? '0' + s : s}`;
 }
 
 function getSectionTitle(sectionNum) {
@@ -533,11 +528,10 @@ document.getElementById('proceed-to-tutorial-btn').addEventListener('click', fun
 // NEW: Proceed from Tutorial to Intro Page
 document.getElementById('proceed-from-tutorial-btn').addEventListener('click', function() {
     // Stop any audio that might be playing from the tutorial
-    const tutorialAudio = document.querySelector('#tutorial-container audio');
-    if (tutorialAudio) {
-        tutorialAudio.pause();
-        tutorialAudio.currentTime = 0;
-    }
+    document.querySelectorAll('#tutorial-container audio').forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
     document.getElementById('tutorial-container').classList.add('hidden'); // Hide the tutorial page
     document.getElementById('intro-container').classList.remove('hidden');
 });
@@ -562,13 +556,18 @@ function goToSection(secNum) {
     collectAnswers(); // Save current answers before switching
     saveAnswers(); // Persist to localStorage
     
+    // Pause any currently playing audio when switching sections
+    document.querySelectorAll('audio').forEach(audio => {
+        if (!audio.paused) audio.pause();
+    });
+
     // Hide all sections
     document.querySelectorAll('.exam-section').forEach(s => s.classList.add('hidden'));
-    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('#exam-container .nav-tab').forEach(t => t.classList.remove('active'));
 
     // Show selected and render questions
     document.getElementById(`sec-${secNum}`).classList.remove('hidden');
-    document.querySelectorAll('.nav-tab')[secNum - 1].classList.add('active');
+    document.querySelectorAll('#exam-container .nav-tab')[secNum - 1].classList.add('active');
     
     currentSection = secNum;
     renderSection(secNum); // Render questions for this section
@@ -736,6 +735,7 @@ async function submitExam() {
 
     localStorage.removeItem('exam_answers');
     localStorage.removeItem(`exam_start_${currentAccessKey}`);
+    localStorage.removeItem('exam_audio_counts');
 
     // Display the Results UI
     document.getElementById('result-student-info').innerText = `${studentName} (${studentId})`;
@@ -822,10 +822,33 @@ function updateOverallProgress() {
 
 // Setup tutorial audio to prevent ReferenceError
 function setupTutorialAudio() {
-    const tutorialAudio = document.querySelector('#tutorial-container audio');
-    if (tutorialAudio) {
-        // Add any specific logic for tutorial audio playback here if needed
-    }
+    const tutorialAudios = document.querySelectorAll('#tutorial-container audio, #headphone-test-audio');
+    tutorialAudios.forEach(audioEl => {
+        let lastTime = 0;
+        let isResetting = false;
+
+        audioEl.addEventListener('timeupdate', function () {
+            if (!audioEl.seeking && !isResetting) {
+                lastTime = audioEl.currentTime;
+            }
+        });
+
+        audioEl.addEventListener('seeking', function () {
+            if (isResetting) return;
+            if (Math.abs(audioEl.currentTime - lastTime) > 0.5) {
+                isResetting = true;
+                audioEl.currentTime = lastTime;
+                setTimeout(() => { isResetting = false; }, 50);
+            }
+        });
+
+        audioEl.addEventListener('ended', function () {
+            isResetting = true;
+            audioEl.currentTime = 0;
+            lastTime = 0;
+            setTimeout(() => { isResetting = false; }, 50);
+        });
+    });
 }
 
 // Check answers in the tutorial section
@@ -848,3 +871,12 @@ function checkTutorialAnswer(radioElement, correctValue) {
         feedbackEl.style.color = '#ef4444'; // Red
     }
 }
+
+// Disable audio skipping via keyboard globally
+document.addEventListener('keydown', function(e) {
+    if (e.target && e.target.tagName && e.target.tagName.toLowerCase() === 'audio') {
+        if (['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(e.key)) {
+            e.preventDefault();
+        }
+    }
+}, true);
