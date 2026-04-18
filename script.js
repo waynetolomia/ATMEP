@@ -187,19 +187,41 @@ function renderSection(sectionNum) {
             nextBtnHtml = `<div style="text-align: right; margin-top: 15px;"><button type="button" class="btn-secondary" style="padding: 8px 16px; font-size: 13px;" onclick="showQuestion('question-container-${nextQ.id}')">Next Question ➔</button></div>`;
         }
 
-        return `
-        <div class="question" id="question-container-${q.id}" style="display: none;">
+        const optionsHtml = q.options.map((option, optIndex) => {
+            const value = String.fromCharCode(65 + optIndex);
+            const checked = answers[q.id] === value ? 'checked' : '';
+            return `<label><input type="radio" name="${q.id}" value="${value}" ${checked} onchange="markAnswered('${q.id}')"> ${option}</label><br>`;
+        }).join('');
+
+        let innerContent = '';
+        if (q.passage || q.context) {
+            innerContent = `
+            <div class="split-layout">
+                <div class="split-left">
+                    ${passageHtml}
+                    ${contextHtml}
+                </div>
+                <div class="split-right">
+                    <p>${q.question}</p>
+                    <div class="options">
+                        ${optionsHtml}
+                    </div>
+                </div>
+            </div>
+            `;
+        } else {
+            innerContent = `
             ${audioHtml}
-            ${passageHtml}
-            ${contextHtml}
             <p>${q.question}</p>
             <div class="options">
-                ${q.options.map((option, optIndex) => {
-                    const value = String.fromCharCode(65 + optIndex);
-                    const checked = answers[q.id] === value ? 'checked' : '';
-                    return `<label><input type="radio" name="${q.id}" value="${value}" ${checked} onchange="markAnswered('${q.id}')"> ${option}</label><br>`;
-                }).join('')}
+                ${optionsHtml}
             </div>
+            `;
+        }
+
+        return `
+        <div class="question" id="question-container-${q.id}" style="display: none;">
+            ${innerContent}
             ${nextBtnHtml}
         </div>
     `;
@@ -249,6 +271,16 @@ function showQuestion(id) {
             const activeBtn = document.getElementById(`nav-btn-${qId}`);
             if (activeBtn) {
                 activeBtn.classList.add('active-q');
+            }
+        }
+
+        // Expand container for split-layout questions
+        const mainContainer = document.querySelector('.container');
+        if (mainContainer) {
+            if (el.querySelector('.split-layout')) {
+                mainContainer.classList.add('expanded-container');
+            } else {
+                mainContainer.classList.remove('expanded-container');
             }
         }
     }
@@ -608,17 +640,43 @@ document.getElementById('submit-btn').addEventListener('click', function() {
         }
     });
 
-    let confirmMessage = 'Are you sure you want to submit your exam? This action cannot be undone.';
-    if (missingInfo.length > 0) {
-        confirmMessage = 'WARNING! You have unanswered questions:\n\n' + 
-                         missingInfo.join('\n') + 
-                         '\n\nAre you sure you want to submit your exam? This action cannot be undone.';
-    }
-
-    if (confirm(confirmMessage)) {
-        submitExam();
-    }
+    showSubmitModal(missingInfo);
 });
+
+function showSubmitModal(missingInfo) {
+    const existingModal = document.getElementById('submit-modal');
+    if (existingModal) existingModal.remove();
+
+    const modalOverlay = document.createElement('div');
+    modalOverlay.id = 'submit-modal';
+    modalOverlay.className = 'modal-overlay';
+
+    let contentHtml = '<h3 style="margin-top: 0; color: #f8fafc;">Confirm Submission</h3>';
+    if (missingInfo.length > 0) {
+        contentHtml += '<div class="warning-text"><strong>⚠️ WARNING! You have unanswered questions:</strong><br><br>';
+        contentHtml += missingInfo.join('<br>') + '</div>';
+    }
+    contentHtml += '<p style="color: #cbd5e1;">Are you sure you want to submit your exam? This action cannot be undone.</p>';
+    contentHtml += `
+        <div class="modal-buttons">
+            <button id="modal-cancel-btn" class="btn-secondary">Cancel</button>
+            <button id="modal-confirm-btn" class="btn-success">Submit Exam</button>
+        </div>
+    `;
+
+    const modalContent = document.createElement('div');
+    modalContent.className = 'modal-content card';
+    modalContent.innerHTML = contentHtml;
+
+    modalOverlay.appendChild(modalContent);
+    document.body.appendChild(modalOverlay);
+
+    document.getElementById('modal-cancel-btn').addEventListener('click', () => modalOverlay.remove());
+    document.getElementById('modal-confirm-btn').addEventListener('click', () => {
+        modalOverlay.remove();
+        submitExam();
+    });
+}
 
 async function submitExam() {
     collectAnswers();
