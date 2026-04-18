@@ -674,7 +674,7 @@ function downloadResult() {
     const originalBackdrop = resultCard.style.backdropFilter;
     
     // Solidify background for clean image capture
-    resultCard.style.background = '#ffffff';
+    resultCard.style.background = '#0f172a'; // Use dark solid background for text contrast
     resultCard.style.backdropFilter = 'none';
     
     html2canvas(resultCard, { scale: 2 }).then(canvas => {
