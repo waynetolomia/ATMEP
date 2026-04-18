@@ -592,9 +592,30 @@ function startTimer(minutes) {
 
 // 4. Submission Logic
 document.getElementById('submit-btn').addEventListener('click', function() {
-    if (confirm('Are you sure you want to submit your exam? This action cannot be undone.')) {
-        collectAnswers(); // Collect final answers
-        saveAnswers(); // Save final answers
+    collectAnswers(); // Collect final answers
+    saveAnswers(); // Save final answers
+    
+    let missingInfo = [];
+    Object.keys(sectionQuestions).forEach(secKey => {
+        let missingCount = 0;
+        sectionQuestions[secKey].forEach(question => {
+            if (!answers[question.id]) {
+                missingCount++;
+            }
+        });
+        if (missingCount > 0) {
+            missingInfo.push(`- ${getSectionTitle(secKey)}: Missed ${missingCount} item(s)`);
+        }
+    });
+
+    let confirmMessage = 'Are you sure you want to submit your exam? This action cannot be undone.';
+    if (missingInfo.length > 0) {
+        confirmMessage = 'WARNING! You have unanswered questions:\n\n' + 
+                         missingInfo.join('\n') + 
+                         '\n\nAre you sure you want to submit your exam? This action cannot be undone.';
+    }
+
+    if (confirm(confirmMessage)) {
         submitExam();
     }
 });
