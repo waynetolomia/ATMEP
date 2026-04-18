@@ -149,7 +149,7 @@ function renderSection(sectionNum) {
 
         if (sectionNum === 1 && q.audio) {
             audioHtml = `
-                <div class="audio-controls" style="margin-bottom: 15px; padding: 10px; border-radius: 16px;">
+                <div class="audio-controls" style="margin: 0 auto 15px auto; padding: 10px; border-radius: 16px;">
                     <p style="margin: 0 0 10px 0; font-weight: bold;">Listen to the audio:</p>
                     <audio controls style="width: 100%;" data-audio-id="${q.id}">
                         <source src="${q.audio}" type="audio/mpeg">
