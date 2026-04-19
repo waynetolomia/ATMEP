@@ -152,23 +152,31 @@ function renderSection(sectionNum) {
         if (sectionNum === 1 && q.audio) {
             let audioStatusText = 'Click play to listen, then answer the question below.';
             let statusColor = 'var(--secondary)';
-            let controlsAttr = 'controls';
+            let playBtnAttr = '';
+            let playerStyle = '';
             
             if (audioPlayCounts[q.id] === 1) {
                 audioStatusText = '1 play remaining';
             } else if (audioPlayCounts[q.id] >= 2) {
                 audioStatusText = 'Limit reached';
                 statusColor = '#ef4444';
-                controlsAttr = ''; // Remove controls entirely if limit reached
+                playBtnAttr = 'disabled';
+                playerStyle = 'pointer-events: none; opacity: 0.6;';
             }
             audioHtml = `
                 <div class="audio-controls" style="margin: 0 auto 15px auto; padding: 10px; border-radius: 16px;">
                     <p style="margin: 0 0 10px 0; font-weight: bold;">Listen to the audio:</p>
-                    <audio ${controlsAttr} controlslist="nodownload noplaybackrate" style="width: 100%;" data-audio-id="${q.id}">
-                        <source src="${q.audio}" type="audio/mpeg">
-                        <source src="${q.audio.replace('.mp3', '.wav')}" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
+                    <div class="custom-audio-player" id="player-${q.id}" style="${playerStyle}">
+                        <button class="play-btn" id="play-btn-${q.id}" type="button" ${playBtnAttr}>▶</button>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progress-${q.id}"></div>
+                        </div>
+                        <div class="time-display" id="time-${q.id}">0:00 / 0:00</div>
+                        <audio id="audio-${q.id}" data-audio-id="${q.id}" style="display: none;">
+                            <source src="${q.audio}" type="audio/mpeg">
+                            <source src="${q.audio.replace('.mp3', '.wav')}" type="audio/wav">
+                        </audio>
+                    </div>
                     <p id="audio-limit-${q.id}" style="margin: 10px 0 0 0; font-size: 14px; color: ${statusColor};">${audioStatusText}</p>
                 </div>
             `;
@@ -352,12 +360,41 @@ function handleNextQuestion(currentId, nextId) {
     showQuestion('question-container-' + nextId);
 }
 
+function formatTime(seconds) {
+    if (isNaN(seconds) || !isFinite(seconds)) return "0:00";
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
+}
+
 function setupAudioLimits(sectionNum) {
     const sectionEl = document.getElementById(`sec-${sectionNum}`);
     const audioEls = sectionEl.querySelectorAll('audio[data-audio-id^="q"]'); // Only apply limits to actual exam questions
 
     audioEls.forEach(audioEl => {
         const audioId = audioEl.dataset.audioId;
+        const playBtn = document.getElementById(`play-btn-${audioId}`);
+        const progressBar = document.getElementById(`progress-${audioId}`);
+        const timeDisplay = document.getElementById(`time-${audioId}`);
+        const playerContainer = document.getElementById(`player-${audioId}`);
+
+        if (playBtn) {
+            playBtn.addEventListener('click', () => {
+                if (audioEl.paused) {
+                    audioEl.play();
+                } else {
+                    audioEl.pause();
+                }
+            });
+        }
+
+        audioEl.addEventListener('loadedmetadata', () => {
+            if (timeDisplay) timeDisplay.textContent = `0:00 / ${formatTime(audioEl.duration)}`;
+        });
+
+        audioEl.addEventListener('pause', () => {
+            if (playBtn) playBtn.textContent = '▶';
+        });
 
         let lastTime = 0;
         let isResetting = false;
@@ -366,6 +403,13 @@ function setupAudioLimits(sectionNum) {
         audioEl.addEventListener('timeupdate', function () {
             if (!audioEl.seeking && !isResetting) {
                 lastTime = audioEl.currentTime;
+            }
+            if (progressBar) {
+                const percent = (audioEl.currentTime / audioEl.duration) * 100 || 0;
+                progressBar.style.width = `${percent}%`;
+            }
+            if (timeDisplay) {
+                timeDisplay.textContent = `${formatTime(audioEl.currentTime)} / ${formatTime(audioEl.duration)}`;
             }
         });
 
@@ -379,23 +423,29 @@ function setupAudioLimits(sectionNum) {
         });
 
         audioEl.addEventListener('play', function () {
+            if (playBtn) playBtn.textContent = '⏸';
             audioPlayCounts[audioId] = audioPlayCounts[audioId] || 0;
 
-            // Only count as a new play if starting from the beginning
-            if (audioEl.currentTime === 0) {
+            // Only count as a new play if starting a fresh playback
+            if (audioEl.dataset.playStarted !== 'true') {
                 if (audioPlayCounts[audioId] >= 2) {
                     audioEl.pause();
-                    audioEl.removeAttribute('controls');
                     const statusEl = document.getElementById(`audio-limit-${audioId}`);
                     if (statusEl) {
                         statusEl.textContent = 'Limit reached';
                         statusEl.style.color = '#ef4444';
                     }
+                    if (playerContainer) {
+                        playerContainer.style.pointerEvents = 'none';
+                        playerContainer.style.opacity = '0.6';
+                    }
+                    if (playBtn) playBtn.disabled = true;
                     showCustomAlert("Audio Limit Reached", "This audio can only be played twice.");
                     return;
                 }
                 audioPlayCounts[audioId] += 1;
                 localStorage.setItem('exam_audio_counts', JSON.stringify(audioPlayCounts));
+                audioEl.dataset.playStarted = 'true';
             }
 
             const statusEl = document.getElementById(`audio-limit-${audioId}`);
@@ -410,13 +460,20 @@ function setupAudioLimits(sectionNum) {
         });
 
         audioEl.addEventListener('ended', function () {
+            audioEl.dataset.playStarted = 'false';
+            if (playBtn) playBtn.textContent = '▶';
+            
             if (audioPlayCounts[audioId] >= 2) {
                 const statusEl = document.getElementById(`audio-limit-${audioId}`);
                 if (statusEl) {
                     statusEl.textContent = 'Limit reached';
                     statusEl.style.color = '#ef4444';
                 }
-                audioEl.removeAttribute('controls'); // Completely disable the player
+                if (playerContainer) {
+                    playerContainer.style.pointerEvents = 'none';
+                    playerContainer.style.opacity = '0.6';
+                }
+                if (playBtn) playBtn.disabled = true;
             } else {
                 // Reset current time to 0 so next play counts as a new play
                 isResetting = true;
@@ -562,7 +619,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
         return;
     }
 
-    const isMasterKey = (enteredKey === 'ATMEPMASTER');
+    const isMasterKey = (enteredKey === 'ATMEPADMINKEY');
 
     if (!isMasterKey && !validAccessKeys.includes(enteredKey)) {
         showCustomAlert('Login Failed', 'Invalid Access Key! Please check and try again. (Make sure you use a valid ATMEP****** key)');
@@ -726,7 +783,7 @@ function startTimer() {
     const durationMs = 120 * 60 * 1000; // 120 minutes
     
     function updateDisplay(remainingMs) {
-        let totalSeconds = Math.floor(remainingMs / 1000);
+        let totalSeconds = Math.max(0, Math.floor(remainingMs / 1000));
         let m = Math.floor(totalSeconds / 60);
         let s = totalSeconds % 60;
         timerEl.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
@@ -739,7 +796,10 @@ function startTimer() {
         const remainingMs = durationMs - elapsedMs;
 
         if (remainingMs <= 0) {
-            if (examTimerInterval) clearInterval(examTimerInterval);
+            if (examTimerInterval) {
+                clearInterval(examTimerInterval);
+                examTimerInterval = null;
+            }
             timerEl.innerText = "0:00";
             document.getElementById('exam-container').classList.add('hidden'); // Hide exam immediately
             submitExam(); // Submit immediately to prevent data loss if student walks away
@@ -760,7 +820,10 @@ document.addEventListener('visibilitychange', () => {
     if (!document.hidden && examStartTime && !isSubmitting) {
         const elapsedMs = Date.now() - examStartTime;
         if (elapsedMs >= 120 * 60 * 1000) {
-            if (examTimerInterval) clearInterval(examTimerInterval);
+            if (examTimerInterval) {
+                clearInterval(examTimerInterval);
+                examTimerInterval = null;
+            }
             document.getElementById('exam-container').classList.add('hidden');
             submitExam();
             showCustomAlert("Time is Up!", "Your exam time has expired. It has been submitted automatically.");
@@ -828,6 +891,11 @@ async function submitExam() {
     if (isSubmitting) return;
     isSubmitting = true;
 
+    if (examTimerInterval) {
+        clearInterval(examTimerInterval);
+        examTimerInterval = null;
+    }
+
     // Pause any playing audio to prevent it from continuing on the results screen
     document.querySelectorAll('audio').forEach(audio => {
         if (!audio.paused) audio.pause();
@@ -879,7 +947,7 @@ async function submitExam() {
     try {
         await db.collection('exam_records').add(examRecord);
         
-        if (currentAccessKey !== 'ATMEPMASTER') {
+        if (currentAccessKey !== 'ATMEPADMINKEY') {
             await db.collection('settings').doc('keys').update({
                 used_keys: firebase.firestore.FieldValue.arrayUnion(currentAccessKey)
             });

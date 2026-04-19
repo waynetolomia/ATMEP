@@ -206,7 +206,7 @@ async function exportToCSV() {
             const safeName = (r.studentName || '').replace(/"/g, '""');
             return `"${r.date}","${r.studentId}","${safeName}","${r.accessKey || 'N/A'}","${r.score}","${r.percentage}","${r.duration}"`;
         });
-        const csvContent = [headers.join(','), ...rows].join('\n');
+        const csvContent = '\uFEFF' + [headers.join(','), ...rows].join('\n');
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
@@ -343,7 +343,7 @@ function exportSelectedCSV() {
         return `"${r.date}","${r.studentId}","${safeName}","${r.accessKey || 'N/A'}","${r.score}","${r.percentage}","${r.duration}"`;
     });
     
-    const csvContent = [headers.join(','), ...rows].join('\n');
+    const csvContent = '\uFEFF' + [headers.join(','), ...rows].join('\n');
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
