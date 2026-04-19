@@ -164,7 +164,7 @@ function renderSection(sectionNum) {
             audioHtml = `
                 <div class="audio-controls" style="margin: 0 auto 15px auto; padding: 10px; border-radius: 16px;">
                     <p style="margin: 0 0 10px 0; font-weight: bold;">Listen to the audio:</p>
-                    <audio ${controlsAttr} style="width: 100%;" data-audio-id="${q.id}">
+                    <audio ${controlsAttr} controlslist="nodownload noplaybackrate" style="width: 100%;" data-audio-id="${q.id}">
                         <source src="${q.audio}" type="audio/mpeg">
                         <source src="${q.audio.replace('.mp3', '.wav')}" type="audio/wav">
                         Your browser does not support the audio element.
@@ -186,10 +186,12 @@ function renderSection(sectionNum) {
 
         let contextHtml = '';
         if (q.context) {
+            // Replace newlines with double line breaks to space out the conversation/dialogue
+            const formattedContext = q.context.replace(/\r?\n/g, '<br><br>');
             contextHtml = `
                 <div class="reading-passage" style="text-align: justify; border-radius: 16px;">
                     <strong>Dialogue / Context:</strong>
-                    <p>${q.context}</p>
+                    <p>${formattedContext}</p>
                 </div>
             `;
         }
@@ -197,7 +199,18 @@ function renderSection(sectionNum) {
         let nextBtnHtml = '';
         if (index < sectionData.length - 1) {
             const nextQ = sectionData[index + 1];
-            nextBtnHtml = `<div style="text-align: right; margin-top: 15px;"><button type="button" class="btn-secondary" style="padding: 8px 16px; font-size: 13px;" onclick="handleNextQuestion('${q.id}', '${nextQ.id}')">Next Question ➔</button></div>`;
+            
+            let allPrevAnswered = true;
+            for (let i = 0; i <= index; i++) {
+                if (!answers[sectionData[i].id]) {
+                    allPrevAnswered = false;
+                    break;
+                }
+            }
+            const isClickable = !!answers[q.id] && allPrevAnswered;
+            const btnStyle = isClickable ? '' : 'opacity: 0.5; cursor: not-allowed;';
+            const disabledAttr = isClickable ? '' : 'disabled';
+            nextBtnHtml = `<div style="text-align: right; margin-top: 15px;"><button type="button" id="next-btn-${q.id}" class="btn-primary" style="padding: 10px 20px; font-size: 15px; ${btnStyle}" ${disabledAttr} onclick="handleNextQuestion('${q.id}', '${nextQ.id}')">Next Question ➔</button></div>`;
         }
 
         const optionsHtml = q.options.map((option, optIndex) => {
@@ -326,6 +339,8 @@ function showQuestion(id) {
                 mainContainer.classList.remove('expanded-container');
             }
         }
+
+        updateButtons();
     }
 }
 
@@ -430,6 +445,26 @@ function markAnswered(qId) {
         saveAnswers();
         renderQuestionNav(currentSection); // Re-render nav to instantly unlock the next question
         updateOverallProgress();
+                
+        const sectionData = sectionQuestions[currentSection] || [];
+        sectionData.forEach((q, idx) => {
+            const btn = document.getElementById(`next-btn-${q.id}`);
+            if (btn) {
+                let allPrevAnswered = true;
+                for (let i = 0; i <= idx; i++) {
+                    if (!answers[sectionData[i].id]) {
+                        allPrevAnswered = false;
+                        break;
+                    }
+                }
+                const isClickable = !!answers[q.id] && allPrevAnswered;
+                btn.disabled = !isClickable;
+                btn.style.opacity = isClickable ? '1' : '0.5';
+                btn.style.cursor = isClickable ? 'pointer' : 'not-allowed';
+            }
+        });
+
+        updateButtons(); // Refresh Section Next/Submit buttons status
     }
 }
 
@@ -444,6 +479,25 @@ function loadAnswers() {
             if (radio) radio.checked = true;
         });
         renderQuestionNav(currentSection);
+
+        const sectionData = sectionQuestions[currentSection] || [];
+        sectionData.forEach((q, idx) => {
+            const btn = document.getElementById(`next-btn-${q.id}`);
+            if (btn) {
+                let allPrevAnswered = true;
+                for (let i = 0; i <= idx; i++) {
+                    if (!answers[sectionData[i].id]) {
+                        allPrevAnswered = false;
+                        break;
+                    }
+                }
+                const isClickable = !!answers[q.id] && allPrevAnswered;
+                btn.disabled = !isClickable;
+                btn.style.opacity = isClickable ? '1' : '0.5';
+                btn.style.cursor = isClickable ? 'pointer' : 'not-allowed';
+            }
+        });
+        updateButtons();
     }
 }
 
@@ -588,6 +642,18 @@ document.getElementById('proceed-btn').addEventListener('click', function() {
 
 // 2. Navigation Logic
 function goToSection(secNum) {
+    if (secNum > currentSection) {
+        // Prevent skipping sections with incomplete answers
+        for (let i = 1; i < secNum; i++) {
+            const sectionData = sectionQuestions[i] || [];
+            const isSectionComplete = sectionData.every(q => answers[q.id]);
+            if (!isSectionComplete) {
+                showCustomAlert("Action Required", `Please complete Section ${i}: ${getSectionTitle(i)} before proceeding.`);
+                return;
+            }
+        }
+    }
+
     collectAnswers(); // Save current answers before switching
     saveAnswers(); // Persist to localStorage
     
@@ -618,15 +684,39 @@ function move(step) {
 
 function updateButtons() {
     // Show/Hide Previous button
-    document.getElementById('prev-btn').classList.toggle('hidden', currentSection === 1);
+    const prevBtn = document.getElementById('prev-btn');
+    if (prevBtn) prevBtn.classList.toggle('hidden', currentSection === 1);
     
-    // Switch between Next and Submit button
-    if (currentSection === totalSections) {
-        document.getElementById('next-btn').classList.add('hidden');
-        document.getElementById('submit-btn').classList.remove('hidden');
-    } else {
-        document.getElementById('next-btn').classList.remove('hidden');
-        document.getElementById('submit-btn').classList.add('hidden');
+    const visibleQId = getVisibleQuestionId();
+    const sectionData = sectionQuestions[currentSection] || [];
+    const isLastQuestion = sectionData.length > 0 && sectionData[sectionData.length - 1].id === visibleQId;
+
+    const nextBtn = document.getElementById('next-btn');
+    const submitBtn = document.getElementById('submit-btn');
+    
+    if (nextBtn) nextBtn.classList.add('hidden');
+    if (submitBtn) submitBtn.classList.add('hidden');
+    
+    if (isLastQuestion) {
+        const isSectionComplete = sectionData.every(q => answers[q.id]);
+        const opacity = isSectionComplete ? '1' : '0.5';
+        const cursor = isSectionComplete ? 'pointer' : 'not-allowed';
+
+        if (submitBtn) {
+            submitBtn.classList.remove('hidden');
+            submitBtn.disabled = !isSectionComplete;
+            submitBtn.style.opacity = opacity;
+            submitBtn.style.cursor = cursor;
+        }
+
+        if (currentSection !== totalSections) {
+            if (nextBtn) {
+                nextBtn.classList.remove('hidden');
+                nextBtn.disabled = !isSectionComplete;
+                nextBtn.style.opacity = opacity;
+                nextBtn.style.cursor = cursor;
+            }
+        }
     }
 }
 

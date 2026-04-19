@@ -233,8 +233,6 @@ body {
     border-radius: 24px;
     box-shadow: var(--shadow-glass);
     min-height: 200px;
-    max-height: 70vh;
-    overflow-y: auto;
 }
 
 .question {
