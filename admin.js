@@ -139,17 +139,32 @@ async function loadKeys() {
 }
 
 async function clearRecords() {
-    if (confirm('Are you sure you want to delete ALL student records? This cannot be undone.')) {
+    showCustomConfirm('Delete All Records', 'Are you sure you want to delete ALL student records? This cannot be undone.', async () => {
         try {
             const snapshot = await db.collection('exam_records').get();
-            const batch = db.batch();
-            snapshot.forEach(doc => batch.delete(doc.ref));
-            await batch.commit();
+            const batches = [];
+            let currentBatch = db.batch();
+            let operationCount = 0;
+
+            snapshot.forEach(doc => {
+                currentBatch.delete(doc.ref);
+                operationCount++;
+                if (operationCount === 500) {
+                    batches.push(currentBatch.commit());
+                    currentBatch = db.batch();
+                    operationCount = 0;
+                }
+            });
+
+            if (operationCount > 0) batches.push(currentBatch.commit());
+
+            await Promise.all(batches);
             await loadRecords();
         } catch (error) {
             console.error("Error clearing records:", error);
+            showCustomAlert('Error', 'Failed to clear records.');
         }
-    }
+    });
 }
 
 async function generateMoreKeys() {
@@ -157,14 +172,18 @@ async function generateMoreKeys() {
         const keysDoc = await db.collection('settings').doc('keys').get();
         let validKeys = keysDoc.exists ? (keysDoc.data().valid_access_keys || []) : [];
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        const startIndex = validKeys.length;
         
-        for (let i = 0; i < 10; i++) {
+        let newKeysCount = 0;
+        while (newKeysCount < 10) {
             let randomPart = '';
             for (let j = 0; j < 6; j++) {
                 randomPart += chars.charAt(Math.floor(Math.random() * chars.length));
             }
-            validKeys.push(`ATMEP${randomPart}`);
+            const newKey = `ATMEP${randomPart}`;
+            if (!validKeys.includes(newKey)) {
+                validKeys.push(newKey);
+                newKeysCount++;
+            }
         }
         
         await db.collection('settings').doc('keys').set({ valid_access_keys: validKeys }, { merge: true });
@@ -178,13 +197,14 @@ async function exportToCSV() {
     try {
         const snapshot = await db.collection('exam_records').orderBy('timestamp', 'desc').get();
         if (snapshot.empty) {
-            alert('No records available to export.');
+            showCustomAlert('Export Failed', 'No records available to export.');
             return;
         }
         const headers = ['Date', 'Student ID', 'Name', 'Access Key', 'Score', 'Percentage', 'Duration'];
         const rows = snapshot.docs.map(doc => {
             const r = doc.data();
-            return `"${r.date}","${r.studentId}","${r.studentName}","${r.accessKey || 'N/A'}","${r.score}","${r.percentage}","${r.duration}"`;
+            const safeName = (r.studentName || '').replace(/"/g, '""');
+            return `"${r.date}","${r.studentId}","${safeName}","${r.accessKey || 'N/A'}","${r.score}","${r.percentage}","${r.duration}"`;
         });
         const csvContent = [headers.join(','), ...rows].join('\n');
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -205,7 +225,7 @@ async function exportKeysToJSON() {
         const keysDoc = await db.collection('settings').doc('keys').get();
         const validKeys = keysDoc.exists ? (keysDoc.data().valid_access_keys || []) : [];
         if (validKeys.length === 0) {
-            alert('No keys available to export.');
+            showCustomAlert('Export Failed', 'No keys available to export.');
             return;
         }
         const dataStr = JSON.stringify({ access_keys: validKeys }, null, 2);
@@ -226,7 +246,7 @@ async function exportRecordsToJSON() {
     try {
         const snapshot = await db.collection('exam_records').orderBy('timestamp', 'desc').get();
         if (snapshot.empty) {
-            alert('No records available to export.');
+            showCustomAlert('Export Failed', 'No records available to export.');
             return;
         }
         const records = snapshot.docs.map(doc => doc.data());
@@ -281,11 +301,11 @@ function toggleSelectAll() {
 async function deleteSelected() {
     const selected = Array.from(document.querySelectorAll('.record-chk:checked')).map(cb => cb.value);
     if (selected.length === 0) {
-        alert('No records selected to delete.');
+        showCustomAlert('Action Required', 'No records selected to delete.');
         return;
     }
     
-    if (confirm(`Are you sure you want to delete ${selected.length} selected record(s)? This cannot be undone.`)) {
+    showCustomConfirm('Delete Selected', `Are you sure you want to delete ${selected.length} selected record(s)? This cannot be undone.`, async () => {
         try {
             const batches = [];
             let currentBatch = db.batch();
@@ -307,19 +327,20 @@ async function deleteSelected() {
             await loadRecords(); // Reload the table
         } catch (error) {
             console.error("Error deleting selected records:", error);
-            alert("Failed to delete records.");
+            showCustomAlert('Error', 'Failed to delete records.');
         }
-    }
+    });
 }
 
 function exportSelectedCSV() {
     const selected = Array.from(document.querySelectorAll('.record-chk:checked'));
-    if (selected.length === 0) return alert('No records selected to export.');
+    if (selected.length === 0) return showCustomAlert('Action Required', 'No records selected to export.');
     
     const headers = ['Date', 'Student ID', 'Name', 'Access Key', 'Score', 'Percentage', 'Duration'];
     const rows = selected.map(cb => {
         const r = JSON.parse(decodeURIComponent(cb.dataset.record));
-        return `"${r.date}","${r.studentId}","${r.studentName}","${r.accessKey || 'N/A'}","${r.score}","${r.percentage}","${r.duration}"`;
+        const safeName = (r.studentName || '').replace(/"/g, '""');
+        return `"${r.date}","${r.studentId}","${safeName}","${r.accessKey || 'N/A'}","${r.score}","${r.percentage}","${r.duration}"`;
     });
     
     const csvContent = [headers.join(','), ...rows].join('\n');
@@ -334,7 +355,7 @@ function exportSelectedCSV() {
 
 function exportSelectedJSON() {
     const selected = Array.from(document.querySelectorAll('.record-chk:checked'));
-    if (selected.length === 0) return alert('No records selected to export.');
+    if (selected.length === 0) return showCustomAlert('Action Required', 'No records selected to export.');
     
     const records = selected.map(cb => JSON.parse(decodeURIComponent(cb.dataset.record)));
     const blob = new Blob([JSON.stringify({ exam_records: records }, null, 2)], { type: 'application/json' });
@@ -344,4 +365,65 @@ function exportSelectedJSON() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+}
+
+// --- Custom Alert & Confirm Modals ---
+function showCustomAlert(title, message, callback = null) {
+    const existingModal = document.getElementById('custom-modal');
+    if (existingModal) existingModal.remove();
+
+    const modalOverlay = document.createElement('div');
+    modalOverlay.id = 'custom-modal';
+    modalOverlay.className = 'modal-overlay';
+
+    let contentHtml = `<h3 style="margin-top: 0; color: #f8fafc;">${title}</h3>`;
+    contentHtml += `<div class="warning-text"><strong>⚠️ ${message}</strong></div>`;
+    contentHtml += `
+        <div class="modal-buttons">
+            <button id="modal-ok-btn" class="btn-primary">OK</button>
+        </div>
+    `;
+
+    const modalContent = document.createElement('div');
+    modalContent.className = 'modal-content card';
+    modalContent.innerHTML = contentHtml;
+
+    modalOverlay.appendChild(modalContent);
+    document.body.appendChild(modalOverlay);
+
+    document.getElementById('modal-ok-btn').addEventListener('click', () => {
+        modalOverlay.remove();
+        if (callback) callback();
+    });
+}
+
+function showCustomConfirm(title, message, onConfirm) {
+    const existingModal = document.getElementById('custom-modal');
+    if (existingModal) existingModal.remove();
+
+    const modalOverlay = document.createElement('div');
+    modalOverlay.id = 'custom-modal';
+    modalOverlay.className = 'modal-overlay';
+
+    let contentHtml = `<h3 style="margin-top: 0; color: #f8fafc;">${title}</h3>`;
+    contentHtml += `<div class="warning-text"><strong>⚠️ ${message}</strong></div>`;
+    contentHtml += `
+        <div class="modal-buttons">
+            <button id="modal-cancel-btn" class="btn-secondary">Cancel</button>
+            <button id="modal-confirm-btn" class="btn-success">Confirm</button>
+        </div>
+    `;
+
+    const modalContent = document.createElement('div');
+    modalContent.className = 'modal-content card';
+    modalContent.innerHTML = contentHtml;
+
+    modalOverlay.appendChild(modalContent);
+    document.body.appendChild(modalOverlay);
+
+    document.getElementById('modal-cancel-btn').addEventListener('click', () => modalOverlay.remove());
+    document.getElementById('modal-confirm-btn').addEventListener('click', () => {
+        modalOverlay.remove();
+        if (onConfirm) onConfirm();
+    });
 }

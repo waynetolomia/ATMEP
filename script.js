@@ -5,6 +5,8 @@ let studentId = '';
 let studentName = '';
 let currentAccessKey = '';
 let examStartTime = null;
+let isSubmitting = false;
+let examTimerInterval = null;
 const questionsPerSection = 30;
 
 let validAccessKeys = [];
@@ -195,7 +197,7 @@ function renderSection(sectionNum) {
         let nextBtnHtml = '';
         if (index < sectionData.length - 1) {
             const nextQ = sectionData[index + 1];
-            nextBtnHtml = `<div style="text-align: right; margin-top: 15px;"><button type="button" class="btn-secondary" style="padding: 8px 16px; font-size: 13px;" onclick="showQuestion('question-container-${nextQ.id}')">Next Question ➔</button></div>`;
+            nextBtnHtml = `<div style="text-align: right; margin-top: 15px;"><button type="button" class="btn-secondary" style="padding: 8px 16px; font-size: 13px;" onclick="handleNextQuestion('${q.id}', '${nextQ.id}')">Next Question ➔</button></div>`;
         }
 
         const optionsHtml = q.options.map((option, optIndex) => {
@@ -243,7 +245,9 @@ function renderSection(sectionNum) {
     renderQuestionNav(sectionNum);
 
     if (sectionData.length > 0) {
-        showQuestion(`question-container-${sectionData[0].id}`);
+        let firstUnansweredIndex = sectionData.findIndex(q => !answers[q.id]);
+        if (firstUnansweredIndex === -1) firstUnansweredIndex = 0; // If all answered, start at the first
+        showQuestion(`question-container-${sectionData[firstUnansweredIndex].id}`);
     }
 }
 
@@ -254,12 +258,33 @@ function renderQuestionNav(sectionNum) {
     const sectionData = sectionQuestions[sectionNum] || [];
     let navHtml = '<strong style="display: flex; align-items: center;">Questions:</strong> ';
     
+    let firstUnansweredIndex = sectionData.findIndex(q => !answers[q.id]);
+    if (firstUnansweredIndex === -1) firstUnansweredIndex = sectionData.length;
+
     sectionData.forEach((q, index) => {
         const isAnswered = !!answers[q.id];
-        navHtml += `<button id="nav-btn-${q.id}" class="q-nav-btn ${isAnswered ? 'answered' : ''}" type="button" onclick="showQuestion('question-container-${q.id}')">${index + 1}</button>`;
+        const isUnlocked = index <= firstUnansweredIndex;
+        const disabledAttr = isUnlocked ? '' : 'disabled';
+        const opacityStyle = isUnlocked ? '' : 'opacity: 0.5; cursor: not-allowed;';
+        
+        navHtml += `<button id="nav-btn-${q.id}" class="q-nav-btn ${isAnswered ? 'answered' : ''}" type="button" ${disabledAttr} style="${opacityStyle}" onclick="showQuestion('question-container-${q.id}')">${index + 1}</button>`;
     });
     
     navContainer.innerHTML = navHtml;
+
+    // Re-apply active class to the visible question after re-rendering
+    const visibleQId = getVisibleQuestionId();
+    if (visibleQId) {
+        const activeBtn = document.getElementById(`nav-btn-${visibleQId}`);
+        if (activeBtn) activeBtn.classList.add('active-q');
+    }
+}
+
+function getVisibleQuestionId() {
+    const sectionEl = document.getElementById(`sec-${currentSection}`);
+    if (!sectionEl) return null;
+    const visibleQ = Array.from(sectionEl.querySelectorAll('.question')).find(q => q.style.display === 'block');
+    return visibleQ ? visibleQ.id.replace('question-container-', '') : null;
 }
 
 function showQuestion(id) {
@@ -304,6 +329,14 @@ function showQuestion(id) {
     }
 }
 
+function handleNextQuestion(currentId, nextId) {
+    if (!answers[currentId]) {
+        showCustomAlert("Action Required", "Please answer the current question before proceeding to the next one.");
+        return;
+    }
+    showQuestion('question-container-' + nextId);
+}
+
 function setupAudioLimits(sectionNum) {
     const sectionEl = document.getElementById(`sec-${sectionNum}`);
     const audioEls = sectionEl.querySelectorAll('audio[data-audio-id^="q"]'); // Only apply limits to actual exam questions
@@ -343,7 +376,7 @@ function setupAudioLimits(sectionNum) {
                         statusEl.textContent = 'Limit reached';
                         statusEl.style.color = '#ef4444';
                     }
-                    alert('This audio can only be played twice.');
+                    showCustomAlert("Audio Limit Reached", "This audio can only be played twice.");
                     return;
                 }
                 audioPlayCounts[audioId] += 1;
@@ -395,10 +428,7 @@ function markAnswered(qId) {
     if (selected) {
         answers[qId] = selected.value;
         saveAnswers();
-        const btn = document.getElementById(`nav-btn-${qId}`);
-        if (btn) {
-            btn.classList.add('answered');
-        }
+        renderQuestionNav(currentSection); // Re-render nav to instantly unlock the next question
         updateOverallProgress();
     }
 }
@@ -481,16 +511,16 @@ document.getElementById('login-form').addEventListener('submit', async function(
     const isMasterKey = (enteredKey === 'ATMEPMASTER');
 
     if (!isMasterKey && !validAccessKeys.includes(enteredKey)) {
-        alert('Invalid Access Key! Please check and try again. (Make sure you use a valid ATMEP****** key)');
+        showCustomAlert('Login Failed', 'Invalid Access Key! Please check and try again. (Make sure you use a valid ATMEP****** key)');
         return;
     }
     if (!isMasterKey && usedKeys.includes(enteredKey)) {
-        alert('This Access Key has already been used to complete an exam.');
+        showCustomAlert('Login Failed', 'This Access Key has already been used to complete an exam.');
         return;
     }
 
-    studentId = document.getElementById('student-id').value;
-    studentName = document.getElementById('student-name').value;
+    studentId = inputStudentId;
+    studentName = inputStudentName;
     currentAccessKey = enteredKey;
     
     document.getElementById('login-container').classList.add('hidden');
@@ -502,13 +532,18 @@ document.getElementById('login-form').addEventListener('submit', async function(
         document.getElementById('exam-container').classList.remove('hidden');
         document.getElementById('student-display').innerText = `Student: ${studentName} (${studentId})`;
         loadAnswers();
-        const elapsedSeconds = (Date.now() - examStartTime) / 1000;
-        const remainingMinutes = Math.max(0, (7200 - elapsedSeconds) / 60);
         document.getElementById('progress-sidebar').classList.remove('hidden');
         updateOverallProgress();
-        startTimer(remainingMinutes); 
+        startTimer(); 
     } else {
         // Fresh exam, show introduction page first
+        
+        // Prevent data leak: Clear any leftover answers/audio counts from a previous unfinished user
+        localStorage.removeItem('exam_answers');
+        localStorage.removeItem('exam_audio_counts');
+        answers = {};
+        for (let key in audioPlayCounts) delete audioPlayCounts[key];
+
         document.getElementById('headphone-test-container').classList.remove('hidden');
     }
 });
@@ -548,7 +583,7 @@ document.getElementById('proceed-btn').addEventListener('click', function() {
     document.getElementById('progress-sidebar').classList.remove('hidden');
     updateOverallProgress();
     loadAnswers();
-    startTimer(120); 
+    startTimer(); 
 });
 
 // 2. Navigation Logic
@@ -596,30 +631,52 @@ function updateButtons() {
 }
 
 // 3. Simple Timer Logic
-function startTimer(minutes) {
-    let seconds = Math.floor(minutes * 60);
+function startTimer() {
     const timerEl = document.getElementById('timer');
+    const durationMs = 120 * 60 * 1000; // 120 minutes
     
-    function updateDisplay() {
-        let m = Math.floor(seconds / 60);
-        let s = seconds % 60;
+    function updateDisplay(remainingMs) {
+        let totalSeconds = Math.floor(remainingMs / 1000);
+        let m = Math.floor(totalSeconds / 60);
+        let s = totalSeconds % 60;
         timerEl.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
     }
 
-    updateDisplay(); // Call immediately to remove the static 120:00 text
-    
-    const countdown = setInterval(() => {
-        seconds--;
-        if (seconds <= 0) {
-            clearInterval(countdown);
+    function checkTime() {
+        if (isSubmitting) return;
+        const now = Date.now();
+        const elapsedMs = now - examStartTime;
+        const remainingMs = durationMs - elapsedMs;
+
+        if (remainingMs <= 0) {
+            if (examTimerInterval) clearInterval(examTimerInterval);
             timerEl.innerText = "0:00";
-            alert("Time is up! Your exam will be submitted automatically.");
-            submitExam();
+            document.getElementById('exam-container').classList.add('hidden'); // Hide exam immediately
+            submitExam(); // Submit immediately to prevent data loss if student walks away
+            showCustomAlert("Time is Up!", "Your exam time has expired. It has been submitted automatically.");
         } else {
-            updateDisplay();
+            updateDisplay(remainingMs);
         }
-    }, 1000);
+    }
+
+    checkTime(); // Call immediately to initialize
+    
+    if (examTimerInterval) clearInterval(examTimerInterval);
+    examTimerInterval = setInterval(checkTime, 1000);
 }
+
+// Add Visibility Change Listener to catch up immediately when returning to a background tab
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && examStartTime && !isSubmitting) {
+        const elapsedMs = Date.now() - examStartTime;
+        if (elapsedMs >= 120 * 60 * 1000) {
+            if (examTimerInterval) clearInterval(examTimerInterval);
+            document.getElementById('exam-container').classList.add('hidden');
+            submitExam();
+            showCustomAlert("Time is Up!", "Your exam time has expired. It has been submitted automatically.");
+        }
+    }
+});
 
 // 4. Submission Logic
 document.getElementById('submit-btn').addEventListener('click', function() {
@@ -678,6 +735,14 @@ function showSubmitModal(missingInfo) {
 }
 
 async function submitExam() {
+    if (isSubmitting) return;
+    isSubmitting = true;
+
+    // Pause any playing audio to prevent it from continuing on the results screen
+    document.querySelectorAll('audio').forEach(audio => {
+        if (!audio.paused) audio.pause();
+    });
+
     collectAnswers();
     saveAnswers();
     
@@ -729,13 +794,15 @@ async function submitExam() {
                 used_keys: firebase.firestore.FieldValue.arrayUnion(currentAccessKey)
             });
         }
+        
+        // Clear local storage ONLY on successful submission to prevent data loss
+        localStorage.removeItem('exam_answers');
+        localStorage.removeItem(`exam_start_${currentAccessKey}`);
+        localStorage.removeItem('exam_audio_counts');
     } catch (error) {
         console.error("Firebase save error: ", error);
+        showCustomAlert("Network Error", "Failed to sync results to the server. Your answers are safely backed up locally. Please notify the invigilator.");
     }
-
-    localStorage.removeItem('exam_answers');
-    localStorage.removeItem(`exam_start_${currentAccessKey}`);
-    localStorage.removeItem('exam_audio_counts');
 
     // Display the Results UI
     document.getElementById('result-student-info').innerText = `${studentName} (${studentId})`;
@@ -880,3 +947,33 @@ document.addEventListener('keydown', function(e) {
         }
     }
 }, true);
+
+// --- Custom Alert Popup ---
+function showCustomAlert(title, message, callback = null) {
+    const existingModal = document.getElementById('custom-modal');
+    if (existingModal) existingModal.remove();
+
+    const modalOverlay = document.createElement('div');
+    modalOverlay.id = 'custom-modal';
+    modalOverlay.className = 'modal-overlay';
+
+    let contentHtml = `<h3 style="margin-top: 0; color: #f8fafc;">${title}</h3>`;
+    contentHtml += `<div class="warning-text"><strong>⚠️ ${message}</strong></div>`;
+    contentHtml += `
+        <div class="modal-buttons">
+            <button id="modal-ok-btn" class="btn-primary">OK</button>
+        </div>
+    `;
+
+    const modalContent = document.createElement('div');
+    modalContent.className = 'modal-content card';
+    modalContent.innerHTML = contentHtml;
+
+    modalOverlay.appendChild(modalContent);
+    document.body.appendChild(modalOverlay);
+
+    document.getElementById('modal-ok-btn').addEventListener('click', () => {
+        modalOverlay.remove();
+        if (callback) callback();
+    });
+}
