@@ -815,7 +815,7 @@ function startTimer() {
     examTimerInterval = setInterval(checkTime, 1000);
 }
 
-// Add Visibility Change Listener to catch up immediately when returning to a background tab
+// Add Visibility Change Listener to catch up immediately when returning to a background tab and prevent cheating
 document.addEventListener('visibilitychange', () => {
     if (!document.hidden && examStartTime && !isSubmitting) {
         const elapsedMs = Date.now() - examStartTime;
@@ -827,6 +827,8 @@ document.addEventListener('visibilitychange', () => {
             document.getElementById('exam-container').classList.add('hidden');
             submitExam();
             showCustomAlert("Time is Up!", "Your exam time has expired. It has been submitted automatically.");
+        } else if (!document.getElementById('exam-container').classList.contains('hidden')) {
+            showAntiCheatWarning("changed tabs or minimized the browser");
         }
     }
 });
@@ -867,9 +869,9 @@ function showSubmitModal(missingInfo) {
     }
     contentHtml += '<p style="color: #cbd5e1;">Are you sure you want to submit your exam? This action cannot be undone.</p>';
     contentHtml += `
-        <div class="modal-buttons">
-            <button id="modal-cancel-btn" class="btn-secondary">Cancel</button>
-            <button id="modal-confirm-btn" class="btn-success">Submit Exam</button>
+        <div class="modal-buttons" style="flex-direction: column; gap: 15px;">
+            <button id="modal-cancel-btn" class="btn-secondary" style="width: 100%; padding: 18px; font-size: 18px; font-weight: bold;">Cancel</button>
+            <button id="modal-confirm-btn" class="btn-success" style="width: 100%; padding: 12px; font-size: 14px;">Submit Exam</button>
         </div>
     `;
 
@@ -965,7 +967,7 @@ async function submitExam() {
     // Display the Results UI
     document.getElementById('result-student-info').innerText = `${studentName} (${studentId})`;
     document.getElementById('score-overall').innerText = `${percentage}%`;
-    document.getElementById('score-fraction').innerText = `${score} / ${totalQuestions} Correct | Time: ${durationStr}`;
+    document.getElementById('score-fraction').innerText = `${score} / ${totalQuestions} Correct | Time: ${durationStr} | Date: ${examRecord.date}`;
     
     document.getElementById('exam-container').classList.add('hidden');
     document.getElementById('progress-sidebar').classList.add('hidden');
@@ -997,6 +999,68 @@ function downloadResult() {
 document.addEventListener('contextmenu', e => e.preventDefault()); // Disable right-click
 document.addEventListener('copy', e => e.preventDefault()); // Disable copying text
 document.addEventListener('selectstart', e => e.preventDefault()); // Disable text highlighting
+
+function showAntiCheatWarning(reason) {
+    const examContainer = document.getElementById('exam-container');
+    if (!examContainer || examContainer.classList.contains('hidden') || isSubmitting) return;
+
+    // Do not recreate the modal if it is already open (prevents resetting the input field)
+    if (document.getElementById('admin-passcode')) return;
+
+    const existingModal = document.getElementById('custom-modal');
+    if (existingModal) existingModal.remove();
+
+    const modalOverlay = document.createElement('div');
+    modalOverlay.id = 'custom-modal';
+    modalOverlay.className = 'modal-overlay';
+
+    let contentHtml = `<h3 style="margin-top: 0; color: #f8fafc;">Exam Violation Detected</h3>`;
+    contentHtml += `<div class="warning-text" style="text-align: center;"><strong>⚠️ We detected that you ${reason}.</strong><br><br>This is a strictly monitored exam. Your session has been paused.<br><br><span style="color: #fca5a5;">Please contact your examiner to proceed.</span></div>`;
+    contentHtml += `<input type="password" id="admin-passcode" placeholder="Examiner Passcode" style="width: 100%; max-width: 250px; padding: 12px; margin-top: 10px; border-radius: 12px; border: 1px solid var(--border-glass); background: rgba(15, 23, 42, 0.8); color: white; text-align: center; outline: none; font-size: 16px;">`;
+    contentHtml += `<p id="passcode-error" style="color: #ef4444; font-size: 13px; margin-top: 10px; display: none;">Incorrect passcode!</p>`;
+    contentHtml += `
+        <div class="modal-buttons" style="justify-content: center;">
+            <button id="modal-unlock-btn" class="btn-primary">Unlock Exam</button>
+        </div>
+    `;
+
+    const modalContent = document.createElement('div');
+    modalContent.className = 'modal-content card';
+    modalContent.innerHTML = contentHtml;
+
+    modalOverlay.appendChild(modalContent);
+    document.body.appendChild(modalOverlay);
+
+    document.getElementById('modal-unlock-btn').addEventListener('click', () => {
+        const passcode = document.getElementById('admin-passcode').value;
+        if (passcode === 'ATMEPADMINKEY') {
+            modalOverlay.remove();
+        } else {
+            document.getElementById('passcode-error').style.display = 'block';
+            document.getElementById('admin-passcode').value = '';
+            document.getElementById('admin-passcode').style.borderColor = '#ef4444';
+        }
+    });
+}
+
+window.addEventListener('blur', () => {
+    if (examStartTime && !isSubmitting && !document.getElementById('exam-container').classList.contains('hidden')) {
+        showAntiCheatWarning("navigated away from the exam window");
+    }
+});
+
+document.addEventListener('keyup', (e) => {
+    if (e.key === 'PrintScreen' || e.code === 'PrintScreen') {
+        showAntiCheatWarning("pressed the Print Screen key");
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    // Check for common Mac/Windows screenshot keyboard combos (Cmd/Ctrl + Shift + 3/4/S)
+    if ((e.metaKey || e.ctrlKey) && e.shiftKey && (e.key === '3' || e.key === '4' || e.key === 's' || e.key === 'S')) {
+        showAntiCheatWarning("used a screenshot keyboard shortcut");
+    }
+});
 
 // --- Smooth Background Video Loop ---
 function setupSmoothVideoLoop() {
