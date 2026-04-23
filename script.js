@@ -96,9 +96,13 @@ async function generateQuestions() {
 
     if (!allBanks || allBanks.length === 0) return;
 
+    // Helper function to pick a random loaded bank
+    const getRandomBank = () => allBanks[Math.floor(Math.random() * allBanks.length)];
+
     // --- Section 1: Listening ---
-    let poolListening = allBanks.flatMap(b => b.listening || []);
-    poolListening = shuffle(uniqueArray(poolListening)).slice(0, 30);
+    const bankListening = getRandomBank();
+    let poolListening = [...(bankListening.listening || [])];
+    poolListening = shuffle(poolListening).slice(0, 30);
     
     poolListening.forEach((q, index) => {
         const qNum = index + 1;
@@ -112,22 +116,21 @@ async function generateQuestions() {
     });
 
     // --- Section 2: Speaking ---
+    const bankSpeaking = getRandomBank();
     let poolSpeakingIndep = [];
     let poolSpeakingContexts = [];
-    allBanks.forEach(bank => {
-        if(bank.speaking && bank.speaking.length >= 30) {
-            poolSpeakingIndep.push(...bank.speaking.slice(0, 12));
-            let dependent = bank.speaking.slice(12, 30);
-            for (let i = 0; i < dependent.length; i += 2) {
-                if (dependent[i] && dependent[i+1]) {
-                    poolSpeakingContexts.push([dependent[i], dependent[i+1]]);
-                }
+    if (bankSpeaking.speaking && bankSpeaking.speaking.length >= 30) {
+        poolSpeakingIndep.push(...bankSpeaking.speaking.slice(0, 12));
+        let dependent = bankSpeaking.speaking.slice(12, 30);
+        for (let i = 0; i < dependent.length; i += 2) {
+            if (dependent[i] && dependent[i+1]) {
+                poolSpeakingContexts.push([dependent[i], dependent[i+1]]);
             }
         }
-    });
+    }
 
-    poolSpeakingIndep = shuffle(uniqueArray(poolSpeakingIndep)).slice(0, 12);
-    poolSpeakingContexts = shuffle(uniqueArray(poolSpeakingContexts)).slice(0, 9);
+    poolSpeakingIndep = shuffle(poolSpeakingIndep).slice(0, 12);
+    poolSpeakingContexts = shuffle(poolSpeakingContexts).slice(0, 9);
 
     let finalSpeaking = [...poolSpeakingIndep];
     let currentSQNum = 13;
@@ -151,18 +154,17 @@ async function generateQuestions() {
     });
 
     // --- Section 3: Reading ---
+    const bankReading = getRandomBank();
     let poolReadingPassages = [];
-    allBanks.forEach(bank => {
-        if(bank.reading && bank.reading.length >= 30) {
-            for (let i = 0; i < bank.reading.length; i += 3) {
-                if (bank.reading[i] && bank.reading[i+1] && bank.reading[i+2]) {
-                    poolReadingPassages.push([bank.reading[i], bank.reading[i+1], bank.reading[i+2]]);
-                }
+    if (bankReading.reading && bankReading.reading.length >= 30) {
+        for (let i = 0; i < bankReading.reading.length; i += 3) {
+            if (bankReading.reading[i] && bankReading.reading[i+1] && bankReading.reading[i+2]) {
+                poolReadingPassages.push([bankReading.reading[i], bankReading.reading[i+1], bankReading.reading[i+2]]);
             }
         }
-    });
+    }
 
-    poolReadingPassages = shuffle(uniqueArray(poolReadingPassages)).slice(0, 10);
+    poolReadingPassages = shuffle(poolReadingPassages).slice(0, 10);
     let finalReading = [];
     poolReadingPassages.forEach(block => finalReading.push(...block));
 
@@ -178,22 +180,21 @@ async function generateQuestions() {
     });
 
     // --- Section 4: Writing ---
+    const bankWriting = getRandomBank();
     let poolWritingIndep = [];
     let poolWritingCloze = [];
-    allBanks.forEach(bank => {
-        if(bank.writing && bank.writing.length >= 30) {
-            poolWritingIndep.push(...bank.writing.slice(0, 12));
-            let dependent = bank.writing.slice(12, 30);
-            for (let i = 0; i < dependent.length; i += 3) {
-                if (dependent[i] && dependent[i+1] && dependent[i+2]) {
-                    poolWritingCloze.push([dependent[i], dependent[i+1], dependent[i+2]]);
-                }
+    if (bankWriting.writing && bankWriting.writing.length >= 30) {
+        poolWritingIndep.push(...bankWriting.writing.slice(0, 12));
+        let dependent = bankWriting.writing.slice(12, 30);
+        for (let i = 0; i < dependent.length; i += 3) {
+            if (dependent[i] && dependent[i+1] && dependent[i+2]) {
+                poolWritingCloze.push([dependent[i], dependent[i+1], dependent[i+2]]);
             }
         }
-    });
+    }
 
-    poolWritingIndep = shuffle(uniqueArray(poolWritingIndep)).slice(0, 12);
-    poolWritingCloze = shuffle(uniqueArray(poolWritingCloze)).slice(0, 6);
+    poolWritingIndep = shuffle(poolWritingIndep).slice(0, 12);
+    poolWritingCloze = shuffle(poolWritingCloze).slice(0, 6);
 
     let finalWriting = [...poolWritingIndep];
     let currentWQNum = 13;
