@@ -46,7 +46,7 @@ function adminLogout() {
 
 async function loadRecords() {
     const tbody = document.getElementById('records-body');
-    tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 20px;">Loading records...</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="12" style="text-align: center; padding: 20px;">Loading records...</td></tr>';
     
     // Inject bulk actions UI dynamically
     let actionsContainer = document.getElementById('bulk-actions-container');
@@ -82,7 +82,7 @@ async function loadRecords() {
     try {
         const snapshot = await db.collection('exam_records').orderBy('timestamp', 'desc').get();
         if (snapshot.empty) {
-            tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 20px;">No exam records found yet.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="12" style="text-align: center; padding: 20px;">No exam records found yet.</td></tr>';
             if (actionsContainer) actionsContainer.style.display = 'none';
             return;
         }
@@ -93,11 +93,17 @@ async function loadRecords() {
         snapshot.forEach(doc => {
             const r = doc.data();
             const recordData = encodeURIComponent(JSON.stringify(r));
+            const secScores = r.sectionScores || {};
             html += `<tr>
                 <td><input type="checkbox" class="record-chk" value="${doc.id}" data-record="${recordData}" style="transform: scale(1.2); cursor: pointer;"></td>
                 <td>${r.date}</td><td><strong>${r.studentId}</strong></td>
                 <td>${r.studentName}</td><td>${r.accessKey || 'N/A'}</td><td><strong>${r.score}</strong></td>
-                <td>${r.percentage}</td><td>${r.duration}</td>
+                <td>${r.percentage}</td>
+                <td>${secScores.listening || 'N/A'}</td>
+                <td>${secScores.speaking || 'N/A'}</td>
+                <td>${secScores.reading || 'N/A'}</td>
+                <td>${secScores.writing || 'N/A'}</td>
+                <td>${r.duration}</td>
             </tr>`;
         });
         tbody.innerHTML = html;
@@ -106,7 +112,7 @@ async function loadRecords() {
         if (selectAllCb) selectAllCb.checked = false;
     } catch (error) {
         console.error("Error loading records:", error);
-        tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 20px; color: red;">Error loading records.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="12" style="text-align: center; padding: 20px; color: red;">Error loading records.</td></tr>';
     }
 }
 
@@ -200,11 +206,12 @@ async function exportToCSV() {
             showCustomAlert('Export Failed', 'No records available to export.');
             return;
         }
-        const headers = ['Date', 'Student ID', 'Name', 'Access Key', 'Score', 'Percentage', 'Duration'];
+        const headers = ['Date', 'Student ID', 'Name', 'Access Key', 'Score', 'Percentage', 'Listening', 'Speaking', 'Reading', 'Writing', 'Duration'];
         const rows = snapshot.docs.map(doc => {
             const r = doc.data();
             const safeName = (r.studentName || '').replace(/"/g, '""');
-            return `"${r.date}","${r.studentId}","${safeName}","${r.accessKey || 'N/A'}","${r.score}","${r.percentage}","${r.duration}"`;
+            const secScores = r.sectionScores || {};
+            return `"${r.date}","${r.studentId}","${safeName}","${r.accessKey || 'N/A'}","${r.score}","${r.percentage}","${secScores.listening || 'N/A'}","${secScores.speaking || 'N/A'}","${secScores.reading || 'N/A'}","${secScores.writing || 'N/A'}","${r.duration}"`;
         });
         const csvContent = '\uFEFF' + [headers.join(','), ...rows].join('\n');
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -336,11 +343,12 @@ function exportSelectedCSV() {
     const selected = Array.from(document.querySelectorAll('.record-chk:checked'));
     if (selected.length === 0) return showCustomAlert('Action Required', 'No records selected to export.');
     
-    const headers = ['Date', 'Student ID', 'Name', 'Access Key', 'Score', 'Percentage', 'Duration'];
+    const headers = ['Date', 'Student ID', 'Name', 'Access Key', 'Score', 'Percentage', 'Listening', 'Speaking', 'Reading', 'Writing', 'Duration'];
     const rows = selected.map(cb => {
         const r = JSON.parse(decodeURIComponent(cb.dataset.record));
         const safeName = (r.studentName || '').replace(/"/g, '""');
-        return `"${r.date}","${r.studentId}","${safeName}","${r.accessKey || 'N/A'}","${r.score}","${r.percentage}","${r.duration}"`;
+        const secScores = r.sectionScores || {};
+        return `"${r.date}","${r.studentId}","${safeName}","${r.accessKey || 'N/A'}","${r.score}","${r.percentage}","${secScores.listening || 'N/A'}","${secScores.speaking || 'N/A'}","${secScores.reading || 'N/A'}","${secScores.writing || 'N/A'}","${r.duration}"`;
     });
     
     const csvContent = '\uFEFF' + [headers.join(','), ...rows].join('\n');

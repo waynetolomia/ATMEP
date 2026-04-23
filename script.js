@@ -1042,7 +1042,13 @@ async function submitExam() {
         percentage: `${percentage}%`,
         duration: durationStr,
         date: new Date().toLocaleString(),
-        timestamp: Date.now() // added for reliable sorting in admin view
+        timestamp: Date.now(), // added for reliable sorting in admin view
+        sectionScores: {
+            listening: `${sectionScores[1].s}/${sectionScores[1].t}`,
+            speaking: `${sectionScores[2].s}/${sectionScores[2].t}`,
+            reading: `${sectionScores[3].s}/${sectionScores[3].t}`,
+            writing: `${sectionScores[4].s}/${sectionScores[4].t}`
+        }
     };
     try {
         await db.collection('exam_records').add(examRecord);
