@@ -30,8 +30,8 @@ async function loadAccessKeys() {
     }
 }
 
-// Raw JSON question data and converted section questions
-let questionsData = {};
+// Array to hold multiple question banks and converted section questions
+let allBanks = [];
 let sectionQuestions = {
     1: [],
     2: [],
@@ -41,22 +41,37 @@ let sectionQuestions = {
 
 const audioPlayCounts = JSON.parse(localStorage.getItem('exam_audio_counts')) || {};
 
-// Load questions from external JSON file
+// Load questions from multiple external JSON files
 async function loadQuestions() {
     try {
-        const response = await fetch('questions.json');
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        questionsData = await response.json();
-        console.log('Questions loaded successfully');
+        const files = ['questions.json', 'questions2.json', 'questions3.json'];
+        const fetches = files.map(file => fetch(file).then(r => {
+            if (!r.ok) throw new Error(`HTTP ${r.status} for ${file}`);
+            return r.json();
+        }));
+        allBanks = await Promise.all(fetches);
+        console.log('All question banks loaded successfully');
     } catch (error) {
-        console.error('Error loading questions:', error);
-        questionsData = {
-            listening: [],
-            speaking: [],
-            reading: [],
-            writing: []
-        };
+        console.error('Error loading multiple question banks, attempting fallback to questions.json:', error);
+        try {
+            const fallback = await fetch('questions.json').then(r => r.json());
+            allBanks = [fallback, fallback, fallback]; // Duplicate to maintain structure if others fail
+        } catch (fallbackError) {
+            console.error('Fallback failed:', fallbackError);
+            allBanks = [{ listening: [], speaking: [], reading: [], writing: [] }];
+        }
     }
+}
+
+// Utility function to deeply deduplicate an array of objects
+function uniqueArray(arr) {
+    const seen = new Set();
+    return arr.filter(item => {
+        const str = JSON.stringify(item);
+        if (seen.has(str)) return false;
+        seen.add(str);
+        return true;
+    });
 }
 
 // Utility function to shuffle an array in-place (Fisher-Yates)
@@ -79,9 +94,13 @@ async function generateQuestions() {
         4: []
     };
 
-    // Section 1: Listening (Randomize all 30)
-    const listeningQuestions = shuffle([...questionsData.listening]);
-    listeningQuestions.forEach((q, index) => {
+    if (!allBanks || allBanks.length === 0) return;
+
+    // --- Section 1: Listening ---
+    let poolListening = allBanks.flatMap(b => b.listening || []);
+    poolListening = shuffle(uniqueArray(poolListening)).slice(0, 30);
+    
+    poolListening.forEach((q, index) => {
         const qNum = index + 1;
         sectionQuestions[1].push({
             id: `q${qNum}`,
@@ -92,11 +111,35 @@ async function generateQuestions() {
         });
     });
 
-    // Section 2: Speaking (Randomize first 12)
-    const speakingToShuffle = questionsData.speaking.slice(0, 12);
-    const speakingToKeep = questionsData.speaking.slice(12);
-    const finalSpeakingOrder = shuffle(speakingToShuffle).concat(speakingToKeep);
-    finalSpeakingOrder.forEach((q, index) => {
+    // --- Section 2: Speaking ---
+    let poolSpeakingIndep = [];
+    let poolSpeakingContexts = [];
+    allBanks.forEach(bank => {
+        if(bank.speaking && bank.speaking.length >= 30) {
+            poolSpeakingIndep.push(...bank.speaking.slice(0, 12));
+            let dependent = bank.speaking.slice(12, 30);
+            for (let i = 0; i < dependent.length; i += 2) {
+                if (dependent[i] && dependent[i+1]) {
+                    poolSpeakingContexts.push([dependent[i], dependent[i+1]]);
+                }
+            }
+        }
+    });
+
+    poolSpeakingIndep = shuffle(uniqueArray(poolSpeakingIndep)).slice(0, 12);
+    poolSpeakingContexts = shuffle(uniqueArray(poolSpeakingContexts)).slice(0, 9);
+
+    let finalSpeaking = [...poolSpeakingIndep];
+    let currentSQNum = 13;
+    poolSpeakingContexts.forEach(block => {
+        // Update context labels (e.g. "Items 13-14 refer to...") to match new sequential order
+        let newContext = block[0].context.replace(/Items \d+-\d+/, `Items ${currentSQNum}-${currentSQNum+1}`);
+        finalSpeaking.push({ ...block[0], context: newContext });
+        finalSpeaking.push({ ...block[1], context: newContext });
+        currentSQNum += 2;
+    });
+
+    finalSpeaking.forEach((q, index) => {
         const qNum = index + 1 + questionsPerSection;
         sectionQuestions[2].push({
             id: `q${qNum}`,
@@ -107,8 +150,23 @@ async function generateQuestions() {
         });
     });
 
-    // Section 3: Reading (No change)
-    questionsData.reading.forEach((q, index) => {
+    // --- Section 3: Reading ---
+    let poolReadingPassages = [];
+    allBanks.forEach(bank => {
+        if(bank.reading && bank.reading.length >= 30) {
+            for (let i = 0; i < bank.reading.length; i += 3) {
+                if (bank.reading[i] && bank.reading[i+1] && bank.reading[i+2]) {
+                    poolReadingPassages.push([bank.reading[i], bank.reading[i+1], bank.reading[i+2]]);
+                }
+            }
+        }
+    });
+
+    poolReadingPassages = shuffle(uniqueArray(poolReadingPassages)).slice(0, 10);
+    let finalReading = [];
+    poolReadingPassages.forEach(block => finalReading.push(...block));
+
+    finalReading.forEach((q, index) => {
         const qNum = index + 1 + (questionsPerSection * 2);
         sectionQuestions[3].push({
             id: `q${qNum}`,
@@ -119,11 +177,50 @@ async function generateQuestions() {
         });
     });
 
-    // Section 4: Writing (Randomize first 12)
-    const writingToShuffle = questionsData.writing.slice(0, 12);
-    const writingToKeep = questionsData.writing.slice(12);
-    const finalWritingOrder = shuffle(writingToShuffle).concat(writingToKeep);
-    finalWritingOrder.forEach((q, index) => {
+    // --- Section 4: Writing ---
+    let poolWritingIndep = [];
+    let poolWritingCloze = [];
+    allBanks.forEach(bank => {
+        if(bank.writing && bank.writing.length >= 30) {
+            poolWritingIndep.push(...bank.writing.slice(0, 12));
+            let dependent = bank.writing.slice(12, 30);
+            for (let i = 0; i < dependent.length; i += 3) {
+                if (dependent[i] && dependent[i+1] && dependent[i+2]) {
+                    poolWritingCloze.push([dependent[i], dependent[i+1], dependent[i+2]]);
+                }
+            }
+        }
+    });
+
+    poolWritingIndep = shuffle(uniqueArray(poolWritingIndep)).slice(0, 12);
+    poolWritingCloze = shuffle(uniqueArray(poolWritingCloze)).slice(0, 6);
+
+    let finalWriting = [...poolWritingIndep];
+    let currentWQNum = 13;
+    poolWritingCloze.forEach(block => {
+        let newPassage = block[0].passage;
+        let modifiedBlock = [ { ...block[0] }, { ...block[1] }, { ...block[2] } ];
+        
+        // Update blank indices (e.g. "___ (13) ___" -> "___ (15) ___") in both passage and question text
+        for(let i=0; i<3; i++) {
+            let match = modifiedBlock[i].question.match(/blank \((\d+)\):/);
+            if(match) {
+                let oldId = match[1];
+                let newId = currentWQNum + i;
+                newPassage = newPassage.split(`___ (${oldId}) ___`).join(`___ (${newId}) ___`);
+                modifiedBlock[i].question = modifiedBlock[i].question.split(`blank (${oldId}):`).join(`blank (${newId}):`);
+            }
+        }
+        
+        modifiedBlock[0].passage = newPassage;
+        modifiedBlock[1].passage = newPassage;
+        modifiedBlock[2].passage = newPassage;
+        
+        finalWriting.push(...modifiedBlock);
+        currentWQNum += 3;
+    });
+
+    finalWriting.forEach((q, index) => {
         const qNum = index + 1 + (questionsPerSection * 3);
         sectionQuestions[4].push({
             id: `q${qNum}`,
@@ -759,14 +856,14 @@ function updateButtons() {
         const opacity = isSectionComplete ? '1' : '0.5';
         const cursor = isSectionComplete ? 'pointer' : 'not-allowed';
 
-        if (submitBtn) {
-            submitBtn.classList.remove('hidden');
-            submitBtn.disabled = !isSectionComplete;
-            submitBtn.style.opacity = opacity;
-            submitBtn.style.cursor = cursor;
-        }
-
-        if (currentSection !== totalSections) {
+        if (currentSection === totalSections) {
+            if (submitBtn) {
+                submitBtn.classList.remove('hidden');
+                submitBtn.disabled = !isSectionComplete;
+                submitBtn.style.opacity = opacity;
+                submitBtn.style.cursor = cursor;
+            }
+        } else {
             if (nextBtn) {
                 nextBtn.classList.remove('hidden');
                 nextBtn.disabled = !isSectionComplete;

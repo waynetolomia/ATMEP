@@ -1,0 +1,1426 @@
+{
+  "listening": [
+    {
+      "id": 1,
+      "audio": "audio/listening_1.mp3",
+      "question": "What is the new course of the vessel?",
+      "options": [
+        "A) 4.0",
+        "B) 1.0",
+        "C) 140",
+        "D) 410"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 2,
+      "audio": "audio/listening_2.mp3",
+      "question": "What is the required speed for the vessel?",
+      "options": [
+        "A) 16 knots",
+        "B) 6 knots",
+        "C) 60 knots",
+        "D) As fast as possible"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 3,
+      "audio": "audio/listening_3.mp3",
+      "question": "Where is the ship located?",
+      "options": [
+        "A) At the pilot station",
+        "B) 3 miles South of the station",
+        "C) 3 miles North of the station",
+        "D) 13 miles from the station"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 4,
+      "audio": "audio/listening_4.mp3",
+      "question": "Why can’t the lookout see the lighthouse?",
+      "options": [
+        "A) It is too far away.",
+        "B) The lights are broken.",
+        "C) Heavy rain.",
+        "D) Thick fog."
+      ],
+      "correct": "D"
+    },
+    {
+      "id": 5,
+      "audio": "audio/listening_5.mp3",
+      "question": "On which side should the pilot board?",
+      "options": [
+        "A) Starboard side",
+        "B) Port side",
+        "C) Astern",
+        "D) Forward"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 6,
+      "audio": "audio/listening_6.mp3",
+      "question": "Where is the simulated fire located?",
+      "options": [
+        "A) Engine room",
+        "B) Bridge",
+        "C) Galley",
+        "D) Cargo hold"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 7,
+      "audio": "audio/listening_7.mp3",
+      "question": "Where must the crew assemble?",
+      "options": [
+        "A) Lifeboat station 1",
+        "B) Lifeboat station 2",
+        "C) The Mess room",
+        "D) The Bridge"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 8,
+      "audio": "audio/listening_8.mp3",
+      "question": "What action was taken first?",
+      "options": [
+        "A) Lowering a boat",
+        "B) Turning the ship to starboard",
+        "C) Stopping the engine",
+        "D) Calling the Coast Guard"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 9,
+      "audio": "audio/listening_9.mp3",
+      "question": "What is the nature of the emergency?",
+      "options": [
+        "A) A fire",
+        "B) A broken arm",
+        "C) A deep leg cut",
+        "D) A sinking ship"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 10,
+      "audio": "audio/listening_10.mp3",
+      "question": "What is the vessel's problem?",
+      "options": [
+        "A) Engine failure",
+        "B) It is sinking/taking on water",
+        "C) It is out of fuel",
+        "D) It is lost in fog"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 11,
+      "audio": "audio/listening_11.mp3",
+      "question": "How much fuel is in the tank?",
+      "options": [
+        "A) 58%",
+        "B) 80%",
+        "C) 85%",
+        "D) 95%"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 12,
+      "audio": "audio/listening_12.mp3",
+      "question": "What is the technical problem?",
+      "options": [
+        "A) Low oil pressure",
+        "B) High cooling water temperature",
+        "C) Engine noise",
+        "D) Broken propeller"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 13,
+      "audio": "audio/listening_13.mp3",
+      "question": "What is the initial pumping rate?",
+      "options": [
+        "A) 10 cubes per hour",
+        "B) 100 cubes per hour",
+        "C) 200 cubes per hour",
+        "D) 1,000 cubes per hour"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 14,
+      "audio": "audio/listening_14.mp3",
+      "question": "What does the crew need to do?",
+      "options": [
+        "A) Stop the engine",
+        "B) Start the bilge pump",
+        "C) Close the portholes",
+        "D) Go to sleep"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 15,
+      "audio": "audio/listening_15.mp3",
+      "question": "What is the current status of the fuel injector inventory?",
+      "options": [
+        "A) They have a full set of six spares available.",
+        "B) They are missing the entire order from the last port.",
+        "C) They have two injectors currently in the locker.",
+        "D) They have four injectors ready to be installed."
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 16,
+      "audio": "audio/listening_16.mp3",
+      "question": "Why has the loading process been halted?",
+      "options": [
+        "A) The crane operator is refusing to work.",
+        "B) A container is missing its identification number.",
+        "C) A weight error poses a threat to the ship's stability.",
+        "D) The container is too wide for Bay 24."
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 17,
+      "audio": "audio/listening_17.mp3",
+      "question": "What is the primary concern regarding the vessel's departure?",
+      "options": [
+        "A) The vessel is trimmed by the head.",
+        "B) The water in the channel is too deep for the rudder.",
+        "C) The vertical distance between the keel and the seabed is dangerously low.",
+        "D) The ballast tanks are not yet empty."
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 18,
+      "audio": "audio/listening_18.mp3",
+      "question": "What instruction was given to the forward mooring station?",
+      "options": [
+        "A) To slacken the head lines.",
+        "B) To prioritize the tensioning of the spring lines.",
+        "C) To let the bow swing toward the pier.",
+        "D) To ignore the crosswind."
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 19,
+      "audio": "audio/listening_19.mp3",
+      "question": "What is the Chief Officer’s first priority upon hearing about the damage?",
+      "options": [
+        "A) To have an independent expert verify and record the damage.",
+        "B) To hide the evidence from the port authorities.",
+        "C) To throw the damaged grain overboard.",
+        "D) To blame the stevedores for the leak."
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 20,
+      "audio": "audio/listening_20.mp3",
+      "question": "Why did the pilot request an additional tug?",
+      "options": [
+        "A) Because the ship is too small for the basin.",
+        "B) Because the first two tugs are too powerful.",
+        "C) Because the weather is perfectly calm.",
+        "D) Because the ship’s own steering assistance at the bow is broken."
+      ],
+      "correct": "D"
+    },
+    {
+      "id": 21,
+      "audio": "audio/listening_21.mp3",
+      "question": "What is the technical issue being reported by the Blue Whale?",
+      "options": [
+        "A) Their radar is not working.",
+        "B) Their automatic identification system is failing to transmit.",
+        "C) They have lost all electrical power to the engine.",
+        "D) They are unable to speak over the radio."
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 22,
+      "audio": "audio/listening_22.mp3",
+      "question": "Why did the Oceanic Master deviate from the standard traffic rules?",
+      "options": [
+        "A) They were performing a safety maneuver to avoid small vessels.",
+        "B) They were trying to save time.",
+        "C) Their compass was broken.",
+        "D) The VTS gave them the wrong instructions."
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 23,
+      "audio": "audio/listening_23.mp3",
+      "question": "How does the watch officer know the ship is moving?",
+      "options": [
+        "A) By looking at the waves.",
+        "B) By a phone call from the shore.",
+        "C) By an electronic alarm and shifting visual references.",
+        "D) Because the anchor chain has snapped."
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 24,
+      "audio": "audio/listening_24.mp3",
+      "question": "What is the result of the Captain's decision?",
+      "options": [
+        "A) The ship will arrive at the destination earlier.",
+        "B) The ship will maintain its current course.",
+        "C) The ship will delay its arrival to avoid dangerous sea conditions.",
+        "D) The ship will increase speed to outrun the storm."
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 25,
+      "audio": "audio/listening_25.mp3",
+      "question": "What change has been made to the original pilotage plan?",
+      "options": [
+        "A) The pilot will board 30 minutes early.",
+        "B) The method of the pilot's arrival has changed due to sea state.",
+        "C) The ship must go to a different port.",
+        "D) The ship no longer needs a pilot."
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 26,
+      "audio": "audio/listening_26.mp3",
+      "question": "What is the instruction from the VTS?",
+      "options": [
+        "A) Stay clear of the fairway.",
+        "B) Proceed to berth number four immediately.",
+        "C) Increase speed to enter the port.",
+        "D) Change the radio frequency."
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 27,
+      "audio": "audio/listening_27.mp3",
+      "question": "Why did the Chief Officer stop the cargo operation?",
+      "options": [
+        "A) Due to heavy rain and wind.",
+        "B) The crane driver was tired.",
+        "C) The containers were not lashed correctly.",
+        "D) The vessel reached its destination."
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 28,
+      "audio": "audio/listening_28.mp3",
+      "question": "What is the estimated duration of the delay?",
+      "options": [
+        "A) Thirty minutes",
+        "B) One hour",
+        "C) Two hours",
+        "D) All afternoon"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 29,
+      "audio": "audio/listening_29.mp3",
+      "question": "What is the specific technical problem reported?",
+      "options": [
+        "A) The main engine has a fuel leak.",
+        "B) The fire alarm is broken.",
+        "C) The generator is overheating.",
+        "D) The bilge pump impeller is damaged."
+      ],
+      "correct": "D"
+    },
+    {
+      "id": 30,
+      "audio": "audio/listening_30.mp3",
+      "question": "Where will the spare part be ordered?",
+      "options": [
+        "A) Laem Chabang",
+        "B) Rotterdam",
+        "C) Singapore",
+        "D) Shanghai"
+      ],
+      "correct": "C"
+    }
+  ],
+  "speaking": [
+    {
+      "id": 1,
+      "question": "Is the steering gear tested and ready for departure?",
+      "options": [
+        "A) Yes, the test is complete and satisfactory.",
+        "B) The engine is warm.",
+        "C) We are dropping the pilot.",
+        "D) The pump is running."
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 2,
+      "question": "Why is the bilge alarm sounding?",
+      "options": [
+        "A) The radar is off.",
+        "B) The food is ready.",
+        "C) The water level in the engine room bilge is high.",
+        "D) The anchor is dragging."
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 3,
+      "question": "Did you record the sounding of the fresh water tank?",
+      "options": [
+        "A) The water is cold.",
+        "B) Yes, it is currently at 60 cubic meters.",
+        "C) The pump is broken.",
+        "D) We are turning starboard."
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 4,
+      "question": "What is the draft forward?",
+      "options": [
+        "A) We have 3 anchors.",
+        "B) The cargo is heavy.",
+        "C) The wind is strong.",
+        "D) We are currently drawing 8.5 meters forward."
+      ],
+      "correct": "D"
+    },
+    {
+      "id": 5,
+      "question": "Have you started the pre-heating of the main engine?",
+      "options": [
+        "A) Yes, the jacket water is warming up.",
+        "B) The lights are on.",
+        "C) The gangway is secured.",
+        "D) The chef is cooking."
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 6,
+      "question": "Is the gangway secured for sea?",
+      "options": [
+        "A) It is very long.",
+        "B) The pilot is here.",
+        "C) Yes, it is hoisted and lashed.",
+        "D) The water is deep."
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 7,
+      "question": "Which VHF channel is the pilot using?",
+      "options": [
+        "A) The radio is loud.",
+        "B) He requested we switch to channel 12.",
+        "C) We are arriving.",
+        "D) The engine is stopped."
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 8,
+      "question": "Why did the chief mate stop the cargo pump?",
+      "options": [
+        "A) The receiving tank ashore is full.",
+        "B) The radar is broken.",
+        "C) The crew is eating.",
+        "D) The ship is turning."
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 9,
+      "question": "Did you check the condition of the hatch covers?",
+      "options": [
+        "A) They are painted red.",
+        "B) The engine is hot.",
+        "C) The weather is bad.",
+        "D) Yes, the rubber packings are in good condition."
+      ],
+      "correct": "D"
+    },
+    {
+      "id": 10,
+      "question": "Is the emergency generator running properly?",
+      "options": [
+        "A) The lights are off.",
+        "B) Yes, all parameters are normal.",
+        "C) The water is clean.",
+        "D) We have enough fuel."
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 11,
+      "question": "Who is supposed to stand the 8 to 12 watch today?",
+      "options": [
+        "A) The watch is broken.",
+        "B) I am hungry.",
+        "C) The Third Officer and the AB.",
+        "D) The port is busy."
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 12,
+      "question": "Are the fuel lines lined up correctly for bunkering?",
+      "options": [
+        "A) Yes, all valves are set.",
+        "B) The lines are long.",
+        "C) The bunker is empty.",
+        "D) The deck is wet."
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 13,
+      "context": "Items 13-14 refer to an Engine Control Room interaction.\nCE: \"The cooling water pressure has dropped significantly.\"\n3E: \" (13)_________________ \"\nCE: \"Also, clean the sea strainer, it might be blocked.\"\n3E: \" (14)_____________________ \"",
+      "question": "Select the best response for blank (13):",
+      "options": [
+        "A) Should I turn off the lights?",
+        "B) I will check the sea water pump immediately.",
+        "C) The water is warm.",
+        "D) Are we arriving?"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 14,
+      "context": "Items 13-14 refer to an Engine Control Room interaction.\nCE: \"The cooling water pressure has dropped significantly.\"\n3E: \" (13)_________________ \"\nCE: \"Also, clean the sea strainer, it might be blocked.\"\n3E: \" (14)_____________________ \"",
+      "question": "Select the best response for blank (14):",
+      "options": [
+        "A) Understood, isolating the strainer now.",
+        "B) I will check the radar.",
+        "C) It is too heavy.",
+        "D) The anchor is dropped."
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 15,
+      "context": "Items 15-16 refer to a Bridge interaction.\nMaster: \"Visibility is dropping fast. Turn on the radar.\"\nOOW: \" (15)_____________ \"\nMaster: \"Yes, automatic fog signal, one prolonged blast every two minutes.\"\nOOW: \" (16)___________ \"",
+      "question": "Select the best response for blank (15):",
+      "options": [
+        "A) Do you want coffee?",
+        "B) The sky is blue.",
+        "C) Radar is on. Should I sound the fog signal?",
+        "D) We are turning starboard."
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 16,
+      "context": "Items 15-16 refer to a Bridge interaction.\nMaster: \"Visibility is dropping fast. Turn on the radar.\"\nOOW: \" (15)_____________ \"\nMaster: \"Yes, automatic fog signal, one prolonged blast every two minutes.\"\nOOW: \" (16)___________ \"",
+      "question": "Select the best response for blank (16):",
+      "options": [
+        "A) I will paint the deck.",
+        "B) The engine is hot.",
+        "C) Let's drop the anchor.",
+        "D) Setting the automatic timer for the whistle."
+      ],
+      "correct": "D"
+    },
+    {
+      "id": 17,
+      "context": "Items 17-18 refer to Deck Maintenance.\nBosun: \"We need to grease the mooring winch gears before arrival.\"\nOS: \" (17)__________ \"\nBosun: \"It's in the forward paint locker.\"\nOS: \" (18)______________ \"",
+      "question": "Select the best response for blank (17):",
+      "options": [
+        "A) Is the cargo secure?",
+        "B) Where is the grease gun located?",
+        "C) We are turning port.",
+        "D) The winch is fast."
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 18,
+      "context": "Items 17-18 refer to Deck Maintenance.\nBosun: \"We need to grease the mooring winch gears before arrival.\"\nOS: \" (17)__________ \"\nBosun: \"It's in the forward paint locker.\"\nOS: \" (18)______________ \"",
+      "question": "Select the best response for blank (18):",
+      "options": [
+        "A) The locker is locked.",
+        "B) I will steer the ship.",
+        "C) I will go get it and start the job.",
+        "D) The grease is blue."
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 19,
+      "context": "Items 19-20 refer to a Purifier Room interaction.\n2E: \"The heavy fuel oil purifier just gave a low-pressure alarm.\"\nOiler: \" (19)________________ \"\n2E: \"Yes, check for any oil leaking into the sludge tank.\"\nOiler: \" (20)_____________ \"",
+      "question": "Select the best response for blank (19):",
+      "options": [
+        "A) Should I stop it and check the water seal?",
+        "B) The alarm is loud.",
+        "C) Is the fuel heavy?",
+        "D) Let's clean the bridge."
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 20,
+      "context": "Items 19-20 refer to a Purifier Room interaction.\n2E: \"The heavy fuel oil purifier just gave a low-pressure alarm.\"\nOiler: \" (19)________________ \"\n2E: \"Yes, check for any oil leaking into the sludge tank.\"\nOiler: \" (20)_____________ \"",
+      "question": "Select the best response for blank (20):",
+      "options": [
+        "A) The ship is rolling.",
+        "B) The tank is empty.",
+        "C) The sludge is hot.",
+        "D) The sludge tank is filling up, there's definitely a leak."
+      ],
+      "correct": "D"
+    },
+    {
+      "id": 21,
+      "context": "Items 21-22 refer to a Cargo Hold inspection.\nCO: \"Ensure all the twistlocks are fully engaged on this tier.\"\nCadet: \" (21)____________ \"\nCO: \"Good, now move to the starboard side.\"\nCadet: \" (22)___________ \"",
+      "question": "Select the best response for blank (21):",
+      "options": [
+        "A) They are painted.",
+        "B) I have checked the port side, they are secure.",
+        "C) The container is heavy.",
+        "D) The wind is strong."
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 22,
+      "context": "Items 21-22 refer to a Cargo Hold inspection.\nCO: \"Ensure all the twistlocks are fully engaged on this tier.\"\nCadet: \" (21)____________ \"\nCO: \"Good, now move to the starboard side.\"\nCadet: \" (22)___________ \"",
+      "question": "Select the best response for blank (22):",
+      "options": [
+        "A) Moving to starboard side now, sir.",
+        "B) The hold is empty.",
+        "C) I am going to the galley.",
+        "D) The engine is running."
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 23,
+      "context": "Items 23-24 refer to an Engine Room Log interaction.\nCE: \"Did you log the exhaust gas temperatures for all cylinders?\"\nMotorman: \" (23)____________ \"\nCE: \"Make sure you also note down the turbocharger RPM.\"\nMotorman: \" (24)____________ \"",
+      "question": "Select the best response for blank (23):",
+      "options": [
+        "A) The alarm is ringing.",
+        "B) The weather is clear.",
+        "C) Yes, they are all around 380 degrees.",
+        "D) The fuel is heavy."
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 24,
+      "context": "Items 23-24 refer to an Engine Room Log interaction.\nCE: \"Did you log the exhaust gas temperatures for all cylinders?\"\nMotorman: \" (23)____________ \"\nCE: \"Make sure you also note down the turbocharger RPM.\"\nMotorman: \" (24)____________ \"",
+      "question": "Select the best response for blank (24):",
+      "options": [
+        "A) I am cleaning the filter.",
+        "B) The radar is off.",
+        "C) We are dropping anchor.",
+        "D) I wrote it down, it's 12,000 RPM."
+      ],
+      "correct": "D"
+    },
+    {
+      "id": 25,
+      "context": "Items 25-26 refer to an Anchor Station interaction.\nCaptain: \"How many shackles are in the water?\"\nCO: \" (25)____________ \"\nCaptain: \"Hold it there and report the cable strain.\"\nCO: \" (26)___________ \"",
+      "question": "Select the best response for blank (25):",
+      "options": [
+        "A) Four shackles in the water, sir.",
+        "B) The anchor is painted.",
+        "C) The water is deep.",
+        "D) We are increasing speed."
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 26,
+      "context": "Items 25-26 refer to an Anchor Station interaction.\nCaptain: \"How many shackles are in the water?\"\nCO: \" (25)____________ \"\nCaptain: \"Hold it there and report the cable strain.\"\nCO: \" (26)___________ \"",
+      "question": "Select the best response for blank (26):",
+      "options": [
+        "A) The chain is broken.",
+        "B) The cable is leading forward and is tight.",
+        "C) The deck is wet.",
+        "D) The engine is stopped."
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 27,
+      "context": "Items 27-28 refer to an Engine Room Alarm interaction.\n2E: \"There's a high-level alarm from the bilge holding tank.\"\nFitter: \" (27)____________ \"\n2E: \"Transfer it to the waste oil tank, not the clean one.\"\nFitter: \" (28)_____________ \"",
+      "question": "Select the best response for blank (27):",
+      "options": [
+        "A) The bridge is calling.",
+        "B) The water is clean.",
+        "C) I am starting the transfer pump.",
+        "D) We are dropping anchor."
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 28,
+      "context": "Items 27-28 refer to an Engine Room Alarm interaction.\n2E: \"There's a high-level alarm from the bilge holding tank.\"\nFitter: \" (27)____________ \"\n2E: \"Transfer it to the waste oil tank, not the clean one.\"\nFitter: \" (28)_____________ \"",
+      "question": "Select the best response for blank (28):",
+      "options": [
+        "A) Valves are lined up to the waste oil tank.",
+        "B) The alarm is ringing.",
+        "C) I am going to sleep.",
+        "D) The fuel is heavy."
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 29,
+      "context": "Items 29-30 refer to a Bridge VHF Call.\nVTS: \"Motor vessel, what is your ETA to the pilot station?\"\nOOW: \" (29)______________ \"\nVTS: \"Roger. Pilot will board on the starboard side.\"\nOOW: \" (30)________________ \"",
+      "question": "Select the best response for blank (29):",
+      "options": [
+        "A) The radar is active.",
+        "B) Our ETA is 1430 local time.",
+        "C) The weather is clear.",
+        "D) We are increasing speed."
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 30,
+      "context": "Items 29-30 refer to a Bridge VHF Call.\nVTS: \"Motor vessel, what is your ETA to the pilot station?\"\nOOW: \" (29)______________ \"\nVTS: \"Roger. Pilot will board on the starboard side.\"\nOOW: \" (30)________________ \"",
+      "question": "Select the best response for blank (30):",
+      "options": [
+        "A) The engine is off.",
+        "B) We are dropping anchor.",
+        "C) Understood, preparing the pilot ladder on the starboard side.",
+        "D) Turning port."
+      ],
+      "correct": "C"
+    }
+  ],
+  "reading": [
+    {
+      "id": 1,
+      "passage": "The SOLAS convention requires that all lifeboats be visually inspected weekly. The lifeboat engine must also be run for a total of not less than 3 minutes to ensure it is in working order.",
+      "question": "How often must lifeboats be visually inspected?",
+      "options": [
+        "A) Weekly",
+        "B) Daily",
+        "C) Monthly",
+        "D) Yearly"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 2,
+      "passage": "The SOLAS convention requires that all lifeboats be visually inspected weekly. The lifeboat engine must also be run for a total of not less than 3 minutes to ensure it is in working order.",
+      "question": "What convention mandates this?",
+      "options": [
+        "A) MARPOL",
+        "B) SOLAS",
+        "C) STCW",
+        "D) MLC"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 3,
+      "passage": "The SOLAS convention requires that all lifeboats be visually inspected weekly. The lifeboat engine must also be run for a total of not less than 3 minutes to ensure it is in working order.",
+      "question": "How long must the engine be run weekly?",
+      "options": [
+        "A) 1 minute",
+        "B) 3 minutes",
+        "C) 5 minutes",
+        "D) 10 minutes"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 4,
+      "passage": "The Oily Water Separator (OWS) ensures that bilge water discharged overboard contains less than 15 ppm of oil. The 15 ppm bilge alarm continuously monitors the discharge. If the alarm triggers, a 3-way valve recirculates the water back to the bilge.",
+      "question": "What is the maximum allowed oil content?",
+      "options": [
+        "A) 5 ppm",
+        "B) 15 ppm",
+        "C) 50 ppm",
+        "D) 100 ppm"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 5,
+      "passage": "The Oily Water Separator (OWS) ensures that bilge water discharged overboard contains less than 15 ppm of oil. The 15 ppm bilge alarm continuously monitors the discharge. If the alarm triggers, a 3-way valve recirculates the water back to the bilge.",
+      "question": "What equipment monitors the discharge?",
+      "options": [
+        "A) The 15 ppm bilge alarm",
+        "B) The main engine",
+        "C) The radar",
+        "D) The ballast pump"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 6,
+      "passage": "The Oily Water Separator (OWS) ensures that bilge water discharged overboard contains less than 15 ppm of oil. The 15 ppm bilge alarm continuously monitors the discharge. If the alarm triggers, a 3-way valve recirculates the water back to the bilge.",
+      "question": "What happens if the alarm triggers?",
+      "options": [
+        "A) The ship stops",
+        "B) The valve recirculates water",
+        "C) The alarm breaks",
+        "D) Oil is pumped overboard"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 7,
+      "passage": "Proper ventilation of cargo holds is critical to prevent sweat. Ship sweat occurs when the ship's hull is colder than the dew point of the air inside the hold. This can lead to severe cargo damage if not managed.",
+      "question": "What causes ship sweat?",
+      "options": [
+        "A) Warm hull",
+        "B) Heavy rain",
+        "C) Hull colder than dew point",
+        "D) Too much cargo"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 8,
+      "passage": "Proper ventilation of cargo holds is critical to prevent sweat. Ship sweat occurs when the ship's hull is colder than the dew point of the air inside the hold. This can lead to severe cargo damage if not managed.",
+      "question": "Why must cargo holds be ventilated?",
+      "options": [
+        "A) To prevent sweat",
+        "B) To dry the paint",
+        "C) To cool the engine",
+        "D) To increase speed"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 9,
+      "passage": "Proper ventilation of cargo holds is critical to prevent sweat. Ship sweat occurs when the ship's hull is colder than the dew point of the air inside the hold. This can lead to severe cargo damage if not managed.",
+      "question": "What happens if sweat forms?",
+      "options": [
+        "A) Faster journey",
+        "B) Cargo damage",
+        "C) Better stability",
+        "D) Engine failure"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 10,
+      "passage": "The starting air system provides high-pressure air at 30 bar to turn the main engine over during starting. The air compressors charge the air receivers automatically when the pressure drops.",
+      "question": "What is the pressure of the starting air?",
+      "options": [
+        "A) 10 bar",
+        "B) 20 bar",
+        "C) 30 bar",
+        "D) 40 bar"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 11,
+      "passage": "The starting air system provides high-pressure air at 30 bar to turn the main engine over during starting. The air compressors charge the air receivers automatically when the pressure drops.",
+      "question": "What is the purpose of this air?",
+      "options": [
+        "A) To clean the deck",
+        "B) To turn the main engine over",
+        "C) To inflate tires",
+        "D) To cool the oil"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 12,
+      "passage": "The starting air system provides high-pressure air at 30 bar to turn the main engine over during starting. The air compressors charge the air receivers automatically when the pressure drops.",
+      "question": "How are the air receivers charged?",
+      "options": [
+        "A) Automatically by air compressors",
+        "B) Manually by crew",
+        "C) By the turbocharger",
+        "D) By the wind"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 13,
+      "passage": "A snap-back zone is the area where a parted mooring line could recoil with deadly force. Crew members must never stand in these zones during mooring operations to prevent serious injuries.",
+      "question": "What is a snap-back zone?",
+      "options": [
+        "A) A resting area",
+        "B) Area where a broken line recoils",
+        "C) A dining room",
+        "D) A cargo hold"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 14,
+      "passage": "A snap-back zone is the area where a parted mooring line could recoil with deadly force. Crew members must never stand in these zones during mooring operations to prevent serious injuries.",
+      "question": "When is the snap-back zone dangerous?",
+      "options": [
+        "A) During anchor drop",
+        "B) While sleeping",
+        "C) During mooring operations",
+        "D) At sea"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 15,
+      "passage": "A snap-back zone is the area where a parted mooring line could recoil with deadly force. Crew members must never stand in these zones during mooring operations to prevent serious injuries.",
+      "question": "What should crew do regarding this zone?",
+      "options": [
+        "A) Never stand in it",
+        "B) Stand in it",
+        "C) Paint it",
+        "D) Ignore it"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 16,
+      "passage": "Centrifugal pumps are widely used for handling ballast and cooling water. These pumps must be primed before starting. Running them dry can destroy the mechanical seal.",
+      "question": "What is a common use for centrifugal pumps?",
+      "options": [
+        "A) Fuel injection",
+        "B) Ballast and cooling water",
+        "C) Air compression",
+        "D) Steering"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 17,
+      "passage": "Centrifugal pumps are widely used for handling ballast and cooling water. These pumps must be primed before starting. Running them dry can destroy the mechanical seal.",
+      "question": "What must be done before starting?",
+      "options": [
+        "A) Emptying",
+        "B) Priming",
+        "C) Heating",
+        "D) Freezing"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 18,
+      "passage": "Centrifugal pumps are widely used for handling ballast and cooling water. These pumps must be primed before starting. Running them dry can destroy the mechanical seal.",
+      "question": "Why should running dry be avoided?",
+      "options": [
+        "A) It saves electricity",
+        "B) It destroys the mechanical seal",
+        "C) It makes too much noise",
+        "D) It cleans the pump"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 19,
+      "passage": "The Electronic Chart Display and Information System (ECDIS) replaces traditional paper charts. Navigators must ensure that the electronic navigational charts (ENC) are updated weekly.",
+      "question": "What does ECDIS replace?",
+      "options": [
+        "A) Paper charts",
+        "B) The compass",
+        "C) The radar",
+        "D) The VHF radio"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 20,
+      "passage": "The Electronic Chart Display and Information System (ECDIS) replaces traditional paper charts. Navigators must ensure that the electronic navigational charts (ENC) are updated weekly.",
+      "question": "How often must ENCs be updated?",
+      "options": [
+        "A) Daily",
+        "B) Weekly",
+        "C) Monthly",
+        "D) Yearly"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 21,
+      "passage": "The Electronic Chart Display and Information System (ECDIS) replaces traditional paper charts. Navigators must ensure that the electronic navigational charts (ENC) are updated weekly.",
+      "question": "Who is responsible for these updates?",
+      "options": [
+        "A) The Bosun",
+        "B) Navigators",
+        "C) The Chief Engineer",
+        "D) The Cook"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 22,
+      "passage": "The ship's incinerator is used to burn solid waste and waste oil. However, burning PVC plastics or materials containing heavy metals is strictly prohibited due to toxic emissions.",
+      "question": "What is the incinerator used for?",
+      "options": [
+        "A) Cooking food",
+        "B) Heating water",
+        "C) Burning waste",
+        "D) Generating electricity"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 23,
+      "passage": "The ship's incinerator is used to burn solid waste and waste oil. However, burning PVC plastics or materials containing heavy metals is strictly prohibited due to toxic emissions.",
+      "question": "What is strictly prohibited to burn?",
+      "options": [
+        "A) Paper",
+        "B) PVC plastics",
+        "C) Wood",
+        "D) Food waste"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 24,
+      "passage": "The ship's incinerator is used to burn solid waste and waste oil. However, burning PVC plastics or materials containing heavy metals is strictly prohibited due to toxic emissions.",
+      "question": "Why are these materials banned from burning?",
+      "options": [
+        "A) Too expensive",
+        "B) They don't burn",
+        "C) Toxic emissions",
+        "D) They damage the paint"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 25,
+      "passage": "The steering gear must have at least two independent hydraulic power units. In restricted waters, both power units must be running simultaneously to ensure redundancy.",
+      "question": "How many independent power units are required?",
+      "options": [
+        "A) One",
+        "B) At least two",
+        "C) Three",
+        "D) Four"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 26,
+      "passage": "The steering gear must have at least two independent hydraulic power units. In restricted waters, both power units must be running simultaneously to ensure redundancy.",
+      "question": "What is required in restricted waters?",
+      "options": [
+        "A) Stop the engine",
+        "B) Run both units simultaneously",
+        "C) Drop anchor",
+        "D) Steer manually"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 27,
+      "passage": "The steering gear must have at least two independent hydraulic power units. In restricted waters, both power units must be running simultaneously to ensure redundancy.",
+      "question": "What is the purpose of this requirement?",
+      "options": [
+        "A) To save fuel",
+        "B) To ensure redundancy",
+        "C) To increase speed",
+        "D) To reduce noise"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 28,
+      "passage": "Weather deck hatch covers prevent water ingress into the cargo holds. Before sea passage, all securing cleats must be tightened and cross-joints inspected to ensure water-tightness.",
+      "question": "What do hatch covers prevent?",
+      "options": [
+        "A) Wind",
+        "B) Sunlight",
+        "C) Water ingress",
+        "D) Pirates"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 29,
+      "passage": "Weather deck hatch covers prevent water ingress into the cargo holds. Before sea passage, all securing cleats must be tightened and cross-joints inspected to ensure water-tightness.",
+      "question": "What must be done before sea passage?",
+      "options": [
+        "A) Open the hatches",
+        "B) Tighten securing cleats",
+        "C) Paint the covers",
+        "D) Remove the rubber"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 30,
+      "passage": "Weather deck hatch covers prevent water ingress into the cargo holds. Before sea passage, all securing cleats must be tightened and cross-joints inspected to ensure water-tightness.",
+      "question": "What is the goal of inspecting cross-joints?",
+      "options": [
+        "A) Ensure water-tightness",
+        "B) Make them look good",
+        "C) To measure them",
+        "D) To lubricate them"
+      ],
+      "correct": "A"
+    }
+  ],
+  "writing": [
+    {
+      "id": 1,
+      "question": "The Oiler needs to ______ the moving parts of the winch.",
+      "options": [
+        "A) greasing",
+        "B) grease",
+        "C) greased",
+        "D) greases"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 2,
+      "question": "The fuel oil temperature is ______ than yesterday.",
+      "options": [
+        "A) high",
+        "B) highest",
+        "C) higher",
+        "D) more high"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 3,
+      "question": "______ the severe storm, the vessel maintained its course.",
+      "options": [
+        "A) Although",
+        "B) Despite",
+        "C) Because",
+        "D) However"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 4,
+      "question": "The 2nd Officer ______ the navigational charts right now.",
+      "options": [
+        "A) update",
+        "B) updates",
+        "C) updating",
+        "D) is updating"
+      ],
+      "correct": "D"
+    },
+    {
+      "id": 5,
+      "question": "Crew members ______ smoke in the paint locker.",
+      "options": [
+        "A) must not",
+        "B) should not to",
+        "C) don't have to",
+        "D) might not"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 6,
+      "question": "The Second Engineer is responsible ______ engine maintenance.",
+      "options": [
+        "A) to",
+        "B) with",
+        "C) about",
+        "D) for"
+      ],
+      "correct": "D"
+    },
+    {
+      "id": 7,
+      "question": "If the alarm sounds, you ______ immediately proceed to the muster station.",
+      "options": [
+        "A) must",
+        "B) proceeded",
+        "C) proceeding",
+        "D) proceeds"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 8,
+      "question": "The pump, ______ was repaired yesterday, broke down again.",
+      "options": [
+        "A) who",
+        "B) which",
+        "C) where",
+        "D) whose"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 9,
+      "question": "We need to pump out ______ ballast water to reduce the draft.",
+      "options": [
+        "A) some",
+        "B) any",
+        "C) many",
+        "D) a few"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 10,
+      "question": "The cargo was loaded securely ______ the lower hold.",
+      "options": [
+        "A) into",
+        "B) above",
+        "C) between",
+        "D) across"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 11,
+      "question": "Ensure the fire doors are kept ______ at all times.",
+      "options": [
+        "A) close",
+        "B) closing",
+        "C) closed",
+        "D) closes"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 12,
+      "question": "The Captain told the helmsman ______ hard to starboard.",
+      "options": [
+        "A) steer",
+        "B) to steer",
+        "C) steered",
+        "D) steering"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 13,
+      "passage": "The vessel ___ (13) ___ port at 1000 hrs. Currently, the Chief Officer ___ (14) ___ the cargo manifest. Tomorrow, the crew ___ (15) ___ the lifeboats.",
+      "question": "Select the correct option for blank (13):",
+      "options": [
+        "A) arrives",
+        "B) arrived",
+        "C) arriving",
+        "D) arrive"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 14,
+      "passage": "The vessel ___ (13) ___ port at 1000 hrs. Currently, the Chief Officer ___ (14) ___ the cargo manifest. Tomorrow, the crew ___ (15) ___ the lifeboats.",
+      "question": "Select the correct option for blank (14):",
+      "options": [
+        "A) is checking",
+        "B) check",
+        "C) checks",
+        "D) checked"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 15,
+      "passage": "The vessel ___ (13) ___ port at 1000 hrs. Currently, the Chief Officer ___ (14) ___ the cargo manifest. Tomorrow, the crew ___ (15) ___ the lifeboats.",
+      "question": "Select the correct option for blank (15):",
+      "options": [
+        "A) test",
+        "B) testing",
+        "C) will test",
+        "D) tested"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 16,
+      "passage": "While the engine ___ (16) ___, the motorman noticed a leak. He immediately ___ (17) ___ the valve. This action prevented a major ___ (18) ___.",
+      "question": "Select the correct option for blank (16):",
+      "options": [
+        "A) runs",
+        "B) running",
+        "C) was running",
+        "D) ran"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 17,
+      "passage": "While the engine ___ (16) ___, the motorman noticed a leak. He immediately ___ (17) ___ the valve. This action prevented a major ___ (18) ___.",
+      "question": "Select the correct option for blank (17):",
+      "options": [
+        "A) closes",
+        "B) closed",
+        "C) close",
+        "D) closing"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 18,
+      "passage": "While the engine ___ (16) ___, the motorman noticed a leak. He immediately ___ (17) ___ the valve. This action prevented a major ___ (18) ___.",
+      "question": "Select the correct option for blank (18):",
+      "options": [
+        "A) spill",
+        "B) spilled",
+        "C) spilling",
+        "D) spills"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 19,
+      "passage": "All officers are ___ (19) ___ to read the Master's standing orders. They must sign the logbook ___ (20) ___ taking over the watch. A proper lookout is ___ (21) ___ for safe navigation.",
+      "question": "Select the correct option for blank (19):",
+      "options": [
+        "A) required",
+        "B) require",
+        "C) requires",
+        "D) requiring"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 20,
+      "passage": "All officers are ___ (19) ___ to read the Master's standing orders. They must sign the logbook ___ (20) ___ taking over the watch. A proper lookout is ___ (21) ___ for safe navigation.",
+      "question": "Select the correct option for blank (20):",
+      "options": [
+        "A) after",
+        "B) before",
+        "C) during",
+        "D) while"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 21,
+      "passage": "All officers are ___ (19) ___ to read the Master's standing orders. They must sign the logbook ___ (20) ___ taking over the watch. A proper lookout is ___ (21) ___ for safe navigation.",
+      "question": "Select the correct option for blank (21):",
+      "options": [
+        "A) essentially",
+        "B) essential",
+        "C) essence",
+        "D) essentials"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 22,
+      "passage": "The purifier ___ (22) ___ heavily due to an imbalance. We decided to stop it and ___ (23) ___ the bowl. It was full of heavy ___ (24) ___.",
+      "question": "Select the correct option for blank (22):",
+      "options": [
+        "A) vibrates",
+        "B) vibrated",
+        "C) vibrating",
+        "D) vibrate"
+      ],
+      "correct": "B"
+    },
+    {
+      "id": 23,
+      "passage": "The purifier ___ (22) ___ heavily due to an imbalance. We decided to stop it and ___ (23) ___ the bowl. It was full of heavy ___ (24) ___.",
+      "question": "Select the correct option for blank (23):",
+      "options": [
+        "A) clean",
+        "B) cleaning",
+        "C) cleaned",
+        "D) cleans"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 24,
+      "passage": "The purifier ___ (22) ___ heavily due to an imbalance. We decided to stop it and ___ (23) ___ the bowl. It was full of heavy ___ (24) ___.",
+      "question": "Select the correct option for blank (24):",
+      "options": [
+        "A) sludge",
+        "B) sludges",
+        "C) sludged",
+        "D) sludging"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 25,
+      "passage": "During the fire drill, the crew ___ (25) ___ the hoses. The water pressure was ___ (26) ___ enough to reach the top tier of containers. The drill was ___ (27) ___ within 15 minutes.",
+      "question": "Select the correct option for blank (25):",
+      "options": [
+        "A) deployed",
+        "B) deploy",
+        "C) deploying",
+        "D) deploys"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 26,
+      "passage": "During the fire drill, the crew ___ (25) ___ the hoses. The water pressure was ___ (26) ___ enough to reach the top tier of containers. The drill was ___ (27) ___ within 15 minutes.",
+      "question": "Select the correct option for blank (26):",
+      "options": [
+        "A) strong",
+        "B) stronger",
+        "C) strongly",
+        "D) strength"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 27,
+      "passage": "During the fire drill, the crew ___ (25) ___ the hoses. The water pressure was ___ (26) ___ enough to reach the top tier of containers. The drill was ___ (27) ___ within 15 minutes.",
+      "question": "Select the correct option for blank (27):",
+      "options": [
+        "A) complete",
+        "B) completing",
+        "C) completed",
+        "D) completes"
+      ],
+      "correct": "C"
+    },
+    {
+      "id": 28,
+      "passage": "The vessel's draft was 10 meters ___ (28) ___. Because the channel is shallow, we had to wait for the ___ (29) ___ tide. Once the water level rose, we safely ___ (30) ___ the port.",
+      "question": "Select the correct option for blank (28):",
+      "options": [
+        "A) forward",
+        "B) forwardly",
+        "C) forwards",
+        "D) forwarding"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 29,
+      "passage": "The vessel's draft was 10 meters ___ (28) ___. Because the channel is shallow, we had to wait for the ___ (29) ___ tide. Once the water level rose, we safely ___ (30) ___ the port.",
+      "question": "Select the correct option for blank (29):",
+      "options": [
+        "A) high",
+        "B) highly",
+        "C) higher",
+        "D) highest"
+      ],
+      "correct": "A"
+    },
+    {
+      "id": 30,
+      "passage": "The vessel's draft was 10 meters ___ (28) ___. Because the channel is shallow, we had to wait for the ___ (29) ___ tide. Once the water level rose, we safely ___ (30) ___ the port.",
+      "question": "Select the correct option for blank (30):",
+      "options": [
+        "A) entered",
+        "B) entering",
+        "C) enter",
+        "D) enters"
+      ],
+      "correct": "A"
+    }
+  ]
+}
