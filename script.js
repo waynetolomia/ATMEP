@@ -239,7 +239,7 @@ function renderSection(sectionNum) {
     const sectionData = sectionQuestions[sectionNum] || [];
 
     if (!sectionData.length) {
-        sectionEl.innerHTML = `<h3>Section ${sectionNum}: ${getSectionTitle(sectionNum)}</h3><p class="error-message">No questions available for this section. Please make sure the page is served over a local web server and that <code>questions.json</code> is reachable.</p>`;
+        sectionEl.innerHTML = `<h3>Section ${sectionNum}: ${getSectionTitle(sectionNum)}</h3><h4 class="section-subtitle">${getSectionSubtitle(sectionNum)}</h4><p class="error-message">No questions available for this section. Please make sure the page is served over a local web server and that <code>questions.json</code> is reachable.</p>`;
         return;
     }
 
@@ -359,7 +359,7 @@ function renderSection(sectionNum) {
     `;
     }).join('');
 
-    sectionEl.innerHTML = `<h3>Section ${sectionNum}: ${getSectionTitle(sectionNum)}</h3>${questionsHtml}`;
+    sectionEl.innerHTML = `<h3>Section ${sectionNum}: ${getSectionTitle(sectionNum)}</h3><h4 class="section-subtitle">${getSectionSubtitle(sectionNum)}</h4>${questionsHtml}`;
     setupAudioLimits(sectionNum);
     renderQuestionNav(sectionNum);
 
@@ -585,12 +585,22 @@ function setupAudioLimits(sectionNum) {
 
 function getSectionTitle(sectionNum) {
     const titles = {
+        1: "VHF & External Communications",
+        2: "Operational Command & VHF Interaction", 
+        3: "Nautical Publications & Regulatory Literacy",
+        4: "Vessel Documentation & Technical Accuracy"
+    };
+    return titles[sectionNum] || `Section ${sectionNum}`;
+}
+
+function getSectionSubtitle(sectionNum) {
+    const subtitles = {
         1: "Listening",
         2: "Speaking", 
         3: "Reading",
         4: "Writing"
     };
-    return titles[sectionNum] || `Section ${sectionNum}`;
+    return subtitles[sectionNum] || '';
 }
 
 function markAnswered(qId) {
